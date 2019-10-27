@@ -10,4 +10,10 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_manage_profiles">Manage Profiles</string>
     <string name="menu_date">Time machine</string>
+
+    <string name="profile_new">New Profile</string>
+    <string name="askhosting_option_stundenplan24">Do you use <b>www.stundenplan24.de</b> for accessing your timetable?</string>
+    <string name="askhosting_option_website">...or does your school use Indieware software hosted on their <b>own website</b>?</string>
+    <string name="stundenplan24">stundenplan24</string>
+    <string name="school_website">school website</string>
 </resources>

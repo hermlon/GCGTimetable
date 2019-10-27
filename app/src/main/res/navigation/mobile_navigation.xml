@@ -3,11 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_settings">
+    app:startDestination="@+id/askhostingFragment">
 
     <fragment
         android:id="@+id/nav_settings"
         android:name="net.hermlon.gcgtimetable.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/askhostingFragment"
+        android:name="net.hermlon.gcgtimetable.ui.profile.create.AskhostingFragment"
+        android:label="@string/profile_new" />
 </navigation>
