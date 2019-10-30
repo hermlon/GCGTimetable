@@ -16,4 +16,12 @@
     <string name="askhosting_option_website">… or does your school use Indiware software hosted on their <b>own website</b>?</string>
     <string name="stundenplan24">stundenplan24</string>
     <string name="school_website">school website</string>
+
+    <string name="profile_login">Login</string>
+    <string name="profile_login_prompt">Login using your credentials for www.stundenplan24.de</string>
+    <string name="schoolnr">school number</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="profile_student">student</string>
+    <string name="profile_teacher">teacher</string>
 </resources>

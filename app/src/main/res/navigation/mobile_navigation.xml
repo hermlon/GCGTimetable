@@ -13,5 +13,13 @@
     <fragment
         android:id="@+id/askhostingFragment"
         android:name="net.hermlon.gcgtimetable.ui.profile.create.AskhostingFragment"
-        android:label="@string/profile_new" />
+        android:label="@string/profile_new" >
+        <action
+            android:id="@+id/action_askhostingFragment_to_stundenplan24LoginFragment"
+            app:destination="@id/stundenplan24LoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stundenplan24LoginFragment"
+        android:name="net.hermlon.gcgtimetable.ui.profile.create.Stundenplan24LoginFragment"
+        android:label="@string/profile_login" />
 </navigation>

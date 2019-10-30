@@ -29,10 +29,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                style="@style/TextLargeMultiline" />
+                style="@style/TextLargeMultilineDark" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/button_stundenplan24"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
 
             <TextView
                 android:id="@+id/textView4"
-                style="@style/TextLargeMultiline"
+                style="@style/TextLargeMultilineDark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
@@ -84,7 +84,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/button_schoolwebsite"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
