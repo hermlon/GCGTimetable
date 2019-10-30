@@ -6,24 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import net.hermlon.gcgtimetable.R
 import net.hermlon.gcgtimetable.databinding.FragmentAskhostingBinding
+import net.hermlon.gcgtimetable.databinding.FragmentStundenplan24loginBinding
 
-class AskhostingFragment : Fragment() {
+class Stundenplan24LoginFragment : Fragment() {
 
-    private lateinit var binding : FragmentAskhostingBinding
+    private lateinit var binding : FragmentStundenplan24loginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_askhosting, container, false)
-
-        binding.buttonStundenplan24.setOnClickListener{ view: View ->
-            view.findNavController().navigate(R.id.action_askhostingFragment_to_stundenplan24LoginFragment)
-        }
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_stundenplan24login, container, false)
 
         return binding.root
     }
