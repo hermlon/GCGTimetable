@@ -16,9 +16,9 @@ interface TimetableProfileDao {
     @Update
     fun update(profile: TimetableProfile)
 
-    @Query("SELECT * FROM TimetableProfile WHERE profileId = :key")
+    @Query("SELECT * FROM TimetableProfile WHERE id = :key")
     fun get(key: Long): TimetableProfile?
 
-    @Query("SELECT * FROM TimetableProfile ORDER BY profileId DESC")
+    @Query("SELECT * FROM TimetableProfile ORDER BY id DESC")
     fun getAllProfiles(): LiveData<List<TimetableProfile>>
 }

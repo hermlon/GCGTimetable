@@ -1,17 +1,28 @@
 package net.hermlon.gcgtimetable.database
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 
 @Entity
 data class TimetableProfile(
 
     @PrimaryKey(autoGenerate = true)
-    var profileId: Long = 0L,
-    var profileName: String = "",
-    var url: String = "",
-    var isStudent: Boolean = true,
-    var username: String = "",
-    var password: String = "",
-    var classFilter: String = ""
+    val id: Long = 0L,
+    val profileName: String = "",
+    val url: String = "",
+    val isStudent: Boolean = true,
+    val username: String = "",
+    val password: String = "",
+    val className: String = ""
+)
+
+class TimetableProfileAll(
+    @Embedded
+    val timetableProfile: TimetableProfile,
+    @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableCourse::class)
+    val courses: List<TimetableCourse> = listOf(),
+    @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableLesson::class)
+    val lessons: List<TimetableLesson> = listOf()
 )

@@ -40,7 +40,7 @@ class TimetableDatabaseTest {
     @Test
     @Throws(Exception::class)
     fun insertAndGetNight() {
-        val timetableProfile = TimetableProfile(profileName = "Test Profil")
+        var timetableProfile = TimetableProfile(profileName = "Test Profil")
         timetableProfileDao.insert(timetableProfile)
         val profile = timetableProfileDao.get(1)
         assertEquals(profile?.profileName, "Test Profil")
