@@ -36,7 +36,7 @@ class Stundenplan24StudentXMLParser {
                 when (parser.name) {
                     "Kopf" -> updatedAt = readUpdatedAt(parser)
                     "FreieTage" -> freeDays = readFreeDays(parser)
-                    //"Klassen" -> classes = readClasses(parser)
+                    "Klassen" -> classes = readClasses(parser)
                     "ZusatzInfo" -> additionalInfo = readAdditionalInfo(parser)
                     else -> skip(parser)
                 }
@@ -86,7 +86,9 @@ class Stundenplan24StudentXMLParser {
             courseName = subject
         }
         var courseNr = readText(parser).toLong()
-        Log.d("StudentXMLParser", "Zeile: ${parser.eventType}")
+
+        // the closing tag of <Ue>
+        parser.nextTag()
         return Course(teacher = teacher, subject = subject, courseNr = courseNr, courseName = courseName)
     }
 
