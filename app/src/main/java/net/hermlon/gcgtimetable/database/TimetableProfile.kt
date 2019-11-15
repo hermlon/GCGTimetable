@@ -20,6 +20,6 @@ class TimetableProfileAll(
     val timetableProfile: TimetableProfile,
     @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableCourse::class)
     val courses: List<TimetableCourse> = listOf(),
-    @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableLesson::class)
-    val lessons: List<TimetableLesson> = listOf()
+    @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableTimetable::class)
+    val timetables: List<TimetableTimetable> = listOf()
 )
