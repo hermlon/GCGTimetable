@@ -26,7 +26,9 @@ class TimetableRepository {
         // don't do this on Main Thread -> coroutines?
 
         val request = Request.Builder()
-            .url(formatUrl(source.url, date, source.isStudent)).build()
+            .url(formatUrl(source.url, date, source.isStudent))
+            .header("Authorization", Credentials.basic(source.username, source.password))
+            .build()
 
         val response = client.newCall(request).await()
 

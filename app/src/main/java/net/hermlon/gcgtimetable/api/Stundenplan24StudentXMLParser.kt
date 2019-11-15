@@ -23,9 +23,9 @@ class Stundenplan24StudentXMLParser {
             parser.setInput(inputStream, null)
             parser.nextTag()
 
-            var timetable: TimetableTimetable = TimetableTimetable()
             var freeDays: MutableList<Date> = mutableListOf()
             var updatedAt: Date = Date()
+            var additionalInfo: String = ""
 
             parser.require(XmlPullParser.START_TAG, ns, "VpMobil")
             while (parser.next() != XmlPullParser.END_TAG) {
@@ -35,12 +35,18 @@ class Stundenplan24StudentXMLParser {
                 when (parser.name) {
                     "Kopf" -> updatedAt = readUpdatedAt(parser)
                     "FreieTage" -> freeDays = readFreeDays(parser)
+                    "ZusatzInfo" -> additionalInfo = readAdditionalInfo(parser)
                     else -> skip(parser)
                 }
             }
 
             Log.d("StudentXMLParser", "UpdatedAt: ${updatedAt.toString()}")
-            return timetable
+            Log.d("StudentXMLParser", "ZusatzInfo: ${additionalInfo}")
+
+            return TimetableTimetable(
+                updatedAt = updatedAt,
+                information = additionalInfo
+            )
         }
     }
 
@@ -58,7 +64,24 @@ class Stundenplan24StudentXMLParser {
                 else -> skip(parser)
             }
         }
-        return SimpleDateFormat("dd.MM.yyyy, HH:mm").parse(date)
+        return SimpleDateFormat("dd.MM.yyyy, HH:mm", Locale.US).parse(date)
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readAdditionalInfo(parser: XmlPullParser): String {
+        parser.require(XmlPullParser.START_TAG, ns, "ZusatzInfo")
+
+        var info: String = ""
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "ZiZeile" -> info += readText(parser) + "\n"
+                else -> skip(parser)
+            }
+        }
+        return info
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
