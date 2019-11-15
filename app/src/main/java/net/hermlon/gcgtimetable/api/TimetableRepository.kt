@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Deferred
 import net.hermlon.gcgtimetable.database.TimetableLesson
 import net.hermlon.gcgtimetable.database.TimetableSource
+import net.hermlon.gcgtimetable.database.TimetableTimetable
 import okhttp3.*
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
@@ -22,8 +23,6 @@ class TimetableRepository {
     private  val client = OkHttpClient()
 
     suspend fun fetch(source: TimetableSource, date: Date) {
-        Log.d("TimetableRepository", "Fetch Class")
-
         // don't do this on Main Thread -> coroutines?
 
         val request = Request.Builder()
@@ -33,7 +32,9 @@ class TimetableRepository {
 
         if (!response.isSuccessful) throw IOException("Unexpected code $response")
 
-        Log.d("TimetableRepository", "Response: ${response.body?.string()}")
+        val timetable: TimetableTimetable = response.body!!.byteStream().use { stream ->
+            Stundenplan24StudentXMLParser().parse(stream)
+        }
     }
 
     private fun formatUrl(url: String, date: Date, isStudent: Boolean): String {
