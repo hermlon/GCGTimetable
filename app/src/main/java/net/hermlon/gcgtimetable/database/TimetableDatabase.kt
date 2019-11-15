@@ -5,10 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [TimetableProfile::class], version = 1, exportSchema = false)
+@Database(entities = [
+    TimetableProfile::class,
+    TimetableCourse::class,
+    TimetableLesson::class,
+    TimetableSource::class], version = 1, exportSchema = false)
 abstract class TimetableDatabase : RoomDatabase() {
 
     abstract val timetableProfileDao: TimetableProfileDao
+    abstract val timetableSourceDao: TimetableSourceDao
 
     companion object {
 

@@ -11,10 +11,7 @@ data class TimetableProfile(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
     val profileName: String = "",
-    val url: String = "",
-    val isStudent: Boolean = true,
-    val username: String = "",
-    val password: String = "",
+    val sourceId: Long = 0L,
     val className: String = ""
 )
 
