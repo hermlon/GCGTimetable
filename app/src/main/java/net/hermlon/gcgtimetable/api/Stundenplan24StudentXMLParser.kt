@@ -26,6 +26,7 @@ class Stundenplan24StudentXMLParser {
             var freeDays: MutableList<Date> = mutableListOf()
             var updatedAt: Date = Date()
             var additionalInfo: String = ""
+            var classes: MutableMap<String, MutableMap<Long, Course>> = mutableMapOf()
 
             parser.require(XmlPullParser.START_TAG, ns, "VpMobil")
             while (parser.next() != XmlPullParser.END_TAG) {
@@ -35,6 +36,7 @@ class Stundenplan24StudentXMLParser {
                 when (parser.name) {
                     "Kopf" -> updatedAt = readUpdatedAt(parser)
                     "FreieTage" -> freeDays = readFreeDays(parser)
+                    //"Klassen" -> classes = readClasses(parser)
                     "ZusatzInfo" -> additionalInfo = readAdditionalInfo(parser)
                     else -> skip(parser)
                 }
@@ -42,12 +44,89 @@ class Stundenplan24StudentXMLParser {
 
             Log.d("StudentXMLParser", "UpdatedAt: ${updatedAt.toString()}")
             Log.d("StudentXMLParser", "ZusatzInfo: ${additionalInfo}")
+            Log.d("StudentXMLParser", "Klassen: ${classes.toString()}")
 
             return TimetableTimetable(
                 updatedAt = updatedAt,
                 information = additionalInfo
             )
         }
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readClass(parser: XmlPullParser) : MutableMap<String, MutableMap<Long, Course>> {
+        parser.require(XmlPullParser.START_TAG, ns, "Kl")
+
+        var name = ""
+        val courses: MutableMap<Long, Course> = mutableMapOf()
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "Kurz" -> name = readText(parser)
+                "Unterricht" -> courses += readCourses(parser)
+                else -> skip(parser)
+            }
+        }
+        return mutableMapOf(name to courses)
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readCourse(parser: XmlPullParser) : Course {
+        parser.require(XmlPullParser.START_TAG, ns, "Ue")
+        parser.nextTag()
+        parser.require(XmlPullParser.START_TAG, ns, "UeNr")
+
+        var teacher = parser.getAttributeValue(ns, "UeLe")
+        var subject = parser.getAttributeValue(ns, "UeFa")
+        var courseName = parser.getAttributeValue(ns, "UeGr")
+        if (courseName == null) {
+            courseName = subject
+        }
+        var courseNr = readText(parser).toLong()
+        Log.d("StudentXMLParser", "Zeile: ${parser.eventType}")
+        return Course(teacher = teacher, subject = subject, courseNr = courseNr, courseName = courseName)
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readCourses(parser: XmlPullParser) : MutableMap<Long, Course> {
+        parser.require(XmlPullParser.START_TAG, ns, "Unterricht")
+
+        var courses: MutableMap<Long, Course> = mutableMapOf()
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "Ue" -> {
+                    var course = readCourse(parser)
+                    courses[course.courseNr] = course
+                }
+                else -> skip(parser)
+            }
+        }
+        return courses
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readClasses(parser: XmlPullParser) : MutableMap<String, MutableMap<Long, Course>> {
+        parser.require(XmlPullParser.START_TAG, ns, "Klassen")
+
+        val classes: MutableMap<String, MutableMap<Long, Course>> = mutableMapOf()
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "Kl" -> classes += readClass(parser)
+                else -> skip(parser)
+            }
+        }
+        return classes
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
@@ -131,3 +210,10 @@ class Stundenplan24StudentXMLParser {
     }
 
 }
+
+data class Course (
+    var teacher: String,
+    var subject: String,
+    var courseName: String,
+    var courseNr: Long
+)

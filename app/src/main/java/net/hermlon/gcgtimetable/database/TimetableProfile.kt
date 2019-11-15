@@ -11,15 +11,13 @@ data class TimetableProfile(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
     val profileName: String = "",
-    val sourceId: Long = 0L,
-    val className: String = ""
+    val sourceId: Long = 0L
 )
 
+/*
 class TimetableProfileAll(
     @Embedded
     val timetableProfile: TimetableProfile,
-    @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableCourse::class)
-    val courses: List<TimetableCourse> = listOf(),
     @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableTimetable::class)
     val timetables: List<TimetableTimetable> = listOf()
-)
+)*/

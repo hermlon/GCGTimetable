@@ -4,12 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(entities = [
     TimetableProfile::class,
-    TimetableCourse::class,
+    TimetableChosenClass::class,
+    TimetableChosenCourse::class,
+    TimetableTimetable::class,
     TimetableLesson::class,
+    TimetableNormalLesson::class,
     TimetableSource::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
 
     abstract val timetableProfileDao: TimetableProfileDao
