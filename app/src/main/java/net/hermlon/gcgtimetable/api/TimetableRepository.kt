@@ -1,20 +1,12 @@
 package net.hermlon.gcgtimetable.api
 
 import android.text.format.DateFormat
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import kotlinx.coroutines.Deferred
-import net.hermlon.gcgtimetable.database.TimetableLesson
+import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.database.TimetableSource
-import net.hermlon.gcgtimetable.database.TimetableTimetable
+import net.hermlon.gcgtimetable.database.TimetableDay
 import okhttp3.*
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.URL
-import java.time.LocalDate
 import java.util.*
 
 class TimetableRepository {
@@ -34,9 +26,11 @@ class TimetableRepository {
 
         if (!response.isSuccessful) throw IOException("Unexpected code $response")
 
-        val timetable: TimetableTimetable = response.body!!.byteStream().use { stream ->
+        val result: TimetableParseResult = response.body!!.byteStream().use { stream ->
             Stundenplan24StudentXMLParser().parse(stream)
         }
+        // the date we fetched is the date of the result we got
+        result.day.day = date
     }
 
     private fun formatUrl(url: String, date: Date, isStudent: Boolean): String {

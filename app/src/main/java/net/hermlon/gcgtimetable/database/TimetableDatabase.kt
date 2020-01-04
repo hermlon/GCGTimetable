@@ -10,7 +10,7 @@ import androidx.room.TypeConverters
     TimetableProfile::class,
     TimetableChosenClass::class,
     TimetableChosenCourse::class,
-    TimetableTimetable::class,
+    TimetableDay::class,
     TimetableLesson::class,
     TimetableNormalLesson::class,
     TimetableSource::class], version = 1, exportSchema = false)

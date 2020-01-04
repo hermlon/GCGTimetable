@@ -9,7 +9,7 @@ data class TimetableLesson(
 
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
-    val timetableId: Long = 0L,
+    val dayId: Long = 0L,
     val number: Int = 0,
     val subject: String = "",
     val subjectChanged: Boolean = false,

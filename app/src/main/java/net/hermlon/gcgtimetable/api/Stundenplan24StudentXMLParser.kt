@@ -2,12 +2,11 @@ package net.hermlon.gcgtimetable.api
 
 import android.util.Log
 import android.util.Xml
-import net.hermlon.gcgtimetable.database.TimetableTimetable
+import net.hermlon.gcgtimetable.database.TimetableDay
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,7 +15,7 @@ private val ns: String? = null
 class Stundenplan24StudentXMLParser {
 
     @Throws(XmlPullParserException::class, IOException::class)
-    fun parse(inputStream: InputStream): TimetableTimetable {
+    fun parse(inputStream: InputStream): TimetableParseResult {
         inputStream.use { inputStream ->
             val parser: XmlPullParser = Xml.newPullParser()
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false)
@@ -46,9 +45,13 @@ class Stundenplan24StudentXMLParser {
             Log.d("StudentXMLParser", "ZusatzInfo: ${additionalInfo}")
             Log.d("StudentXMLParser", "Klassen: ${classes.toString()}")
 
-            return TimetableTimetable(
-                updatedAt = updatedAt,
-                information = additionalInfo
+            return TimetableParseResult(
+                classes,
+                TimetableDay(
+                    updatedAt = updatedAt,
+                    information = additionalInfo
+                ),
+                freeDays
             )
         }
     }
@@ -218,4 +221,10 @@ data class Course (
     var subject: String,
     var courseName: String,
     var courseNr: Long
+)
+
+data class TimetableParseResult (
+    var classes: MutableMap<String, MutableMap<Long, Course>>,
+    var day: TimetableDay,
+    var freeDays: MutableList<Date>
 )

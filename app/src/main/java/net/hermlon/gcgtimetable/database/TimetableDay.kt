@@ -7,7 +7,7 @@ import androidx.room.Relation
 import java.util.*
 
 @Entity
-data class TimetableTimetable(
+data class TimetableDay(
 
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
@@ -21,7 +21,7 @@ data class TimetableTimetable(
 /*
 class TimetableTimetableAll(
     @Embedded
-    val timetableTimetable: TimetableTimetable,
-    @Relation(parentColumn = "id", entityColumn = "timetableId", entity = TimetableLesson::class)
+    val timetableTimetable: TimetableDay,
+    @Relation(parentColumn = "id", entityColumn = "dayId", entity = TimetableLesson::class)
     val lessons: List<TimetableLesson> = listOf()
 )*/

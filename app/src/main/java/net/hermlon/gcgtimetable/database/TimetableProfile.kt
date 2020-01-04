@@ -18,6 +18,6 @@ data class TimetableProfile(
 class TimetableProfileAll(
     @Embedded
     val timetableProfile: TimetableProfile,
-    @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableTimetable::class)
-    val timetables: List<TimetableTimetable> = listOf()
+    @Relation(parentColumn = "id", entityColumn = "profileId", entity = TimetableDay::class)
+    val timetables: List<TimetableDay> = listOf()
 )*/
