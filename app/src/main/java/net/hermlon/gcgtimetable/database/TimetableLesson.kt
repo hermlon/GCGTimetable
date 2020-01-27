@@ -3,7 +3,7 @@ package net.hermlon.gcgtimetable.database
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.time.DayOfWeek
-
+/*
 @Entity
 data class TimetableLesson(
 
@@ -39,4 +39,4 @@ data class TimetableNormalLesson(
     val courseNr: Long = 0L,
     val dayOfWeek: Int = 0,
     val className: String = ""
-)
+)*/

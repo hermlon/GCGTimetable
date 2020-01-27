@@ -1,4 +1,4 @@
-package net.hermlon.gcgtimetable.ui
+package net.hermlon.gcgtimetable.util
 
 import android.view.View
 import androidx.databinding.BindingAdapter
