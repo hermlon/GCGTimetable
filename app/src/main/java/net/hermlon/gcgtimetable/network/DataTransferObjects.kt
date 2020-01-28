@@ -3,28 +3,35 @@ package net.hermlon.gcgtimetable.network
 import java.util.*
 
 data class NetworkParseResult(
-    val lessons: List<NetworkTimetableLesson>,
-    val day: NetworkTimetableDay,
+    val courses: List<NetworkCourse>,
+    val lessons: List<NetworkLesson>,
+    val day: NetworkDay,
     val freeDays: List<Date>
 )
 
-data class NetworkTimetableLesson(
-    val number: Int,
-    val subject: String,
-    val subjectChanged: Boolean = false,
-    val subjectNormal: String,
-    val courseName: String,
-    val teacher: String,
-    val teacherChanged: Boolean = false,
-    val teacherNormal: String,
-    val room: String,
-    val roomChanged: Boolean = false,
-    val information: String,
-    val courseNr: Long,
-    val className: String
+data class NetworkDay(
+    val updatedAt: Date,
+    val information: String
 )
 
-data class NetworkTimetableDay(
-    val updatedAt: Date,
+data class NetworkCourse(
+    val courseId: Int,
+    val dayId: Int,
+    val teacher: String,
+    val subject: String,
+    val name: String
+)
+
+data class NetworkLesson(
+    val className: String,
+    val number: Int,
+    val dayId: Int,
+    val subject: String,
+    val subjectChanged: Boolean = false,
+    val teacher: String,
+    val teacherChanged: Boolean = false,
+    val room: String,
+    val roomChanged: Boolean = false,
+    val courseId: Int,
     val information: String
 )
