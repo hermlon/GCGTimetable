@@ -20,6 +20,7 @@ class TimetableMissingInformationException(message: String) : Exception(message)
 class Stundenplan24StudentXMLParser {
 
     lateinit var courses: MutableList<NetworkCourse>
+    lateinit var lessons: MutableList<NetworkLesson>
 
     @Throws(XmlPullParserException::class, IOException::class)
     fun parse(inputStream: InputStream): NetworkParseResult {
@@ -29,10 +30,10 @@ class Stundenplan24StudentXMLParser {
             parser.setInput(inputStream, null)
             parser.nextTag()
 
-            var updatedAt: Date = Date()
-            var information: String = ""
+            var updatedAt = Date()
+            var information = ""
             courses = mutableListOf()
-            var lessons: MutableList<NetworkLesson> = mutableListOf()
+            lessons = mutableListOf()
             var exams: MutableList<NetworkExam> = mutableListOf()
             var standardLessons: MutableList<NetworkStandardLesson> = mutableListOf()
             var freeDays: MutableList<Date> = mutableListOf()
@@ -50,10 +51,6 @@ class Stundenplan24StudentXMLParser {
                     else -> skip(parser)
                 }
             }
-
-            //Log.d("StudentXMLParser", "UpdatedAt: ${updatedAt.toString()}")
-            //Log.d("StudentXMLParser", "ZusatzInfo: ${information}")
-            //Log.d("StudentXMLParser", "Klassen: ${lessons.toString()}")
 
             return NetworkParseResult(
                 courses,
@@ -95,12 +92,98 @@ class Stundenplan24StudentXMLParser {
                 "Kurz" -> className = readText(parser)
                 "Unterricht" -> readCourses(parser, className ?:
                     throw TimetableMissingInformationException("className unknown while parsing course"))
-                /*"Unterricht" -> lessons += readCourses(parser).map {
-                    it.
-                }*/
+                "Pl" -> readPlan(parser, className ?:
+                throw TimetableMissingInformationException("className unknown while parsing lessons"))
                 else -> skip(parser)
             }
         }
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readPlan(parser: XmlPullParser, className: String) {
+        parser.require(XmlPullParser.START_TAG, ns, "Pl")
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "Std" -> readLesson(parser, className)
+                else -> skip(parser)
+            }
+        }
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class, TimetableMissingInformationException::class)
+    private fun readLesson(parser: XmlPullParser, className: String) {
+        parser.require(XmlPullParser.START_TAG, ns, "Std")
+
+        var number: Int? = null
+        var subject: String? = null
+        var subjectChanged: Boolean? = null
+        var teacher: String? = null
+        var teacherChanged: Boolean? = null
+        var room: String? = null
+        var roomChanged: Boolean? = null
+        var courseId: Int? = null
+        var information = ""
+
+        //TODO:: Standard lesson implementation
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "St" -> number = readText(parser).toInt()
+                "Nr" -> courseId = readText(parser).toInt()
+                "If" -> information = readText(parser)
+                "Fa" -> {
+                    var prop = readLessonProperty(parser, "FaAe")
+                    subject = prop.first
+                    subjectChanged = prop.second
+                }
+                "Le" -> {
+                    var prop = readLessonProperty(parser, "LeAe")
+                    teacher = prop.first
+                    teacherChanged = prop.second
+                }
+                "Ra" -> {
+                    var prop = readLessonProperty(parser, "RaAe")
+                    room = prop.first
+                    roomChanged = prop.second
+                }
+                else -> skip(parser)
+            }
+        }
+
+        if(number != null && subject != null && subjectChanged != null && teacher != null
+            && teacherChanged != null && room != null && roomChanged != null && courseId != null) {
+            lessons.add(NetworkLesson(
+                className,
+                number,
+                subject,
+                subjectChanged,
+                teacher,
+                teacherChanged,
+                room,
+                roomChanged,
+                courseId,
+                information
+            ))
+        }
+        else {
+            throw TimetableMissingInformationException("missing information while parsing lesson")
+        }
+
+        // the closing tag of <Std>
+        parser.nextTag()
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readLessonProperty(parser: XmlPullParser, attribute: String) : Pair<String, Boolean> {
+        var changed = parser.getAttributeValue(ns, attribute) != ""
+        var content = readText(parser)
+        return Pair(content, changed)
     }
 
     @Throws(IOException::class, XmlPullParserException::class)

@@ -27,7 +27,6 @@ data class NetworkCourse(
 data class NetworkLesson(
     val className: String,
     val number: Int,
-    val dayId: Int,
     val subject: String,
     val subjectChanged: Boolean = false,
     val teacher: String,
