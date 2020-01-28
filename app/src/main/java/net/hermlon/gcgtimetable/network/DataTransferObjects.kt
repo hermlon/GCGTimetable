@@ -12,13 +12,13 @@ data class NetworkParseResult(
 )
 
 data class NetworkDay(
-    val updatedAt: Date,
-    val information: String
+    var updatedAt: Date,
+    var information: String
 )
 
 data class NetworkCourse(
     val courseId: Int,
-    val dayId: Int,
+    val className: String,
     val teacher: String,
     val subject: String,
     val name: String

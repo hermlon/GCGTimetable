@@ -28,7 +28,7 @@ class TimetableDatabaseTest {
             // Allowing main thread queries, just for testing.
             .allowMainThreadQueries()
             .build()
-        timetableProfileDao = db.timetableProfileDao
+        //timetableProfileDao = db.timetableProfileDao
     }
 
     @After

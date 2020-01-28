@@ -3,20 +3,23 @@ package net.hermlon.gcgtimetable.api
 import android.util.Log
 import android.util.Xml
 import net.hermlon.gcgtimetable.database.TimetableDay
-import net.hermlon.gcgtimetable.network.NetworkParseResult
-import net.hermlon.gcgtimetable.network.NetworkTimetableDay
-import net.hermlon.gcgtimetable.network.NetworkTimetableLesson
+import net.hermlon.gcgtimetable.network.*
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Collections.list
 
 private val ns: String? = null
 
+class TimetableMissingInformationException(message: String) : Exception(message)
+
 class Stundenplan24StudentXMLParser {
+
+    lateinit var courses: MutableList<NetworkCourse>
 
     @Throws(XmlPullParserException::class, IOException::class)
     fun parse(inputStream: InputStream): NetworkParseResult {
@@ -26,9 +29,12 @@ class Stundenplan24StudentXMLParser {
             parser.setInput(inputStream, null)
             parser.nextTag()
 
-            var lessons: MutableList<NetworkTimetableLesson> = mutableListOf()
             var updatedAt: Date = Date()
             var information: String = ""
+            courses = mutableListOf()
+            var lessons: MutableList<NetworkLesson> = mutableListOf()
+            var exams: MutableList<NetworkExam> = mutableListOf()
+            var standardLessons: MutableList<NetworkStandardLesson> = mutableListOf()
             var freeDays: MutableList<Date> = mutableListOf()
 
             parser.require(XmlPullParser.START_TAG, ns, "VpMobil")
@@ -39,104 +45,103 @@ class Stundenplan24StudentXMLParser {
                 when (parser.name) {
                     "Kopf" -> updatedAt = readUpdatedAt(parser)
                     "FreieTage" -> freeDays = readFreeDays(parser)
-                    "Klassen" -> lessons = readClasses(parser)
                     "ZusatzInfo" -> information = readAdditionalInfo(parser)
+                    "Klassen" -> readClasses(parser)
                     else -> skip(parser)
                 }
             }
 
-            Log.d("StudentXMLParser", "UpdatedAt: ${updatedAt.toString()}")
-            Log.d("StudentXMLParser", "ZusatzInfo: ${information}")
-            Log.d("StudentXMLParser", "Klassen: ${lessons.toString()}")
+            //Log.d("StudentXMLParser", "UpdatedAt: ${updatedAt.toString()}")
+            //Log.d("StudentXMLParser", "ZusatzInfo: ${information}")
+            //Log.d("StudentXMLParser", "Klassen: ${lessons.toString()}")
 
             return NetworkParseResult(
+                courses,
                 lessons,
-                NetworkTimetableDay(
-                    updatedAt,
-                    information
-                ),
-                freeDays
+                NetworkDay(updatedAt, information),
+                freeDays,
+                exams,
+                standardLessons
             )
         }
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readClasses(parser: XmlPullParser) : MutableList<NetworkTimetableLesson> {
+    private fun readClasses(parser: XmlPullParser) {
         parser.require(XmlPullParser.START_TAG, ns, "Klassen")
 
-        val lessons: MutableList<NetworkTimetableLesson> = mutableListOf()
-
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
             }
             when (parser.name) {
-                "Kl" -> lessons += readClass(parser)
+                "Kl" -> readClass(parser)
                 else -> skip(parser)
             }
         }
-        return lessons
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readClass(parser: XmlPullParser) : MutableList<NetworkTimetableLesson> {
+    private fun readClass(parser: XmlPullParser) {
         parser.require(XmlPullParser.START_TAG, ns, "Kl")
 
-        var name = ""
-        val lessons: MutableList<NetworkTimetableLesson> = mutableListOf()
+        var className: String? = null
 
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
             }
             when (parser.name) {
-                "Kurz" -> name = readText(parser)
-                "Unterricht" -> lessons += readCourses(parser).map {
+                "Kurz" -> className = readText(parser)
+                "Unterricht" -> readCourses(parser, className ?:
+                    throw TimetableMissingInformationException("className unknown while parsing course"))
+                /*"Unterricht" -> lessons += readCourses(parser).map {
                     it.
-                }
+                }*/
                 else -> skip(parser)
             }
         }
-        return lessons
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readCourses(parser: XmlPullParser) : MutableList<NetworkTimetableLesson> {
+    private fun readCourses(parser: XmlPullParser, className: String) {
         parser.require(XmlPullParser.START_TAG, ns, "Unterricht")
 
-        val lessons: MutableList<NetworkTimetableLesson> = mutableListOf()
-
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
             }
             when (parser.name) {
-                "Ue" -> lessons.add(readCourse(parser))
+                "Ue" -> readCourse(parser, className)
                 else -> skip(parser)
             }
         }
-        return lessons
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readCourse(parser: XmlPullParser) : NetworkTimetableLesson {
+    private fun readCourse(parser: XmlPullParser, className: String) {
         parser.require(XmlPullParser.START_TAG, ns, "Ue")
         parser.nextTag()
         parser.require(XmlPullParser.START_TAG, ns, "UeNr")
 
         var teacher = parser.getAttributeValue(ns, "UeLe")
         var subject = parser.getAttributeValue(ns, "UeFa")
-        var courseName = parser.getAttributeValue(ns, "UeGr")
-        if (courseName == null) {
-            courseName = subject
+        var name = parser.getAttributeValue(ns, "UeGr")
+        if (name == null) {
+            name = subject
         }
-        var courseNr = readText(parser).toLong()
+        var courseId = readText(parser).toInt()
+
+        courses.add(NetworkCourse(
+            courseId,
+            className,
+            teacher,
+            subject,
+            name
+        ))
 
         // the closing tag of <Ue>
         parser.nextTag()
-        return NetworkTimetableLesson(
-            number =
-        )
     }
 
     @Throws(IOException::class, XmlPullParserException::class)

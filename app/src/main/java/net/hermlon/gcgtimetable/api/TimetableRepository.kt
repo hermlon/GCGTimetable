@@ -4,6 +4,7 @@ import android.text.format.DateFormat
 import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.database.TimetableSource
 import net.hermlon.gcgtimetable.database.TimetableDay
+import net.hermlon.gcgtimetable.network.NetworkParseResult
 import okhttp3.*
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
@@ -14,7 +15,7 @@ class TimetableRepository {
     // TODO: Inject with Dagger
     private  val client = OkHttpClient()
 
-    suspend fun fetch(source: TimetableSource, date: Date) {
+    suspend fun fetch(source: TimetableSource, date: Date) : NetworkParseResult {
         // don't do this on Main Thread -> coroutines?
 
         val request = Request.Builder()
@@ -26,11 +27,12 @@ class TimetableRepository {
 
         if (!response.isSuccessful) throw IOException("Unexpected code $response")
 
-        val result: TimetableParseResult = response.body!!.byteStream().use { stream ->
+        val result: NetworkParseResult = response.body!!.byteStream().use { stream ->
             Stundenplan24StudentXMLParser().parse(stream)
         }
         // the date we fetched is the date of the result we got
-        result.day.day = date
+        //result.day.day = date
+        return result
     }
 
     private fun formatUrl(url: String, date: Date, isStudent: Boolean): String {
