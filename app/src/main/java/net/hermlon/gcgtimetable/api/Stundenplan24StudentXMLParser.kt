@@ -21,6 +21,7 @@ class Stundenplan24StudentXMLParser {
 
     lateinit var courses: MutableList<NetworkCourse>
     lateinit var lessons: MutableList<NetworkLesson>
+    lateinit var standardLessons: MutableList<NetworkStandardLesson>
 
     @Throws(XmlPullParserException::class, IOException::class)
     fun parse(inputStream: InputStream): NetworkParseResult {
@@ -34,8 +35,8 @@ class Stundenplan24StudentXMLParser {
             var information = ""
             courses = mutableListOf()
             lessons = mutableListOf()
+            standardLessons = mutableListOf()
             var exams: MutableList<NetworkExam> = mutableListOf()
-            var standardLessons: MutableList<NetworkStandardLesson> = mutableListOf()
             var freeDays: MutableList<Date> = mutableListOf()
 
             parser.require(XmlPullParser.START_TAG, ns, "VpMobil")
@@ -128,7 +129,6 @@ class Stundenplan24StudentXMLParser {
         var courseId: Int? = null
         var information = ""
 
-        //TODO:: Standard lesson implementation
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
@@ -170,18 +170,25 @@ class Stundenplan24StudentXMLParser {
                 courseId,
                 information
             ))
+            // All information to add a standard lesson is given
+            if(!roomChanged) {
+                standardLessons.add(
+                    NetworkStandardLesson(
+                        className,
+                        number,
+                        courseId,
+                        room
+                ))
+            }
         }
         else {
             throw TimetableMissingInformationException("missing information while parsing lesson")
         }
-
-        // the closing tag of <Std>
-        parser.nextTag()
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
     private fun readLessonProperty(parser: XmlPullParser, attribute: String) : Pair<String, Boolean> {
-        var changed = parser.getAttributeValue(ns, attribute) != ""
+        var changed = parser.getAttributeValue(ns, attribute) != null
         var content = readText(parser)
         return Pair(content, changed)
     }

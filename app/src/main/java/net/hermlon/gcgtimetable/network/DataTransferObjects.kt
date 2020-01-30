@@ -47,7 +47,6 @@ data class NetworkExam(
 )
 
 data class NetworkStandardLesson(
-    val dayOfWeek: Int,
     val className: String,
     val number: Int,
     val courseId: Int,
