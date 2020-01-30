@@ -3,12 +3,12 @@ package net.hermlon.gcgtimetable.network
 import java.util.*
 
 data class NetworkParseResult(
-    val courses: List<NetworkCourse>,
-    val lessons: List<NetworkLesson>,
+    val courses: Set<NetworkCourse>,
+    val lessons: Set<NetworkLesson>,
     val day: NetworkDay,
-    val freeDays: List<Date>,
-    val exams: List<NetworkExam>,
-    val standardLessons: List<NetworkStandardLesson>
+    val freeDays: Set<Date>,
+    val exams: Set<NetworkExam>,
+    val standardLessons: Set<NetworkStandardLesson>
 )
 
 data class NetworkDay(
@@ -38,7 +38,7 @@ data class NetworkLesson(
 )
 
 data class NetworkExam(
-    val dayId: Int,
+    val className: String,
     val number: Int,
     val beginsAt: String,
     val length: Int,

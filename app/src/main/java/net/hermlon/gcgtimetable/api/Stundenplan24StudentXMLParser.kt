@@ -19,9 +19,10 @@ class TimetableMissingInformationException(message: String) : Exception(message)
 
 class Stundenplan24StudentXMLParser {
 
-    lateinit var courses: MutableList<NetworkCourse>
-    lateinit var lessons: MutableList<NetworkLesson>
-    lateinit var standardLessons: MutableList<NetworkStandardLesson>
+    lateinit var courses: MutableSet<NetworkCourse>
+    lateinit var lessons: MutableSet<NetworkLesson>
+    lateinit var standardLessons: MutableSet<NetworkStandardLesson>
+    lateinit var exams: MutableSet<NetworkExam>
 
     @Throws(XmlPullParserException::class, IOException::class)
     fun parse(inputStream: InputStream): NetworkParseResult {
@@ -33,11 +34,11 @@ class Stundenplan24StudentXMLParser {
 
             var updatedAt = Date()
             var information = ""
-            courses = mutableListOf()
-            lessons = mutableListOf()
-            standardLessons = mutableListOf()
-            var exams: MutableList<NetworkExam> = mutableListOf()
-            var freeDays: MutableList<Date> = mutableListOf()
+            courses = mutableSetOf()
+            lessons = mutableSetOf()
+            standardLessons = mutableSetOf()
+            exams = mutableSetOf()
+            var freeDays: MutableSet<Date> = mutableSetOf()
 
             parser.require(XmlPullParser.START_TAG, ns, "VpMobil")
             while (parser.next() != XmlPullParser.END_TAG) {
@@ -94,7 +95,9 @@ class Stundenplan24StudentXMLParser {
                 "Unterricht" -> readCourses(parser, className ?:
                     throw TimetableMissingInformationException("className unknown while parsing course"))
                 "Pl" -> readPlan(parser, className ?:
-                throw TimetableMissingInformationException("className unknown while parsing lessons"))
+                    throw TimetableMissingInformationException("className unknown while parsing lessons"))
+                "Klausuren" -> readExams(parser, className ?:
+                    throw TimetableMissingInformationException("className unknown while parsing exams"))
                 else -> skip(parser)
             }
         }
@@ -237,6 +240,81 @@ class Stundenplan24StudentXMLParser {
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
+    private fun readExams(parser: XmlPullParser, className: String) {
+        parser.require(XmlPullParser.START_TAG, ns, "Klausuren")
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "Klausur" -> readExam(parser, className)
+                else -> skip(parser)
+            }
+        }
+    }
+
+
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readExam(parser: XmlPullParser, className: String) {
+        parser.require(XmlPullParser.START_TAG, ns, "Klausur")
+
+        var skip = false
+        var number: Int? = null
+        var beginsAt: String? = null
+        var length: Int? = null
+        var information = ""
+        var courseId: Int? = null
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "KlStunde" -> number = readText(parser).toInt()
+                "KlBeginn" -> beginsAt = readText(parser)
+                "KlDauer" -> length = readText(parser).toInt()
+                "KlInfo" -> information = readText(parser)
+                "KlKurs" -> {
+                    var courseName = readText(parser)
+                    /* when there is no real course name and the subject acts as a course name
+                       it is only assumed to be unique for a class, therefore the second condition. */
+                    var course = courses.find { it.name == courseName && it.className == className}
+                    if(course != null) {
+                        courseId = course.courseId
+                    }
+                    else {
+                        /* A courseId which isn't found can occur since all exams for one year
+                           are included in each class for that year. If the exams are for classes
+                           which will be parsed later on the course name is still unknown.
+                           The exam will at the latest be added once the class with the course it
+                           refers to was parsed. */
+                        skip = true
+                    }
+                }
+                else -> skip(parser)
+            }
+        }
+
+        if(!skip) {
+            if(number != null && beginsAt != null && length != null && courseId != null) {
+                exams.add(
+                    NetworkExam(
+                        className,
+                        number,
+                        beginsAt,
+                        length,
+                        information,
+                        courseId
+                    ))
+            }
+            else {
+                throw TimetableMissingInformationException("missing information while parsing exam")
+            }
+        }
+    }
+
+    @Throws(IOException::class, XmlPullParserException::class)
     private fun readUpdatedAt(parser: XmlPullParser): Date {
         parser.require(XmlPullParser.START_TAG, ns, "Kopf")
 
@@ -271,10 +349,10 @@ class Stundenplan24StudentXMLParser {
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readFreeDays(parser: XmlPullParser) : MutableList<Date> {
+    private fun readFreeDays(parser: XmlPullParser) : MutableSet<Date> {
         parser.require(XmlPullParser.START_TAG, ns, "FreieTage")
 
-        var freeDays = mutableListOf<Date>()
+        var freeDays = mutableSetOf<Date>()
 
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
