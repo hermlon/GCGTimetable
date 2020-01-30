@@ -33,7 +33,7 @@ data class NetworkLesson(
     val teacherChanged: Boolean = false,
     val room: String,
     val roomChanged: Boolean = false,
-    val courseId: Int,
+    val courseId: Int?,
     val information: String
 )
 

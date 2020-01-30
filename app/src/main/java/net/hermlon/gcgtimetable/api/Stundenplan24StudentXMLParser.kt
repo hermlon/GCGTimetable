@@ -157,7 +157,7 @@ class Stundenplan24StudentXMLParser {
         }
 
         if(number != null && subject != null && subjectChanged != null && teacher != null
-            && teacherChanged != null && room != null && roomChanged != null && courseId != null) {
+            && teacherChanged != null && room != null && roomChanged != null) {
             lessons.add(NetworkLesson(
                 className,
                 number,
@@ -170,8 +170,10 @@ class Stundenplan24StudentXMLParser {
                 courseId,
                 information
             ))
-            // All information to add a standard lesson is given
-            if(!roomChanged) {
+            /* All information to add a standard lesson is given, i. e. the room isn't changed
+               and the lesson isn't a weird one which has no courseId (this can be the case e. g.
+               lessons during exams where no normal class takes place) */
+            if(!roomChanged && courseId != null) {
                 standardLessons.add(
                     NetworkStandardLesson(
                         className,
