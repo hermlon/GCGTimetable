@@ -5,25 +5,24 @@ import androidx.room.PrimaryKey
 import net.hermlon.gcgtimetable.domain.TimetableLesson
 
 @Entity
-data class DatabaseTimetableLesson constructor(
+data class DatabaseLesson constructor(
     @PrimaryKey
-    val id: Long,
-    //val dayId: Long
+    val dayId: Long,
+    @PrimaryKey
     val number: Int,
     val subject: String,
     val subjectChanged: Boolean = false,
-    val subjectNormal: String,
-    val courseName: String,
     val teacher: String,
     val teacherChanged: Boolean = false,
-    val teacherNormal: String,
     val room: String,
     val roomChanged: Boolean = false,
     val information: String,
-    val courseNr: Long,
+    @PrimaryKey
+    val courseId: Long?,
+    @PrimaryKey
     val className: String
 )
-
+/*
 fun List<DatabaseTimetableLesson>.asDomainModel(): List<TimetableLesson> {
     return map {
         TimetableLesson(
@@ -44,4 +43,4 @@ fun List<DatabaseTimetableLesson>.asDomainModel(): List<TimetableLesson> {
             className = it.className
         )
     }
-}
+}*/

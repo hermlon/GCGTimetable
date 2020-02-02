@@ -17,7 +17,7 @@ data class NetworkDay(
 )
 
 data class NetworkCourse(
-    val courseId: Int,
+    val courseId: Long,
     val className: String,
     val teacher: String,
     val subject: String,
@@ -33,7 +33,7 @@ data class NetworkLesson(
     val teacherChanged: Boolean = false,
     val room: String,
     val roomChanged: Boolean = false,
-    val courseId: Int?,
+    val courseId: Long?,
     val information: String
 )
 
@@ -43,12 +43,12 @@ data class NetworkExam(
     val beginsAt: String,
     val length: Int,
     val information: String,
-    val courseId: Int
+    val courseId: Long
 )
 
 data class NetworkStandardLesson(
     val className: String,
     val number: Int,
-    val courseId: Int,
+    val courseId: Long,
     val room: String
 )

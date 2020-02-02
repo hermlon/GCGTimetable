@@ -129,7 +129,7 @@ class Stundenplan24StudentXMLParser {
         var teacherChanged: Boolean? = null
         var room: String? = null
         var roomChanged: Boolean? = null
-        var courseId: Int? = null
+        var courseId: Long? = null
         var information = ""
 
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -138,7 +138,7 @@ class Stundenplan24StudentXMLParser {
             }
             when (parser.name) {
                 "St" -> number = readText(parser).toInt()
-                "Nr" -> courseId = readText(parser).toInt()
+                "Nr" -> courseId = readText(parser).toLong()
                 "If" -> information = readText(parser)
                 "Fa" -> {
                     var prop = readLessonProperty(parser, "FaAe")
@@ -225,7 +225,7 @@ class Stundenplan24StudentXMLParser {
         if (name == null) {
             name = subject
         }
-        var courseId = readText(parser).toInt()
+        var courseId = readText(parser).toLong()
 
         courses.add(NetworkCourse(
             courseId,
@@ -264,7 +264,7 @@ class Stundenplan24StudentXMLParser {
         var beginsAt: String? = null
         var length: Int? = null
         var information = ""
-        var courseId: Int? = null
+        var courseId: Long? = null
 
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
