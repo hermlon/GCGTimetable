@@ -1,5 +1,6 @@
 package net.hermlon.gcgtimetable.network
 
+import net.hermlon.gcgtimetable.database.DatabaseLesson
 import java.util.*
 
 data class NetworkParseResult(
@@ -52,3 +53,21 @@ data class NetworkStandardLesson(
     val courseId: Long,
     val room: String
 )
+
+fun Set<NetworkLesson>.asDatabaseModel(dayId: Long): Array<DatabaseLesson> {
+    return map {
+        DatabaseLesson(
+            dayId = dayId,
+            number = it.number,
+            subject = it.subject,
+            subjectChanged = it.subjectChanged,
+            teacher = it.teacher,
+            teacherChanged = it.teacherChanged,
+            room = it.room,
+            roomChanged = it.roomChanged,
+            information = it.information,
+            courseId = it.courseId,
+            className = it.className
+        )
+    }.toTypedArray()
+}

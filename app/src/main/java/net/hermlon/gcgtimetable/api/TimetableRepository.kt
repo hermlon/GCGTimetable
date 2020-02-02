@@ -1,21 +1,24 @@
 package net.hermlon.gcgtimetable.api
 
 import android.text.format.DateFormat
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.database.TimetableSource
 import net.hermlon.gcgtimetable.database.TimetableDay
 import net.hermlon.gcgtimetable.network.NetworkParseResult
+import net.hermlon.gcgtimetable.network.asDatabaseModel
 import okhttp3.*
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
 import java.util.*
 
-class TimetableRepository {
+class TimetableRepository(private val database: TimetableDatabase) {
 
     // TODO: Inject with Dagger
     private  val client = OkHttpClient()
 
-    suspend fun fetch(source: TimetableSource, date: Date) : NetworkParseResult {
+    suspend fun fetch(source: TimetableSource, date: Date) {
         // don't do this on Main Thread -> coroutines?
 
         val request = Request.Builder()
@@ -32,7 +35,11 @@ class TimetableRepository {
         }
         // the date we fetched is the date of the result we got
         //result.day.day = date
-        return result
+
+        withContext(Dispatchers.IO) {
+            //TODO: create new day first and then use it's dayId here:
+            database.lessonDao.insertAll(*result.lessons.asDatabaseModel(24))
+        }
     }
 
     private fun formatUrl(url: String, date: Date, isStudent: Boolean): String {

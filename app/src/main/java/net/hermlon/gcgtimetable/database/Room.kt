@@ -6,20 +6,21 @@ import androidx.room.*
 
 @Dao
 interface TimetableLessonDao {
-    @Query("select * from DatabaseTimetableLesson")
-    fun getLessons(): LiveData<List<DatabaseTimetableLesson>>
+    @Query("select * from DatabaseLesson")
+    fun getLessons(): LiveData<List<DatabaseLesson>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg lessons: DatabaseTimetableLesson)
+    fun insertAll(vararg lessons: DatabaseLesson)
 
 }
 
 @Database(entities = [
-    DatabaseTimetableLesson::class
+    DatabaseLesson::class
 ], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
 
+    abstract val lessonDao: TimetableLessonDao
     //abstract val timetableProfileDao: TimetableProfileDao
     //abstract val timetableSourceDao: TimetableSourceDao
 }
