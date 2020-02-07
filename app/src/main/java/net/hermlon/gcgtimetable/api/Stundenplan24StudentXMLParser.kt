@@ -9,6 +9,7 @@ import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
 import java.lang.Exception
+import java.sql.Time
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Collections.list
@@ -26,10 +27,10 @@ class Stundenplan24StudentXMLParser {
 
     @Throws(XmlPullParserException::class, IOException::class)
     fun parse(inputStream: InputStream): NetworkParseResult {
-        inputStream.use { inputStream ->
+        inputStream.use { myInputStream ->
             val parser: XmlPullParser = Xml.newPullParser()
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false)
-            parser.setInput(inputStream, null)
+            parser.setInput(myInputStream, null)
             parser.nextTag()
 
             var updatedAt = Date()
@@ -80,7 +81,7 @@ class Stundenplan24StudentXMLParser {
         }
     }
 
-    @Throws(IOException::class, XmlPullParserException::class)
+    @Throws(IOException::class, XmlPullParserException::class, TimetableMissingInformationException::class)
     private fun readClass(parser: XmlPullParser) {
         parser.require(XmlPullParser.START_TAG, ns, "Kl")
 
@@ -170,12 +171,16 @@ class Stundenplan24StudentXMLParser {
                 teacherChanged,
                 room,
                 roomChanged,
-                courseId,
+                /* lessons which have no corresponding course (like in exam lessons) will have the
+                   shared courseId -1
+                */
+                courseId ?: -1,
                 information
             ))
             /* All information to add a standard lesson is given, i. e. the room isn't changed
                and the lesson isn't a weird one which has no courseId (this can be the case e. g.
-               lessons during exams where no normal class takes place) */
+               lessons during exams where no normal class takes place)
+            */
             if(!roomChanged && courseId != null) {
                 standardLessons.add(
                     NetworkStandardLesson(
@@ -314,21 +319,28 @@ class Stundenplan24StudentXMLParser {
         }
     }
 
-    @Throws(IOException::class, XmlPullParserException::class)
+    @Throws(IOException::class, XmlPullParserException::class, TimetableMissingInformationException::class)
     private fun readUpdatedAt(parser: XmlPullParser): Date {
         parser.require(XmlPullParser.START_TAG, ns, "Kopf")
 
-        var date: String? = null
+        //var date: String? = null
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
             }
             when (parser.name) {
-                "zeitstempel" -> date = readText(parser)
+                //"zeitstempel" -> date = readText(parser)
                 else -> skip(parser)
             }
         }
-        return SimpleDateFormat("dd.MM.yyyy, HH:mm", Locale.US).parse(date)
+        /*
+        if(date == null) {
+            /* use current time when no updated at information is available */
+            return Date()
+        } else {
+            return SimpleDateFormat("dd.MM.yyyy, HH:mm", Locale.US).parse(date!!)
+        }*/
+        return Date()
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
@@ -368,8 +380,10 @@ class Stundenplan24StudentXMLParser {
 
     @Throws(IOException::class, XmlPullParserException::class)
     private fun readDate(parser: XmlPullParser): Date {
-        var date = readText(parser)
-        return SimpleDateFormat("yyMMdd").parse(date)
+        parser.name
+        /*var date = readText(parser)
+        return SimpleDateFormat("yyMMdd").parse(date)*/
+        return Date()
     }
 
     @Throws(IOException::class, XmlPullParserException::class)

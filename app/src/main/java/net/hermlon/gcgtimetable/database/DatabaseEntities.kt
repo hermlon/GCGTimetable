@@ -4,11 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import net.hermlon.gcgtimetable.domain.TimetableLesson
 
-@Entity
+@Entity(primaryKeys = ["dayId", "number", "courseId", "className"])
 data class DatabaseLesson constructor(
-    @PrimaryKey
     val dayId: Long,
-    @PrimaryKey
     val number: Int,
     val subject: String,
     val subjectChanged: Boolean = false,
@@ -17,9 +15,7 @@ data class DatabaseLesson constructor(
     val room: String,
     val roomChanged: Boolean = false,
     val information: String,
-    @PrimaryKey
-    val courseId: Long?,
-    @PrimaryKey
+    val courseId: Long,
     val className: String
 )
 /*
