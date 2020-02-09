@@ -16,6 +16,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
+import java.text.SimpleDateFormat
 import java.util.*
 
 @RunWith(AndroidJUnit4::class)
@@ -62,13 +63,21 @@ class Stundenplan24StudentXMLParserTest2 {
         var repo = TimetableRepository(db)
         if (source != null) {
             runBlocking {
-                var monday = Calendar.getInstance()
-                //monday.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY)
+                var day = SimpleDateFormat("dd.MM.yyyy").parse("05.02.2020")
 
-                repo.fetch(source, monday.time)
-                // db.lessonDao.getall observe?
-                assert(true)
+                repo.fetch(source, day)
             }
+            GlobalScope.launch(Dispatchers.Main) {
+                db.lessonDao.getLessons().observeForever { lessons ->
+                    Log.d("Test", "Lessons update!")
+                    Log.d("Test", lessons.toString())
+                    lessons.forEach {
+                        Log.d("Test", it.toString())
+                    }
+                }
+            }
+
+            assert(true)
         }
         else {
             assert(false)

@@ -1,6 +1,7 @@
 package net.hermlon.gcgtimetable.api
 
 import android.text.format.DateFormat
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.TimetableDatabase

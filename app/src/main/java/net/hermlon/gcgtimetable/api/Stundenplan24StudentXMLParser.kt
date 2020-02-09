@@ -11,14 +11,22 @@ import java.io.InputStream
 import java.lang.Exception
 import java.sql.Time
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
+import java.time.format.FormatStyle
 import java.util.*
 import java.util.Collections.list
 
 private val ns: String? = null
 
 class TimetableMissingInformationException(message: String) : Exception(message)
+class InvalidDateException(message: String) : Exception(message)
 
 class Stundenplan24StudentXMLParser {
+
+    val DATE_FORMAT = "yyMMdd"
+    val UPDATED_AT_DATE_FORMAT = "dd.MM.yyyy, HH:mm"
 
     lateinit var courses: MutableSet<NetworkCourse>
     lateinit var lessons: MutableSet<NetworkLesson>
@@ -240,7 +248,7 @@ class Stundenplan24StudentXMLParser {
             name
         ))
 
-        // the closing tag of <Ue>
+        /* the closing tag of <Ue> */
         parser.nextTag()
     }
 
@@ -323,31 +331,30 @@ class Stundenplan24StudentXMLParser {
     private fun readUpdatedAt(parser: XmlPullParser): Date {
         parser.require(XmlPullParser.START_TAG, ns, "Kopf")
 
-        //var date: String? = null
+        var date: String? = null
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
             }
             when (parser.name) {
-                //"zeitstempel" -> date = readText(parser)
+                "zeitstempel" -> date = readText(parser)
                 else -> skip(parser)
             }
         }
-        /*
-        if(date == null) {
+        return if(date == null) {
             /* use current time when no updated at information is available */
-            return Date()
+            Date()
         } else {
-            return SimpleDateFormat("dd.MM.yyyy, HH:mm", Locale.US).parse(date!!)
-        }*/
-        return Date()
+            SimpleDateFormat(UPDATED_AT_DATE_FORMAT, Locale.GERMANY).parse(date) ?:
+            throw InvalidDateException("date $date doesn't follow format $UPDATED_AT_DATE_FORMAT")
+        }
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
     private fun readAdditionalInfo(parser: XmlPullParser): String {
         parser.require(XmlPullParser.START_TAG, ns, "ZusatzInfo")
 
-        var info: String = ""
+        var info = ""
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
@@ -381,9 +388,10 @@ class Stundenplan24StudentXMLParser {
     @Throws(IOException::class, XmlPullParserException::class)
     private fun readDate(parser: XmlPullParser): Date {
         parser.name
-        /*var date = readText(parser)
-        return SimpleDateFormat("yyMMdd").parse(date)*/
-        return Date()
+        var date = readText(parser)
+        return SimpleDateFormat(DATE_FORMAT, Locale.GERMANY).parse(date) ?:
+        throw InvalidDateException("date $date doesn't follow format $DATE_FORMAT")
+
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
@@ -407,5 +415,4 @@ class Stundenplan24StudentXMLParser {
             }
         }
     }
-
 }
