@@ -46,7 +46,7 @@ class TimetableDatabaseTest {
     fun insertAndGetLesson() {
         GlobalScope.launch(Dispatchers.Main) {
             db.lessonDao.insertAll(*setOf(
-                NetworkLesson("7/1", 1, "Deu", false, "Kipp", false, "207", false, 235, information = "")
+                NetworkLesson("7/1", 1, "Deu", false, "Kipp", false, "207", false, 235, null)
             ).asDatabaseModel(34))
 
 

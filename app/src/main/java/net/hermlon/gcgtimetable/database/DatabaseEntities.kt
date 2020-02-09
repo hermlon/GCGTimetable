@@ -14,7 +14,7 @@ data class DatabaseLesson constructor(
     val teacherChanged: Boolean = false,
     val room: String,
     val roomChanged: Boolean = false,
-    val information: String,
+    val information: String?,
     val courseId: Long,
     val className: String
 )

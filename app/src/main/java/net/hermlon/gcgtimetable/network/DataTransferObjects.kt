@@ -35,7 +35,7 @@ data class NetworkLesson(
     val room: String,
     val roomChanged: Boolean = false,
     val courseId: Long,
-    val information: String
+    val information: String?
 )
 
 data class NetworkExam(
