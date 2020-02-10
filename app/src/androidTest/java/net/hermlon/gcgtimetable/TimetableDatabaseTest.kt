@@ -3,15 +3,9 @@ package net.hermlon.gcgtimetable
 import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.MediumTest
 import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.runner.AndroidJUnit4
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.DatabaseLesson
 import net.hermlon.gcgtimetable.database.TimetableDatabase
@@ -20,6 +14,7 @@ import net.hermlon.gcgtimetable.network.NetworkLesson
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.notNullValue
+import org.hamcrest.Matchers.greaterThan
 import org.junit.After
 import org.junit.Assert.assertThat
 import org.junit.Before
@@ -55,7 +50,7 @@ class TimetableDatabaseTest {
     }
 
     @Test
-    fun insertLessonAndGetById() = runBlockingTest {
+    fun insertLessonAndGetById() = runBlocking {
         // GIVEN - insert a task
         val lesson = NetworkLesson("7/1", 1, "Deu", false, "Kipp", false, "207", false, 235, null)
         val databaseLesson = setOf(lesson).asDatabaseModel(24)
@@ -83,26 +78,16 @@ class TimetableDatabaseTest {
     // TODO replace with runBlockingTest once issue is resolved
     @Test
     fun fetchXML() = runBlocking {
-
-        /*
         var source = TimetableSource(
             sourceName = "Test school",
             url = "https://www.stundenplan24.de/10000000/mobil")
         var repo = TimetableRepository(database)
-        Log.d("Test", "Dadadaaaa")
-
-        Log.d("Test", "GlobalScope")
         var day = SimpleDateFormat("dd.MM.yyyy").parse("05.02.2020")
-*/
-        //repo.fetch(source, day)
-        Log.d("Test", "Fetched stuff")
-        /*
+
+        repo.fetch(source, day)
+
         database.lessonDao.getLessons().observeForever { lessons ->
-            Log.d("Test", "Lessons update!")
-            Log.d("Test", lessons.toString())
-            lessons.forEach {
-                Log.d("Test", it.toString())
-            }
-        }*/
+            assertThat(lessons.size, greaterThan(0))
+        }
     }
 }
