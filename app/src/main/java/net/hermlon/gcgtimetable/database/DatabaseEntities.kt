@@ -4,6 +4,17 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import net.hermlon.gcgtimetable.domain.TimetableLesson
 
+@Entity
+data class DatabaseSource constructor(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long,
+    val sourceName: String,
+    val url: String,
+    val isStudent: Boolean,
+    val username: String,
+    val password: String
+)
+
 @Entity(primaryKeys = ["dayId", "number", "courseId", "className"])
 data class DatabaseLesson constructor(
     val dayId: Long,

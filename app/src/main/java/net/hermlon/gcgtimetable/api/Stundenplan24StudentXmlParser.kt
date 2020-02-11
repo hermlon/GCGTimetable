@@ -1,22 +1,14 @@
 package net.hermlon.gcgtimetable.api
 
-import android.util.Log
 import android.util.Xml
-import net.hermlon.gcgtimetable.database.TimetableDay
 import net.hermlon.gcgtimetable.network.*
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
 import java.lang.Exception
-import java.sql.Time
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeParseException
-import java.time.format.FormatStyle
 import java.util.*
-import java.util.Collections.list
 
 private val ns: String? = null
 

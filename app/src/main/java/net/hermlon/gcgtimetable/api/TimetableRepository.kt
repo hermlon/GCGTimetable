@@ -1,12 +1,10 @@
 package net.hermlon.gcgtimetable.api
 
 import android.text.format.DateFormat
-import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.TimetableDatabase
-import net.hermlon.gcgtimetable.database.TimetableSource
-import net.hermlon.gcgtimetable.database.TimetableDay
+import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import okhttp3.*
@@ -19,7 +17,7 @@ class TimetableRepository(private val database: TimetableDatabase) {
     // TODO: Inject with Dagger
     private  val client = OkHttpClient()
 
-    suspend fun fetch(source: TimetableSource, date: Date?) {
+    suspend fun fetch(source: DatabaseSource, date: Date?) {
         // don't do this on Main Thread -> coroutines?
 
         val request = Request.Builder()

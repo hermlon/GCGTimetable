@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.DatabaseLesson
 import net.hermlon.gcgtimetable.database.TimetableDatabase
-import net.hermlon.gcgtimetable.database.TimetableSource
+import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.network.NetworkLesson
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import org.hamcrest.CoreMatchers.`is`
@@ -21,7 +21,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
-import java.text.SimpleDateFormat
 
 @RunWith(AndroidJUnit4::class)
 class TimetableDatabaseTest {
@@ -77,7 +76,7 @@ class TimetableDatabaseTest {
     // TODO replace with runBlockingTest once issue is resolved
     @Test
     fun fetchXML() = runBlocking {
-        var source = TimetableSource(
+        var source = DatabaseSource(
             sourceName = "Test school",
             url = "https://www.stundenplan24.de/10000000/mobil")
         var repo = TimetableRepository(database)

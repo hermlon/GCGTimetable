@@ -5,8 +5,23 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
-interface TimetableLessonDao {
-    @Query("select * from DatabaseLesson")
+interface SourceDao {
+    @Insert
+    fun insert(source: DatabaseSource)
+
+    @Update
+    fun update(source: DatabaseSource)
+
+    @Query("SELECT * FROM DatabaseSource WHERE id = :key")
+    fun get(key: Long): LiveData<DatabaseSource>
+
+    @Query("SELECT * FROM DatabaseSource ORDER BY id DESC")
+    fun getSources(): LiveData<List<DatabaseSource>>
+}
+
+@Dao
+interface LessonDao {
+    @Query("SELECT * FROM DatabaseLesson")
     fun getLessons(): LiveData<List<DatabaseLesson>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,9 +35,8 @@ interface TimetableLessonDao {
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
 
-    abstract val lessonDao: TimetableLessonDao
-    //abstract val timetableProfileDao: TimetableProfileDao
-    //abstract val timetableSourceDao: TimetableSourceDao
+    abstract val lessonDao: LessonDao
+    abstract val sourceDao: SourceDao
 }
 
 private lateinit var INSTANCE: TimetableDatabase
