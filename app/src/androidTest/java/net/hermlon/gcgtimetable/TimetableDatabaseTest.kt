@@ -81,9 +81,9 @@ class TimetableDatabaseTest {
             sourceName = "Test school",
             url = "https://www.stundenplan24.de/10000000/mobil")
         var repo = TimetableRepository(database)
-        var day = SimpleDateFormat("dd.MM.yyyy").parse("05.02.2020")
 
-        repo.fetch(source, day)
+        // date null will fetch the latest
+        repo.fetch(source, null)
 
         database.lessonDao.getLessons().observeForever { lessons ->
             assertThat(lessons.size, greaterThan(0))

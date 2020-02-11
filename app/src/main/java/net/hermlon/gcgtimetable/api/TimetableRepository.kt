@@ -19,7 +19,7 @@ class TimetableRepository(private val database: TimetableDatabase) {
     // TODO: Inject with Dagger
     private  val client = OkHttpClient()
 
-    suspend fun fetch(source: TimetableSource, date: Date) {
+    suspend fun fetch(source: TimetableSource, date: Date?) {
         // don't do this on Main Thread -> coroutines?
 
         val request = Request.Builder()
@@ -43,14 +43,20 @@ class TimetableRepository(private val database: TimetableDatabase) {
         }
     }
 
-    private fun formatUrl(url: String, date: Date, isStudent: Boolean): String {
-        var datestring = DateFormat.format("yyyyMMdd", date)
-
-        return if(isStudent) {
-            "$url/mobdaten/PlanKl$datestring.xml"
+    private fun formatUrl(url: String, date: Date?, isStudent: Boolean): String {
+        return if(date != null) {
+            var datestring = DateFormat.format("yyyyMMdd", date)
+            if(isStudent) {
+                "$url/mobdaten/PlanKl$datestring.xml"
+            } else {
+                "$url/mobdaten/PlanLe$datestring.xml"
+            }
         } else {
-            "$url/mobdaten/PlanLe$datestring.xml"
+            //if(isStudent) {
+                "$url/mobdaten/Klassen.xml"
+            //} else {
+            // TODO: implement default for teachers
+            //}
         }
-
     }
 }
