@@ -77,8 +77,10 @@ class TimetableDatabaseTest {
     @Test
     fun fetchXML() = runBlocking {
         var source = DatabaseSource(
+            id = 0,
             sourceName = "Test school",
-            url = "https://www.stundenplan24.de/10000000/mobil")
+            url = "https://www.stundenplan24.de/10000000/mobil",
+            isStudent = true)
         var repo = TimetableRepository(database)
 
         // date null will fetch the latest

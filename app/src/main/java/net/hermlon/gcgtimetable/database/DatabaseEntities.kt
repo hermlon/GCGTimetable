@@ -11,8 +11,8 @@ data class DatabaseSource constructor(
     val sourceName: String,
     val url: String,
     val isStudent: Boolean,
-    val username: String,
-    val password: String
+    val username: String? = null,
+    val password: String? = null
 )
 
 @Entity(primaryKeys = ["dayId", "number", "courseId", "className"])

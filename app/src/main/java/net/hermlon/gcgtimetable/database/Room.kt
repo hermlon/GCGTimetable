@@ -30,7 +30,8 @@ interface LessonDao {
 }
 
 @Database(entities = [
-    DatabaseLesson::class
+    DatabaseLesson::class,
+    DatabaseSource::class
 ], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {

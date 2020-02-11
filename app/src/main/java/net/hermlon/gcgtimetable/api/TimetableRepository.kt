@@ -20,10 +20,12 @@ class TimetableRepository(private val database: TimetableDatabase) {
     suspend fun fetch(source: DatabaseSource, date: Date?) {
         // don't do this on Main Thread -> coroutines?
 
-        val request = Request.Builder()
+        var requestBuild = Request.Builder()
             .url(formatUrl(source.url, date, source.isStudent))
-            .header("Authorization", Credentials.basic(source.username, source.password))
-            .build()
+        if(source.username != null && source.password != null) {
+            requestBuild = requestBuild.header("Authorization", Credentials.basic(source.username, source.password))
+        }
+        val request = requestBuild.build()
 
         val response = client.newCall(request).await()
 
