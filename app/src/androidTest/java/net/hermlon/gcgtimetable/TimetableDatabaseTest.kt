@@ -1,6 +1,5 @@
 package net.hermlon.gcgtimetable
 
-import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4

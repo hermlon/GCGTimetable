@@ -1,0 +1,3421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VpMobil>
+  <Kopf>
+    <planart>K</planart>
+    <zeitstempel>07.02.2020, 11:42</zeitstempel>
+    <DatumPlan>Montag, 17. Februar 2020</DatumPlan>
+    <datei>PlanKl20200217.xml</datei>
+    <nativ>1</nativ>
+  </Kopf>
+  <FreieTage>
+    <ft>190801</ft>
+    <ft>190802</ft>
+    <ft>190805</ft>
+    <ft>190806</ft>
+    <ft>190807</ft>
+    <ft>190808</ft>
+    <ft>190809</ft>
+    <ft>190812</ft>
+    <ft>190813</ft>
+    <ft>190814</ft>
+    <ft>191003</ft>
+    <ft>191004</ft>
+    <ft>191010</ft>
+    <ft>191011</ft>
+    <ft>191031</ft>
+    <ft>191101</ft>
+    <ft>191115</ft>
+    <ft>200410</ft>
+    <ft>200413</ft>
+    <ft>200501</ft>
+    <ft>200519</ft>
+    <ft>200520</ft>
+    <ft>200522</ft>
+    <ft>200525</ft>
+    <ft>200526</ft>
+    <ft>200527</ft>
+    <ft>200528</ft>
+    <ft>200529</ft>
+    <ft>200724</ft>
+    <ft>200727</ft>
+    <ft>200728</ft>
+    <ft>200729</ft>
+    <ft>200730</ft>
+    <ft>200731</ft>
+  </FreieTage>
+  <Klassen>
+    <Kl>
+      <Kurz>05</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Deu">83</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh5" UeFa="Eng">84</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">85</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">86</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Geo">87</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh7" UeFa="Ges">88</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="Mat">89</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">90</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="Spo">91</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Lme">92</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh11" UeFa="EvR">93</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="Eth">94</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Mat</Fa>
+          <Le>Leh8</Le>
+          <Ra>112</Ra>
+          <Nr>89</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Eng</Fa>
+          <Le>Leh5</Le>
+          <Ra>102</Ra>
+          <Nr>84</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Deu</Fa>
+          <Le>Leh1</Le>
+          <Ra>212</Ra>
+          <Nr>83</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Ges</Fa>
+          <Le>Leh7</Le>
+          <Ra>406</Ra>
+          <Nr>88</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>93</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Eth</Fa>
+          <Le>Leh12</Le>
+          <Ra>405</Ra>
+          <Nr>94</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>93</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Eth</Fa>
+          <Le>Leh12</Le>
+          <Ra>405</Ra>
+          <Nr>94</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>10</St>
+          <Fa>Lme</Fa>
+          <Le>Leh1</Le>
+          <Ra>&amp;nbsp;</Ra>
+          <Nr>92</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>05/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh11" UeFa="EvR">93</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Deu">95</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh13" UeFa="Eng">96</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh14" UeFa="Mus">97</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">98</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Geo">99</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="Ges">100</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Mat">101</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">102</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="Spo">103</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Lme">104</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="Eth">106</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Eng</Fa>
+          <Le>Leh13</Le>
+          <Ra>105</Ra>
+          <Nr>96</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Eng</Fa>
+          <Le>Leh13</Le>
+          <Ra>105</Ra>
+          <Nr>96</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa FaAe="FaGeaendert">Deu</Fa>
+          <Le LeAe="LeGeaendert">Leh2</Le>
+          <Ra RaAe="RaGeaendert">208</Ra>
+          <Nr>101</Nr>
+          <If>für Mat Herr Leh16gk , Vertretung</If>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Mus</Fa>
+          <Le>Leh14</Le>
+          <Ra>212</Ra>
+          <Nr>97</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>93</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Eth</Fa>
+          <Le>Leh17</Le>
+          <Ra>404</Ra>
+          <Nr>106</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>93</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Eth</Fa>
+          <Le>Leh17</Le>
+          <Ra>404</Ra>
+          <Nr>106</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>05/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh11" UeFa="EvR">93</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="Deu">107</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh31" UeFa="Eng">108</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="Mus">109</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">110</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Geo">111</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="Ges">112</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="Mat">113</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">114</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="Spo">115</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="Lme">116</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">118</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh20" UeFa="Eng">460</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Mus</Fa>
+          <Le>Leh28</Le>
+          <Ra>208</Ra>
+          <Nr>109</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Mat</Fa>
+          <Le>Leh8</Le>
+          <Ra>112</Ra>
+          <Nr>113</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa FaAe="FaGeaendert">Bio</Fa>
+          <Le LeAe="LeGeaendert">Leh9</Le>
+          <Ra>112</Ra>
+          <Nr>113</Nr>
+          <If>für Mat Herr Leh8er , Vertretung</If>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Kun</Fa>
+          <Le>Leh36</Le>
+          <Ra>213</Ra>
+          <Nr>110</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>93</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Eth</Fa>
+          <Le>Leh19</Le>
+          <Ra>306</Ra>
+          <Nr>118</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>93</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Eth</Fa>
+          <Le>Leh19</Le>
+          <Ra>306</Ra>
+          <Nr>118</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>06</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="Deu">119</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh21" UeFa="Eng">120</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">121</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">122</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh22" UeFa="Geo">123</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="Lme">124</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Phy">126</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">127</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh26" UeFa="Eth">129</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="Ges">130</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="Mat">131</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">154</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="Mat">468</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="Bio">476</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Lme</Fa>
+          <Le>Leh23</Le>
+          <Ra>304</Ra>
+          <Nr>124</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Mat</Fa>
+          <Le>Leh23</Le>
+          <Ra>304</Ra>
+          <Nr>131</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Eng</Fa>
+          <Le>Leh21</Le>
+          <Ra>104</Ra>
+          <Nr>120</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Phy</Fa>
+          <Le>Leh24</Le>
+          <Ra>313</Ra>
+          <Nr>126</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Deu</Fa>
+          <Le>Leh18</Le>
+          <Ra>406</Ra>
+          <Nr>119</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Deu</Fa>
+          <Le>Leh18</Le>
+          <Ra>406</Ra>
+          <Nr>119</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>06/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh13" UeFa="Deu">132</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh21" UeFa="Eng">133</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="Mus">134</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">135</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh22" UeFa="Geo">136</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="Lme">137</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">138</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Phy">139</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Spo">140</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="Eth">142</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="Ges">143</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh22" UeFa="Mat">144</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">154</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh22" UeFa="Mat">470</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Phy</Fa>
+          <Le>Leh32</Le>
+          <Ra>308</Ra>
+          <Nr>139</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Ges</Fa>
+          <Le>Leh28</Le>
+          <Ra>208</Ra>
+          <Nr>143</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Mat</Fa>
+          <Le>Leh22</Le>
+          <Ra>307</Ra>
+          <Nr>144</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Eng</Fa>
+          <Le>Leh21</Le>
+          <Ra>307</Ra>
+          <Nr>133</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Eng</Fa>
+          <Le>Leh21</Le>
+          <Ra>307</Ra>
+          <Nr>133</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Deu</Fa>
+          <Le>Leh13</Le>
+          <Ra>102</Ra>
+          <Nr>132</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>06/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="Deu">145</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh5" UeFa="Eng">146</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">147</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">148</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Geo">149</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh5" UeFa="Lme">150</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh37" UeFa="Bio">151</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Phy">152</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Spo">153</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">154</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">155</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="Ges">156</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="Mat">157</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Spo</Fa>
+          <Le>Leh38</Le>
+          <Ra>TTO</Ra>
+          <Nr>153</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Spo</Fa>
+          <Le>Leh38</Le>
+          <Ra>TTO</Ra>
+          <Nr>153</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Kun</Fa>
+          <Le>Leh36</Le>
+          <Ra>213</Ra>
+          <Nr>148</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa FaAe="FaGeaendert">Mus</Fa>
+          <Le LeAe="LeGeaendert">Leh1</Le>
+          <Ra RaAe="RaGeaendert">408</Ra>
+          <Nr>157</Nr>
+          <If>für Mat Herr Leh8er , Vertretung</If>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Deu</Fa>
+          <Le>Leh35</Le>
+          <Ra>403</Ra>
+          <Nr>145</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Deu</Fa>
+          <Le>Leh35</Le>
+          <Ra>403</Ra>
+          <Nr>145</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>6/4</Kurz>
+      <Kurse/>
+      <Unterricht/>
+      <Pl/>
+    </Kl>
+    <Kl>
+      <Kurz>07</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh37" UeFa="Deu">158</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh5" UeFa="Eng">159</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh39" UeFa="Frz">160</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">161</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">162</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Geo">163</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh7" UeFa="Ges">164</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh22" UeFa="Mat">165</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh37" UeFa="Bio">166</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="Che">167</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">168</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Spo">169</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">170</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Inf">171</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Inf">172</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">173</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">174</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh26" UeFa="Eth">175</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Phy</Fa>
+          <Le>Leh16</Le>
+          <Ra>313</Ra>
+          <Nr>170</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>Inf</Fa>
+          <Le>Leh24</Le>
+          <Ra>305</Ra>
+          <Nr>171</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Inf</Fa>
+          <Le>Leh24</Le>
+          <Ra>305</Ra>
+          <Nr>172</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Phy</Fa>
+          <Le>Leh16</Le>
+          <Ra>313</Ra>
+          <Nr>173</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Spo</Fa>
+          <Le>Leh32</Le>
+          <Ra>TTO</Ra>
+          <Nr>169</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Spo</Fa>
+          <Le>Leh32</Le>
+          <Ra>TTO</Ra>
+          <Nr>169</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Che</Fa>
+          <Le>Leh4</Le>
+          <Ra>413</Ra>
+          <Nr>167</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Che</Fa>
+          <Le>Leh4</Le>
+          <Ra>413</Ra>
+          <Nr>167</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>07/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">191</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="Eth">193</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">174</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="Deu">176</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh40" UeFa="Eng">177</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh46" UeFa="Lat">178</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">179</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">180</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Geo">181</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="Ges">182</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh26" UeFa="Mat">183</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">184</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">186</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">187</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">188</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="Inf">189</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Inf">190</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="Che">475</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Eng</Fa>
+          <Le>Leh40</Le>
+          <Ra>104</Ra>
+          <Nr>177</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Eng</Fa>
+          <Le>Leh40</Le>
+          <Ra>104</Ra>
+          <Nr>177</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Deu</Fa>
+          <Le>Leh15</Le>
+          <Ra>408</Ra>
+          <Nr>176</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Ges</Fa>
+          <Le>Leh35</Le>
+          <Ra>403</Ra>
+          <Nr>182</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Inf</Fa>
+          <Le>Leh43</Le>
+          <Ra>302</Ra>
+          <Nr>189</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa FaAe="FaGeaendert">Inf</Fa>
+          <Le LeAe="LeGeaendert">Leh24</Le>
+          <Ra RaAe="RaGeaendert">305</Ra>
+          <Nr>190</Nr>
+          <If>verlegt von St.6; Phy Herr Leh16gk fällt aus</If>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le LeAe="LeGeaendert">&amp;nbsp;</Le>
+          <Ra RaAe="RaGeaendert">&amp;nbsp;</Ra>
+          <Nr>190</Nr>
+          <If>Inf Frau Leh24ack verlegt nach St.5</If>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Phy</Fa>
+          <Le LeAe="LeGeaendert">Leh24</Le>
+          <Ra>313</Ra>
+          <Nr>191</Nr>
+          <If>für Phy Herr Leh16gk , Vertretung</If>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>07/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">211</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Phy">209</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">174</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="Deu">194</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh40" UeFa="Eng">195</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh31" UeFa="Frz">196</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">197</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">198</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Geo">199</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh42" UeFa="Ges">200</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Mat">201</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Phy">204</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">205</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Phy">206</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">207</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">208</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="Bio">473</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="Che">474</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Deu</Fa>
+          <Le>Leh35</Le>
+          <Ra>403</Ra>
+          <Nr>194</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Deu</Fa>
+          <Le>Leh35</Le>
+          <Ra>403</Ra>
+          <Nr>194</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Phy</Fa>
+          <Le>Leh24</Le>
+          <Ra>313</Ra>
+          <Nr>204</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Eng</Fa>
+          <Le>Leh40</Le>
+          <Ra>104</Ra>
+          <Nr>195</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Kun</Fa>
+          <Le>Leh2</Le>
+          <Ra>208</Ra>
+          <Nr>198</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Ges</Fa>
+          <Le>Leh42</Le>
+          <Ra>105</Ra>
+          <Nr>200</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>08</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="Deu">212</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh14" UeFa="Eng">213</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh31" UeFa="Frz">214</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh14" UeFa="Mus">215</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">216</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Geo">217</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">218</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="Ges">219</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Mat">220</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="Che">222</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Phy">223</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="FK">225</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="FK">226</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="FK">227</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="FK">228</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">229</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">230</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="Inf">231</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">232</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Phy">233</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Phy">234</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh11" UeFa="EvR">235</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="Eth">236</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh37" UeFa="Bio">472</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">477</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Che</Fa>
+          <Le>Leh4</Le>
+          <Ra>412V</Ra>
+          <Nr>222</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Kun</Fa>
+          <Le>Leh36</Le>
+          <Ra>213</Ra>
+          <Nr>216</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>235</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Eth</Fa>
+          <Le>Leh17</Le>
+          <Ra>404</Ra>
+          <Nr>236</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>235</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Eth</Fa>
+          <Le>Leh17</Le>
+          <Ra>404</Ra>
+          <Nr>236</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Ges</Fa>
+          <Le>Leh15</Le>
+          <Ra>408</Ra>
+          <Nr>219</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Mus</Fa>
+          <Le>Leh14</Le>
+          <Ra>212</Ra>
+          <Nr>215</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Frz</Fa>
+          <Le>Leh31</Le>
+          <Ra>102</Ra>
+          <Nr>214</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>Frz</Fa>
+          <Le>Leh31</Le>
+          <Ra>102</Ra>
+          <Nr>214</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>08/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="FK">225</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="FK">226</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="FK">227</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="FK">228</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">229</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">230</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh11" UeFa="EvR">235</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Deu">237</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh46" UeFa="Eng">238</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh42" UeFa="Lat">239</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh14" UeFa="Mus">240</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">241</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Geo">242</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">243</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="Ges">244</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh22" UeFa="Mat">245</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh37" UeFa="Bio">246</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="Che">247</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="Phy">248</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="Phy">259</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">261</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="Phy">258</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="Inf">257</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="Inf">256</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Spo">478</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Mat</Fa>
+          <Le>Leh22</Le>
+          <Ra>307</Ra>
+          <Nr>245</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Mat</Fa>
+          <Le>Leh22</Le>
+          <Ra>307</Ra>
+          <Nr>245</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>235</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Eth</Fa>
+          <Le>Leh19</Le>
+          <Ra>306</Ra>
+          <Nr>261</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>235</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Eth</Fa>
+          <Le>Leh19</Le>
+          <Ra>306</Ra>
+          <Nr>261</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Mus</Fa>
+          <Le>Leh14</Le>
+          <Ra>212</Ra>
+          <Nr>240</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Ges</Fa>
+          <Le>Leh15</Le>
+          <Ra>408</Ra>
+          <Nr>244</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>08/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="FK">225</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="FK">226</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="FK">227</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="FK">228</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">229</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">230</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh11" UeFa="EvR">235</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">282</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">285</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">284</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="Eth">283</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">280</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Inf">286</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh7" UeFa="Deu">269</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh5" UeFa="Eng">270</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4t" UeFa="Lat">271</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh14" UeFa="Mus">272</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">273</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Geo">274</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">275</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh7" UeFa="Ges">276</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Mat">277</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="Bio">278</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="Che">279</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Spo">479</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Eng</Fa>
+          <Le>Leh5</Le>
+          <Ra>102</Ra>
+          <Nr>270</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Deu</Fa>
+          <Le>Leh7</Le>
+          <Ra>108</Ra>
+          <Nr>269</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>235</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Eth</Fa>
+          <Le>Leh12</Le>
+          <Ra>405</Ra>
+          <Nr>283</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>EvR</Fa>
+          <Le>Leh11</Le>
+          <Ra>108</Ra>
+          <Nr>235</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Eth</Fa>
+          <Le>Leh12</Le>
+          <Ra>405</Ra>
+          <Nr>283</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>275</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Bio</Fa>
+          <Le>Leh30</Le>
+          <Ra>107</Ra>
+          <Nr>278</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Lat</Fa>
+          <Le>Leh4t</Le>
+          <Ra>106</Ra>
+          <Nr>271</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>09</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="Deu">287</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh41" UeFa="Eng">288</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh39" UeFa="Frz">289</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="Mus">290</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">291</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Geo">292</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">293</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="Ges">294</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh52" UeFa="Mat">295</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh52" UeFa="Mat">296</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">297</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="Che">298</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="Phy">299</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Spo">300</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Ast">301</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="WoU">302</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="WoU">303</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="WoU">304</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">305</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">306</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">307</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="Inf">308</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="Inf">309</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh49" UeFa="EvR">310</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="Eth">311</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">312</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="WoU">315</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Geo</Fa>
+          <Le>Leh19</Le>
+          <Ra>306</Ra>
+          <Nr>292</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Geo</Fa>
+          <Le>Leh19</Le>
+          <Ra>306</Ra>
+          <Nr>292</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Deu</Fa>
+          <Le>Leh18</Le>
+          <Ra>406</Ra>
+          <Nr>287</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>293</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Frz</Fa>
+          <Le>Leh39</Le>
+          <Ra>106</Ra>
+          <Nr>289</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Inf</Fa>
+          <Le LeAe="LeGeaendert">&amp;nbsp;</Le>
+          <Ra>303</Ra>
+          <Nr>308</Nr>
+          <If>Aufsicht Hr. Leh43el</If>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Inf</Fa>
+          <Le>Leh43</Le>
+          <Ra>302</Ra>
+          <Nr>309</Nr>
+          <If>gesamte Klasse 09, Aufsicht über Gruppe von Hr. Leh8er</If>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Che</Fa>
+          <Le>Leh29</Le>
+          <Ra>413</Ra>
+          <Nr>298</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le>&amp;nbsp;</Le>
+          <Ra>&amp;nbsp;</Ra>
+          <Nr>295</Nr>
+          <If>Mat Herr Leh52ke verlegt nach Di (18.02.) St.5</If>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>09/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="WoU">302</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="WoU">303</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="WoU">304</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">305</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">306</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">307</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh49" UeFa="EvR">310</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="Eth">311</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">312</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="Inf">338</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Ast">330</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="WoU">315</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="Deu">316</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh40" UeFa="Eng">317</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh46" UeFa="Lat">318</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="Mus">319</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">320</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Geo">321</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">322</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Ges">323</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">337</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Mat">325</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">326</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="Che">327</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Phy">328</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">329</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Lat</Fa>
+          <Le>Leh46</Le>
+          <Ra>103</Ra>
+          <Nr>318</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Lat</Fa>
+          <Le>Leh46</Le>
+          <Ra>103</Ra>
+          <Nr>318</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Inf</Fa>
+          <Le>Leh38</Le>
+          <Ra>305</Ra>
+          <Nr>337</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Inf</Fa>
+          <Le>Leh43</Le>
+          <Ra>302</Ra>
+          <Nr>338</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Inf</Fa>
+          <Le>Leh38</Le>
+          <Ra>305</Ra>
+          <Nr>337</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Inf</Fa>
+          <Le>Leh43</Le>
+          <Ra>302</Ra>
+          <Nr>338</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Phy</Fa>
+          <Le>Leh44</Le>
+          <Ra RaAe="RaGeaendert">213</Ra>
+          <Nr>328</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Ast</Fa>
+          <Le>Leh44</Le>
+          <Ra RaAe="RaGeaendert">308</Ra>
+          <Nr>330</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Deu</Fa>
+          <Le>Leh18</Le>
+          <Ra>406</Ra>
+          <Nr>316</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>Eng</Fa>
+          <Le>Leh40</Le>
+          <Ra>104</Ra>
+          <Nr>317</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>09/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="WoU">302</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="WoU">303</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="WoU">304</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">305</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">306</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="JIA">307</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh49" UeFa="EvR">310</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="Eth">311</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">312</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="WoU">315</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="Ges">358</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">357</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Geo">356</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">359</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="Mat">360</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="Bio">361</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Spo">364</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="Phy">363</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="Inf">348</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Ast">349</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="Kun">355</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="Deu">351</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh5" UeFa="Eng">352</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh42" UeFa="Lat">353</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh20" UeFa="Mus">354</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="Che">471</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Deu</Fa>
+          <Le>Leh15</Le>
+          <Ra>408</Ra>
+          <Nr>351</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Deu</Fa>
+          <Le>Leh15</Le>
+          <Ra>408</Ra>
+          <Nr>351</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Ges</Fa>
+          <Le>Leh35</Le>
+          <Ra>403</Ra>
+          <Nr>358</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Kun</Fa>
+          <Le>Leh2</Le>
+          <Ra>208</Ra>
+          <Nr>355</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Lat</Fa>
+          <Le>Leh42</Le>
+          <Ra>105</Ra>
+          <Nr>353</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>357</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Ast</Fa>
+          <Le>Leh44</Le>
+          <Ra>312V</Ra>
+          <Nr>349</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>Bio</Fa>
+          <Le>Leh30</Le>
+          <Ra>107</Ra>
+          <Nr>361</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>10</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh21" UeFa="Soz">445</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh13" UeFa="Deu">365</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh13" UeFa="Eng">366</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh39" UeFa="Frz">367</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh20" UeFa="Mus">368</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">369</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="Ges">370</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="Mat">371</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">372</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="Bio">373</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="Che">374</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="Che">375</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh52" UeFa="Phy">376</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">377</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="WoU">378</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Spo">379</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="Spo">380</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="WoU">381</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="WoU">382</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="WoU">383</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="WoU">384</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">412</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">413</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="Inf">387</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">388</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">389</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="Eth">390</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">391</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">395</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Geo">396</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">444</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>369</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>Geo</Fa>
+          <Le>Leh32</Le>
+          <Ra>404</Ra>
+          <Nr>396</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>Soz</Fa>
+          <Le>Leh21</Le>
+          <Ra>106</Ra>
+          <Nr>445</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>369</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Geo</Fa>
+          <Le>Leh32</Le>
+          <Ra>404</Ra>
+          <Nr>396</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Soz</Fa>
+          <Le>Leh21</Le>
+          <Ra>106</Ra>
+          <Nr>445</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Mat</Fa>
+          <Le>Leh23</Le>
+          <Ra RaAe="RaGeaendert">113V</Ra>
+          <Nr>371</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Mat</Fa>
+          <Le>Leh23</Le>
+          <Ra RaAe="RaGeaendert">113V</Ra>
+          <Nr>371</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Phy</Fa>
+          <Le>Leh52</Le>
+          <Ra>308</Ra>
+          <Nr>376</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Che</Fa>
+          <Le>Leh29</Le>
+          <Ra>412V</Ra>
+          <Nr>375</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Ges</Fa>
+          <Le>Leh15</Le>
+          <Ra>408</Ra>
+          <Nr>370</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>10/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh21" UeFa="Soz">445</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh20" UeFa="Mus">368</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">369</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">377</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="WoU">378</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Spo">379</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="Spo">380</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="WoU">381</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="WoU">382</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="WoU">383</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="WoU">384</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">412</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">413</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">389</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="Eth">390</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">391</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh7" UeFa="Deu">392</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh41" UeFa="Eng">393</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4t" UeFa="Lat">394</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">395</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Geo">396</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="Ges">397</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Mat">398</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="Bio">399</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="Bio">400</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="Che">401</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="Che">402</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="Phy">403</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">415</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="Inf">414</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">444</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>369</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>Geo</Fa>
+          <Le>Leh32</Le>
+          <Ra>404</Ra>
+          <Nr>396</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>Soz</Fa>
+          <Le>Leh21</Le>
+          <Ra>106</Ra>
+          <Nr>445</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>369</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Geo</Fa>
+          <Le>Leh32</Le>
+          <Ra>404</Ra>
+          <Nr>396</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Soz</Fa>
+          <Le>Leh21</Le>
+          <Ra>106</Ra>
+          <Nr>445</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Mat</Fa>
+          <Le>Leh44</Le>
+          <Ra>308</Ra>
+          <Nr>398</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Mat</Fa>
+          <Le>Leh44</Le>
+          <Ra>308</Ra>
+          <Nr>398</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Deu</Fa>
+          <Le>Leh7</Le>
+          <Ra RaAe="RaGeaendert">103</Ra>
+          <Nr>392</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Deu</Fa>
+          <Le>Leh7</Le>
+          <Ra RaAe="RaGeaendert">103</Ra>
+          <Nr>392</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Bio</Fa>
+          <Le>Leh30</Le>
+          <Ra>107</Ra>
+          <Nr>400</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>10/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh21" UeFa="Soz">445</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="Inf">443</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="Phy">441</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh20" UeFa="Mus">368</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="Soz">369</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="Spo">377</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="WoU">378</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Spo">379</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="Spo">380</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="WoU">381</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="WoU">382</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="WoU">383</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="WoU">384</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">412</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh48" UeFa="Spa">413</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="EvR">389</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="Eth">390</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="Eth">391</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="Mus">395</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Geo">396</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="Che">439</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="Mat">436</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh46" UeFa="Lat">432</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="Ges">435</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Kun">444</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh40" UeFa="Eng">431</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="Deu">430</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh8" UeFa="Inf">442</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="Che">440</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="Bio">438</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="Bio">437</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>369</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>Geo</Fa>
+          <Le>Leh32</Le>
+          <Ra>404</Ra>
+          <Nr>396</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>Soz</Fa>
+          <Le>Leh21</Le>
+          <Ra>106</Ra>
+          <Nr>445</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Soz</Fa>
+          <Le>Leh6</Le>
+          <Ra>207</Ra>
+          <Nr>369</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Geo</Fa>
+          <Le>Leh32</Le>
+          <Ra>404</Ra>
+          <Nr>396</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>Soz</Fa>
+          <Le>Leh21</Le>
+          <Ra>106</Ra>
+          <Nr>445</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>Mat</Fa>
+          <Le>Leh32</Le>
+          <Ra RaAe="RaGeaendert">107</Ra>
+          <Nr>436</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>Mat</Fa>
+          <Le>Leh32</Le>
+          <Ra RaAe="RaGeaendert">107</Ra>
+          <Nr>436</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Eng</Fa>
+          <Le>Leh40</Le>
+          <Ra>104</Ra>
+          <Nr>431</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>Eng</Fa>
+          <Le>Leh40</Le>
+          <Ra>104</Ra>
+          <Nr>431</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>Deu</Fa>
+          <Le>Leh36</Le>
+          <Ra>213</Ra>
+          <Nr>430</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>Deu</Fa>
+          <Le>Leh36</Le>
+          <Ra>213</Ra>
+          <Nr>430</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>11</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh37" UeFa="bioM">1</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="cheM">2</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh15" UeFa="deuL1">3</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="eth1">4</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh39" UeFa="frz1">5</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh22" UeFa="geo1">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh9" UeFa="bio1">447</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="inw1">8</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="kun1">9</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh51" UeFa="matL2">10</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="deu1">446</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh5" UeFa="deu2">448</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="spo1">13</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>bio1</Fa>
+          <Le>Leh9</Le>
+          <Ra>113V</Ra>
+          <Nr>447</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>bio1</Fa>
+          <Le>Leh9</Le>
+          <Ra>113V</Ra>
+          <Nr>447</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>frz1</Fa>
+          <Le>Leh39</Le>
+          <Ra>106</Ra>
+          <Nr>5</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>frz1</Fa>
+          <Le>Leh39</Le>
+          <Ra>106</Ra>
+          <Nr>5</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>matL2</Fa>
+          <Le>Leh51</Le>
+          <Ra>112</Ra>
+          <Nr>10</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>deu1</Fa>
+          <Le>Leh36</Le>
+          <Ra>213</Ra>
+          <Nr>446</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>spo1</Fa>
+          <Le>Leh32</Le>
+          <Ra>SH</Ra>
+          <Nr>13</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>spo1</Fa>
+          <Le>Leh32</Le>
+          <Ra>SH</Ra>
+          <Nr>13</Nr>
+          <If/>
+        </Std>
+      </Pl>
+      <Klausuren>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>ges2</KlKurs>
+          <KlKursleiter>Leh28</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>frz1</KlKurs>
+          <KlKursleiter>Leh39</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat1</KlKurs>
+          <KlKursleiter>Leh46</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat2</KlKurs>
+          <KlKursleiter>Leh42</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+      </Klausuren>
+    </Kl>
+    <Kl>
+      <Kurz>11/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="bioL2">14</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="che1">15</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh41" UeFa="engL1">450</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="eth2">19</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="ges2">20</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="ges1">453</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="matL3">22</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="mus1">23</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh40" UeFa="engL2">451</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4t" UeFa="eng1">452</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="soz1">26</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="spo2">27</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="inw2">449</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>che1</Fa>
+          <Le>Leh47</Le>
+          <Ra>413</Ra>
+          <Nr>15</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>che1</Fa>
+          <Le>Leh47</Le>
+          <Ra>413</Ra>
+          <Nr>15</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>ges2</Fa>
+          <Le>Leh28</Le>
+          <Ra>402</Ra>
+          <Nr>20</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>ges2</Fa>
+          <Le>Leh28</Le>
+          <Ra>402</Ra>
+          <Nr>20</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>matL3</Fa>
+          <Le>Leh32</Le>
+          <Ra RaAe="RaGeaendert">107</Ra>
+          <Nr>22</Nr>
+          <If>Raumänderung</If>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>eng1</Fa>
+          <Le>Leh4t</Le>
+          <Ra>106</Ra>
+          <Nr>452</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>spo2</Fa>
+          <Le>Leh25</Le>
+          <Ra>TTO</Ra>
+          <Nr>27</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>spo2</Fa>
+          <Le>Leh25</Le>
+          <Ra>TTO</Ra>
+          <Nr>27</Nr>
+          <If/>
+        </Std>
+      </Pl>
+      <Klausuren>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>ges2</KlKurs>
+          <KlKursleiter>Leh28</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>frz1</KlKurs>
+          <KlKursleiter>Leh39</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat1</KlKurs>
+          <KlKursleiter>Leh46</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat2</KlKurs>
+          <KlKursleiter>Leh42</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+      </Klausuren>
+    </Kl>
+    <Kl>
+      <Kurz>11/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh16" UeFa="phy1">459</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh52" UeFa="phyL2">457</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh46" UeFa="lat1">458</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="phyM">456</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh18" UeFa="ges3">34</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="infL1">35</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="matM">36</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="mus2">37</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="soz2">38</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="spo3">39</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="evr1">454</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="psy1">455</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>ges3</Fa>
+          <Le>Leh18</Le>
+          <Ra>406</Ra>
+          <Nr>34</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>ges3</Fa>
+          <Le>Leh18</Le>
+          <Ra>406</Ra>
+          <Nr>34</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>lat1</Fa>
+          <Le>Leh46</Le>
+          <Ra>103</Ra>
+          <Nr>458</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>lat1</Fa>
+          <Le>Leh46</Le>
+          <Ra>103</Ra>
+          <Nr>458</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>matM</Fa>
+          <Le>Leh50</Le>
+          <Ra>113V</Ra>
+          <Nr>36</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>spo3</Fa>
+          <Le>Leh10</Le>
+          <Ra>TaS1</Ra>
+          <Nr>39</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>spo3</Fa>
+          <Le>Leh10</Le>
+          <Ra>TaS1</Ra>
+          <Nr>39</Nr>
+          <If/>
+        </Std>
+      </Pl>
+      <Klausuren>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>ges2</KlKurs>
+          <KlKursleiter>Leh28</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>frz1</KlKurs>
+          <KlKursleiter>Leh39</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat1</KlKurs>
+          <KlKursleiter>Leh46</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat2</KlKurs>
+          <KlKursleiter>Leh42</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+      </Klausuren>
+    </Kl>
+    <Kl>
+      <Kurz>11/4</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh42" UeFa="lat2">40</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>3</St>
+          <Fa>lat2</Fa>
+          <Le>Leh42</Le>
+          <Ra>105</Ra>
+          <Nr>40</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>lat2</Fa>
+          <Le>Leh42</Le>
+          <Ra>105</Ra>
+          <Nr>40</Nr>
+          <If/>
+        </Std>
+      </Pl>
+      <Klausuren>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>ges2</KlKurs>
+          <KlKursleiter>Leh28</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>frz1</KlKurs>
+          <KlKursleiter>Leh39</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>135</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat1</KlKurs>
+          <KlKursleiter>Leh46</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+        <Klausur>
+          <KlJahrgang>11</KlJahrgang>
+          <KlKurs>lat2</KlKurs>
+          <KlKursleiter>Leh42</KlKursleiter>
+          <KlStunde>3</KlStunde>
+          <KlBeginn>09:25</KlBeginn>
+          <KlDauer>90</KlDauer>
+          <KlKinfo/>
+        </Klausur>
+      </Klausuren>
+    </Kl>
+    <Kl>
+      <Kurz>12</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="bioM">41</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="cheM">42</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh47" UeFa="psy1">54</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh10" UeFa="spo1">55</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh1" UeFa="deu1">45</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="eth1">46</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh39" UeFa="frz1">47</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh32" UeFa="geo1">48</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh7" UeFa="ges1">49</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh24" UeFa="inw1">50</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh36" UeFa="kun1">51</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh51" UeFa="mat1">52</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh45" UeFa="phyM">53</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>deu1</Fa>
+          <Le>Leh1</Le>
+          <Ra>212</Ra>
+          <Nr>45</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>deu1</Fa>
+          <Le>Leh1</Le>
+          <Ra>212</Ra>
+          <Nr>45</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>cheM</Fa>
+          <Le>Leh47</Le>
+          <Ra>412V</Ra>
+          <Nr>42</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>cheM</Fa>
+          <Le>Leh47</Le>
+          <Ra>412V</Ra>
+          <Nr>42</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>spo1</Fa>
+          <Le>Leh10</Le>
+          <Ra>TaS1</Ra>
+          <Nr>55</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>spo1</Fa>
+          <Le>Leh10</Le>
+          <Ra>TaS1</Ra>
+          <Nr>55</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>frz1</Fa>
+          <Le>Leh39</Le>
+          <Ra>103</Ra>
+          <Nr>47</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>frz1</Fa>
+          <Le>Leh39</Le>
+          <Ra>103</Ra>
+          <Nr>47</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>12/2</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh30" UeFa="bio2">56</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh4" UeFa="che1">57</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh29" UeFa="chw1">58</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh25" UeFa="spo2">69</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh2" UeFa="deu2">60</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh19" UeFa="eth2">61</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh35" UeFa="ges2">62</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh42" UeFa="lat1">63</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh23" UeFa="matM">64</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh28" UeFa="mus1">65</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh52" UeFa="phw1">66</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh52" UeFa="phy2">67</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh6" UeFa="soz1">68</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>deu2</Fa>
+          <Le>Leh2</Le>
+          <Ra>402</Ra>
+          <Nr>60</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>deu2</Fa>
+          <Le>Leh2</Le>
+          <Ra>402</Ra>
+          <Nr>60</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>che1</Fa>
+          <Le>Leh4</Le>
+          <Ra>413</Ra>
+          <Nr>57</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>che1</Fa>
+          <Le>Leh4</Le>
+          <Ra>413</Ra>
+          <Nr>57</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>spo2</Fa>
+          <Le>Leh25</Le>
+          <Ra>TTO</Ra>
+          <Nr>69</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>spo2</Fa>
+          <Le>Leh25</Le>
+          <Ra>TTO</Ra>
+          <Nr>69</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>lat1</Fa>
+          <Le>Leh42</Le>
+          <Ra>105</Ra>
+          <Nr>63</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>lat1</Fa>
+          <Le>Leh42</Le>
+          <Ra>105</Ra>
+          <Nr>63</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>12/3</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh12" UeFa="deu3">70</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh40" UeFa="eng1">71</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh13" UeFa="eng2">72</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh41" UeFa="eng3">73</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh38" UeFa="spo3">81</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh17" UeFa="evr1">75</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh42" UeFa="ges3">76</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh43" UeFa="inf1">77</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh44" UeFa="mat2">78</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh14" UeFa="mus2">79</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh27" UeFa="soz2">80</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>deu3</Fa>
+          <Le>Leh12</Le>
+          <Ra>405</Ra>
+          <Nr>70</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>deu3</Fa>
+          <Le>Leh12</Le>
+          <Ra>405</Ra>
+          <Nr>70</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>eng2</Fa>
+          <Le>Leh13</Le>
+          <Ra>102</Ra>
+          <Nr>72</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>eng2</Fa>
+          <Le>Leh13</Le>
+          <Ra>102</Ra>
+          <Nr>72</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>spo3</Fa>
+          <Le>Leh38</Le>
+          <Ra>TaS2</Ra>
+          <Nr>81</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>spo3</Fa>
+          <Le>Leh38</Le>
+          <Ra>TaS2</Ra>
+          <Nr>81</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>inf1</Fa>
+          <Le>Leh43</Le>
+          <Ra>302</Ra>
+          <Nr>77</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>inf1</Fa>
+          <Le>Leh43</Le>
+          <Ra>302</Ra>
+          <Nr>77</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>12/4</Kurz>
+      <Kurse/>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Leh50" UeFa="inf2">82</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>3</St>
+          <Fa>inf2</Fa>
+          <Le>Leh50</Le>
+          <Ra>303</Ra>
+          <Nr>82</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>inf2</Fa>
+          <Le>Leh50</Le>
+          <Ra>303</Ra>
+          <Nr>82</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+  </Klassen>
+  <ZusatzInfo>
+    <ZiZeile>Die Vorbereitungskurse für das Kuchenwettwerfen finden Freitag bis Mittwoch jeweils 8. - 3. Hofpause. statt</ZiZeile>
+    <ZiZeile/>
+    <ZiZeile>5. Klasse. hat den ganzen Tag frei</ZiZeile>
+    <ZiZeile>6. Klasse Lehrer 007</ZiZeile>
+    <ZiZeile>9. klasse ist cool!</ZiZeile>
+  </ZusatzInfo>
+</VpMobil>

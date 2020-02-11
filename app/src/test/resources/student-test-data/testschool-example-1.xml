@@ -1,0 +1,4608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VpMobil>
+  <Kopf>
+    <planart>K</planart>
+    <zeitstempel>05.02.2020, 09:39</zeitstempel>
+    <DatumPlan>Mittwoch, 05. Februar 2020</DatumPlan>
+    <datei>PlanKl20200205.xml</datei>
+    <nativ>1</nativ>
+  </Kopf>
+  <FreieTage>
+    <ft>190801</ft>
+    <ft>190802</ft>
+    <ft>190805</ft>
+    <ft>190806</ft>
+    <ft>190807</ft>
+    <ft>190808</ft>
+    <ft>190809</ft>
+    <ft>190812</ft>
+    <ft>190813</ft>
+    <ft>190814</ft>
+    <ft>190815</ft>
+    <ft>190816</ft>
+    <ft>190920</ft>
+    <ft>191003</ft>
+    <ft>191031</ft>
+    <ft>191223</ft>
+    <ft>191224</ft>
+    <ft>191225</ft>
+    <ft>191226</ft>
+    <ft>191227</ft>
+    <ft>191230</ft>
+    <ft>191231</ft>
+    <ft>200101</ft>
+    <ft>200102</ft>
+    <ft>200103</ft>
+    <ft>200210</ft>
+    <ft>200211</ft>
+    <ft>200212</ft>
+    <ft>200213</ft>
+    <ft>200214</ft>
+    <ft>200406</ft>
+    <ft>200407</ft>
+    <ft>200408</ft>
+    <ft>200409</ft>
+    <ft>200410</ft>
+    <ft>200413</ft>
+    <ft>200414</ft>
+    <ft>200415</ft>
+    <ft>200416</ft>
+    <ft>200417</ft>
+    <ft>200501</ft>
+    <ft>200521</ft>
+    <ft>200522</ft>
+    <ft>200601</ft>
+    <ft>200720</ft>
+    <ft>200721</ft>
+    <ft>200722</ft>
+    <ft>200723</ft>
+    <ft>200724</ft>
+    <ft>200727</ft>
+    <ft>200728</ft>
+    <ft>200729</ft>
+    <ft>200730</ft>
+    <ft>200731</ft>
+  </FreieTage>
+  <Klassen>
+    <Kl>
+      <Kurz>5a</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Her">Fö1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kin">Fö2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zub">REe</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Leh">TCi</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">TCw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="BIO">1</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ack" UeFa="DE">2</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="No" UeFa="DaZ">3</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ack" UeFa="EN">4</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH">5</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">7</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Her" UeFa="FÖ" UeGr="Fö1">8</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="FÖ" UeGr="Fö2">9</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Her" UeFa="GE">10</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">11</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ri" UeFa="MA">13</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">14</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="REe" UeGr="REe">15</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO">16</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="TC" UeGr="TCi">17</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="TC" UeGr="TCw">18</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>MA</Fa>
+          <Le>Ri</Le>
+          <Ra>206</Ra>
+          <Nr>13</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>MA</Fa>
+          <Le>Ri</Le>
+          <Ra>206</Ra>
+          <Nr>13</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>DE</Fa>
+          <Le>Ack</Le>
+          <Ra>111</Ra>
+          <Nr>2</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE</Fa>
+          <Le>Ack</Le>
+          <Ra>111</Ra>
+          <Nr>2</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>GE</Fa>
+          <Le>Her</Le>
+          <Ra>109</Ra>
+          <Nr>10</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>MU</Fa>
+          <Le>Zie</Le>
+          <Ra>03</Ra>
+          <Nr>14</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>MU</Fa>
+          <Le>Zie</Le>
+          <Ra>03</Ra>
+          <Nr>14</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>5b</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Krü">Fö1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Hof">Fö2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zub">REe</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Mar">REk</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kin">TCi</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">TCw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="REe" UeGr="REe">15</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="BIO">19</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="No" UeFa="DE">20</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="EN">21</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="ETH">22</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hof" UeFa="FÖ" UeGr="Fö2">23</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="FÖ" UeGr="Fö1">24</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hau" UeFa="GE">25</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="GEO">26</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gun" UeFa="KU">27</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="MA">28</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="MU">29</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Mar" UeFa="REk" UeGr="REk">30</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO">31</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="TC" UeGr="TCw">32</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="TC" UeGr="TCi">33</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>DE</Fa>
+          <Le>No</Le>
+          <Ra>111</Ra>
+          <Nr>20</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>DE</Fa>
+          <Le>No</Le>
+          <Ra>111</Ra>
+          <Nr>20</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>BIO</Fa>
+          <Le>Ze</Le>
+          <Ra>204</Ra>
+          <Nr>19</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>BIO</Fa>
+          <Le>Ze</Le>
+          <Ra>204</Ra>
+          <Nr>19</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Fö2</Fa>
+          <Ku2>Fö2</Ku2>
+          <Le>Hof</Le>
+          <Ra>302</Ra>
+          <Nr>23</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>Fö1</Fa>
+          <Ku2>Fö1</Ku2>
+          <Le>Krü</Le>
+          <Ra>A202</Ra>
+          <Nr>24</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>EN</Fa>
+          <Le>Da</Le>
+          <Ra>09</Ra>
+          <Nr>21</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>209</Ra>
+          <Nr>30</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>5c</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="No">Fö1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ot">Fö2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">TCi</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ze">TCw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="BIO">34</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hof" UeFa="DE">35</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hof" UeFa="EN">36</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH">37</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="No" UeFa="FÖ" UeGr="Fö1">38</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ot" UeFa="FÖ" UeGr="Fö2">39</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GE">40</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="GEO">41</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="KU">42</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zo" UeFa="MA">43</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">44</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO">45</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="TC" UeGr="TCi">46</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="TC" UeGr="TCw">47</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>SPO</Fa>
+          <Le>Bl</Le>
+          <Ra>TH1</Ra>
+          <Nr>45</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>SPO</Fa>
+          <Le>Bl</Le>
+          <Ra>TH1</Ra>
+          <Nr>45</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>DE</Fa>
+          <Le>Hof</Le>
+          <Ra>209</Ra>
+          <Nr>35</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE</Fa>
+          <Le>Hof</Le>
+          <Ra>209</Ra>
+          <Nr>35</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>GE</Fa>
+          <Le>Gatt</Le>
+          <Ra>109</Ra>
+          <Nr>40</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>MA</Fa>
+          <Le>Zo</Le>
+          <Ra>206</Ra>
+          <Nr>43</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>GEO</Fa>
+          <Le>Ilg</Le>
+          <Ra>A107</Ra>
+          <Nr>41</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>5d</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Sei">Fö1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Pau">Fö2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Leh">TCi</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ze">TCw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="BIO">48</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Vo" UeFa="DE">49</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Srei" UeFa="EN">50</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH">51</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="FÖ" UeGr="Fö2">52</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sei" UeFa="FÖ" UeGr="Fö1">53</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GE">54</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="GEO">55</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="KU">56</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wün" UeFa="MA">57</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">58</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO">59</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="TC" UeGr="TCw">60</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="TC" UeGr="TCi">61</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>EN</Fa>
+          <Le>Srei</Le>
+          <Ra>A211</Ra>
+          <Nr>50</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>EN</Fa>
+          <Le>Srei</Le>
+          <Ra>A211</Ra>
+          <Nr>50</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>GEO</Fa>
+          <Le>Ilg</Le>
+          <Ra>106</Ra>
+          <Nr>55</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>GEO</Fa>
+          <Le>Ilg</Le>
+          <Ra>106</Ra>
+          <Nr>55</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>MA</Fa>
+          <Le>Wün</Le>
+          <Ra>A212</Ra>
+          <Nr>57</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>MA</Fa>
+          <Le>Wün</Le>
+          <Ra>A212</Ra>
+          <Nr>57</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>6a</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Krü">Eth1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">Eth2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wi">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zob">LA6</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ol">SPO</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Leh">TCi</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ze">TCw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hau" UeFa="BIO">62</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ra" UeFa="DE">63</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="EN">64</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH" UeGr="Eth2">65</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="Eth1">66</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="FR" UeGr="FR1">67</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR2">68</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FÖ">69</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hau" UeFa="GE">70</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="GEO">71</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="KU">72</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="LA" UeGr="LA6">73</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="MA">74</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="MU">75</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="PH">76</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="REe">77</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ra" UeFa="SIVO">78</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="SIVO">79</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ol" UeFa="SPO" UeGr="SPO">80</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO">81</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="TC" UeGr="TCw">82</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="TC" UeGr="TCi">83</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>3</St>
+          <Fa>MA</Fa>
+          <Le>Do</Le>
+          <Ra>A212</Ra>
+          <Nr>74</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>MA</Fa>
+          <Le>Do</Le>
+          <Ra>A212</Ra>
+          <Nr>74</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>BIO</Fa>
+          <Le>Hau</Le>
+          <Ra>208</Ra>
+          <Nr>62</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>DE</Fa>
+          <Le>Ra</Le>
+          <Ra>302</Ra>
+          <Nr>63</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>FÖ</Fa>
+          <Le>Kl</Le>
+          <Ra>302</Ra>
+          <Nr>69</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>6b</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Krü">Eth1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">Eth2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wi">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zob">LA6</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Mar">REk</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Leh">TCi</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ze">TCw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Mar" UeFa="REk" UeGr="REk">30</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH" UeGr="Eth2">65</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="Eth1">66</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="FR" UeGr="FR1">67</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR2">68</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="LA" UeGr="LA6">73</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BIO">84</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="DE">85</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="EN">86</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FÖ">87</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="GE">88</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">89</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="KU">90</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="MA">91</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="MU">92</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PH">93</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ber" UeFa="SPO">94</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ber" UeFa="SPO">95</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="TC" UeGr="TCi">96</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="TC" UeGr="TCw">97</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>GE</Fa>
+          <Le>Stei</Le>
+          <Ra>103</Ra>
+          <Nr>88</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>GE</Fa>
+          <Le>Stei</Le>
+          <Ra>103</Ra>
+          <Nr>88</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>MA</Fa>
+          <Le>Kin</Le>
+          <Ra>302</Ra>
+          <Nr>91</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>MA</Fa>
+          <Le>Kin</Le>
+          <Ra>302</Ra>
+          <Nr>91</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>DE</Fa>
+          <Le>Ung</Le>
+          <Ra>Extra</Ra>
+          <Nr>85</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>MU</Fa>
+          <Le>Zub</Le>
+          <Ra>03</Ra>
+          <Nr>92</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>209</Ra>
+          <Nr>30</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>EN</Fa>
+          <Le>Red</Le>
+          <Ra>209</Ra>
+          <Nr>86</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>6c</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Ot">DaZ1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">Eth1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">Eth2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wi">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zob">LA6</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ru">TCi</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ze">TCw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">6</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH" UeGr="Eth2">65</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="Eth1">66</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="FR" UeGr="FR1">67</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR2">68</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="LA" UeGr="LA6">73</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BIO">98</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="DE">99</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ot" UeFa="DaZ" UeGr="DaZ1">100</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Rei" UeFa="EN">101</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="FÖ">102</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Rei" UeFa="GE">103</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="GEO">104</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">105</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="MA">106</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">107</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zo" UeFa="PH">108</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO">109</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO">110</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ru" UeFa="TC" UeGr="TCi">111</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="TC" UeGr="TCw">112</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>SPO</Fa>
+          <Le>Frö</Le>
+          <Ra>TH2</Ra>
+          <Nr>110</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>SPO</Fa>
+          <Le>Frö</Le>
+          <Ra>TH2</Ra>
+          <Nr>110</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>DE</Fa>
+          <Le>Pau</Le>
+          <Ra>A202</Ra>
+          <Nr>99</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE</Fa>
+          <Le>Pau</Le>
+          <Ra>A202</Ra>
+          <Nr>99</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>FÖ</Fa>
+          <Le>Kin</Le>
+          <Ra>03</Ra>
+          <Nr>102</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>TCi</Fa>
+          <Ku2>TCi</Ku2>
+          <Le>Ru</Le>
+          <Ra>-108</Ra>
+          <Nr>111</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>TCw</Fa>
+          <Ku2>TCw</Ku2>
+          <Le>Ze</Le>
+          <Ra>108</Ra>
+          <Nr>112</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>EN</Fa>
+          <Le>Rei</Le>
+          <Ra>A202</Ra>
+          <Nr>101</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>GEO</Fa>
+          <Le>Ilg</Le>
+          <Ra>A107</Ra>
+          <Nr>104</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>7a</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Wi">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kl">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ru">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA7</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zub">REe</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="FM D">7</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="BIO">113</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Spe" UeFa="CH">114</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Vo" UeFa="DE">115</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ber" UeFa="EN">116</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH">117</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR2">118</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR1">119</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tei" UeFa="GE">120</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">121</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF1">122</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ru" UeFa="INF" UeGr="INF2">123</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">124</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA7">125</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="MA">126</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">127</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PH">128</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="REe" UeGr="REe">129</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wün" UeFa="SPO">130</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>DE</Fa>
+          <Le>Vo</Le>
+          <Ra>209</Ra>
+          <Nr>115</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>DE</Fa>
+          <Le>Vo</Le>
+          <Ra>209</Ra>
+          <Nr>115</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>ETH</Fa>
+          <Le>Krü</Le>
+          <Ra>110</Ra>
+          <Nr>117</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>REe</Fa>
+          <Ku2>REe</Ku2>
+          <Le>Zub</Le>
+          <Ra>Extra</Ra>
+          <Nr>129</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>ETH</Fa>
+          <Le>Krü</Le>
+          <Ra>110</Ra>
+          <Nr>117</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>REe</Fa>
+          <Ku2>REe</Ku2>
+          <Le>Zub</Le>
+          <Ra>Extra</Ra>
+          <Nr>129</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>INF1</Fa>
+          <Ku2>INF1</Ku2>
+          <Le>Jü</Le>
+          <Ra>108</Ra>
+          <Nr>122</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>INF2</Fa>
+          <Ku2>INF2</Ku2>
+          <Le>Ru</Le>
+          <Ra>206</Ra>
+          <Nr>123</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>MA</Fa>
+          <Le>Alb</Le>
+          <Ra>208</Ra>
+          <Nr>126</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>SPO</Fa>
+          <Le>Wün</Le>
+          <Ra>TH1</Ra>
+          <Nr>130</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>SPO</Fa>
+          <Le>Wün</Le>
+          <Ra>TH1</Ra>
+          <Nr>130</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>7b</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Wi">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kl">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ru">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA7</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Mar">REk</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR2">118</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR1">119</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA7">125</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BIO">131</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="CH">132</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tei" UeFa="DE">133</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Srei" UeFa="EN">134</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="ETH">135</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="GE">136</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">137</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ru" UeFa="INF" UeGr="INF2">138</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="INF" UeGr="INF1">139</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">140</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="MA">141</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">142</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PH">143</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Mar" UeFa="REk" UeGr="REk">144</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO">145</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>GE</Fa>
+          <Le>Lu</Le>
+          <Ra>109</Ra>
+          <Nr>136</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>GE</Fa>
+          <Le>Lu</Le>
+          <Ra>109</Ra>
+          <Nr>136</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>EN</Fa>
+          <Le>Srei</Le>
+          <Ra>A210</Ra>
+          <Nr>134</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>EN</Fa>
+          <Le>Srei</Le>
+          <Ra>A210</Ra>
+          <Nr>134</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>CH</Fa>
+          <Le>Ze</Le>
+          <Ra>203</Ra>
+          <Nr>132</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>KU</Fa>
+          <Le>Ju</Le>
+          <Ra>04</Ra>
+          <Nr>140</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>GEO</Fa>
+          <Le>Gatt</Le>
+          <Ra>106</Ra>
+          <Nr>137</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>GEO</Fa>
+          <Le>Gatt</Le>
+          <Ra>106</Ra>
+          <Nr>137</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>7c</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Wi">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kl">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA7</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Her">SIVO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="No">SIVO2</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR2">118</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR1">119</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA7">125</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BIO">146</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="CH">147</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="DE">148</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="EN">149</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="ETH">150</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="GE">151</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">152</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF2">153</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="INF" UeGr="INF1">154</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">155</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="MA">156</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">157</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PH">158</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Her" UeFa="SIVO" UeGr="SIVO1">159</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="No" UeFa="SIVO" UeGr="SIVO2">160</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO">161</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>DE</Fa>
+          <Le>Wi</Le>
+          <Ra>302</Ra>
+          <Nr>148</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>DE</Fa>
+          <Le>Wi</Le>
+          <Ra>302</Ra>
+          <Nr>148</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>ETH</Fa>
+          <Le>Stei</Le>
+          <Ra>A103</Ra>
+          <Nr>150</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>ETH</Fa>
+          <Le>Stei</Le>
+          <Ra>A103</Ra>
+          <Nr>150</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>MA</Fa>
+          <Le>Ilg</Le>
+          <Ra>09</Ra>
+          <Nr>156</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>GEO</Fa>
+          <Le>Gatt</Le>
+          <Ra>106</Ra>
+          <Nr>152</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le LeAe="LeGeaendert">&amp;nbsp;</Le>
+          <Ra RaAe="RaGeaendert">&amp;nbsp;</Ra>
+          <Nr>161</Nr>
+          <If>SPO Herr Tippelt fällt aus</If>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le LeAe="LeGeaendert">&amp;nbsp;</Le>
+          <Ra RaAe="RaGeaendert">&amp;nbsp;</Ra>
+          <Nr>161</Nr>
+          <If>SPO Herr Tippelt fällt aus</If>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>8a</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Kl">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wi">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA8</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Gatt">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Do">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Gru">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bü">REe</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Czi">SPA1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ung">SPA2</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BIO">162</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="CH">163</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Vo" UeFa="DE">164</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="EN">165</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="ETH">166</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR1">167</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR2">168</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ot" UeFa="GE">169</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">170</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="INF2">171</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF1">172</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">173</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA8">174</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ger" UeFa="MA">175</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">176</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PH">177</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="PRO" UeGr="PRO2">178</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="PRO" UeGr="PRO1">179</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="PRO" UeGr="PRO3">180</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bü" UeFa="REe" UeGr="REe">181</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Czi" UeFa="SPA" UeGr="SPA1">182</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA2">183</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO">184</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>GEO</Fa>
+          <Le>Gatt</Le>
+          <Ra>106</Ra>
+          <Nr>170</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>GEO</Fa>
+          <Le>Gatt</Le>
+          <Ra>106</Ra>
+          <Nr>170</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>DE</Fa>
+          <Le>Vo</Le>
+          <Ra>02</Ra>
+          <Nr>164</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE</Fa>
+          <Le>Vo</Le>
+          <Ra>02</Ra>
+          <Nr>164</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>MA</Fa>
+          <Le>Ger</Le>
+          <Ra>111</Ra>
+          <Nr>175</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>MA</Fa>
+          <Le>Ger</Le>
+          <Ra>111</Ra>
+          <Nr>175</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>ETH</Fa>
+          <Le>Stei</Le>
+          <Ra>110</Ra>
+          <Nr>166</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>REe</Fa>
+          <Ku2>REe</Ku2>
+          <Le>Bü</Le>
+          <Ra>111</Ra>
+          <Nr>181</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>ETH</Fa>
+          <Le>Stei</Le>
+          <Ra>110</Ra>
+          <Nr>166</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>REe</Fa>
+          <Ku2>REe</Ku2>
+          <Le>Bü</Le>
+          <Ra>111</Ra>
+          <Nr>181</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>8b</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Kl">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wi">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA8</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Gatt">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Do">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Gru">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Mar">REk</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Czi">SPA1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ung">SPA2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Mar" UeFa="REk" UeGr="REk">144</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR1">167</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR2">168</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA8">174</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="PRO" UeGr="PRO2">178</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="PRO" UeGr="PRO1">179</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="PRO" UeGr="PRO3">180</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Czi" UeFa="SPA" UeGr="SPA1">182</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA2">183</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BIO">185</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="CH">186</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="DE">187</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Srei" UeFa="EN">188</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH">189</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="No" UeFa="GE">190</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="GEO">191</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="INF2">192</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF1">193</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">194</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ger" UeFa="MA">195</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">196</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PH">197</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">198</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO" UeGr="SPOm">199</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>PH</Fa>
+          <Le>Irr</Le>
+          <Ra>201</Ra>
+          <Nr>197</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>PH</Fa>
+          <Le>Irr</Le>
+          <Ra>201</Ra>
+          <Nr>197</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>SPOw</Fa>
+          <Ku2>SPOw</Ku2>
+          <Le>Frö</Le>
+          <Ra>TH1</Ra>
+          <Nr>198</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>SPOm</Fa>
+          <Ku2>SPOm</Ku2>
+          <Le>Bl</Le>
+          <Ra>TH2</Ra>
+          <Nr>199</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>SPOw</Fa>
+          <Ku2>SPOw</Ku2>
+          <Le>Frö</Le>
+          <Ra>TH1</Ra>
+          <Nr>198</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>SPOm</Fa>
+          <Ku2>SPOm</Ku2>
+          <Le>Bl</Le>
+          <Ra>TH2</Ra>
+          <Nr>199</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>EN</Fa>
+          <Le>Srei</Le>
+          <Ra>A210</Ra>
+          <Nr>188</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>EN</Fa>
+          <Le>Srei</Le>
+          <Ra>A210</Ra>
+          <Nr>188</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>ETH</Fa>
+          <Le>De</Le>
+          <Ra>A103</Ra>
+          <Nr>189</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>ETH</Fa>
+          <Le>De</Le>
+          <Ra>A103</Ra>
+          <Nr>189</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>8c</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Kl">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wi">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA8</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Gatt">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Do">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Gru">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Czi">SPA1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ung">SPA2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR1">167</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wi" UeFa="FR" UeGr="FR2">168</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA8">174</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="PRO" UeGr="PRO2">178</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="PRO" UeGr="PRO1">179</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="PRO" UeGr="PRO3">180</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Czi" UeFa="SPA" UeGr="SPA1">182</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA2">183</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">198</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO" UeGr="SPOm">199</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="BIO">200</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="CH">201</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="DE">202</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="EN">203</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH">204</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="GE">205</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">206</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="INF2">207</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF1">208</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">209</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="MA">210</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">211</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PH">212</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>MA</Fa>
+          <Le>Gru</Le>
+          <Ra>208</Ra>
+          <Nr>210</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>MA</Fa>
+          <Le>Gru</Le>
+          <Ra>208</Ra>
+          <Nr>210</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>SPOw</Fa>
+          <Ku2>SPOw</Ku2>
+          <Le>Frö</Le>
+          <Ra>TH1</Ra>
+          <Nr>198</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>SPOm</Fa>
+          <Ku2>SPOm</Ku2>
+          <Le>Bl</Le>
+          <Ra>TH2</Ra>
+          <Nr>199</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>SPOw</Fa>
+          <Ku2>SPOw</Ku2>
+          <Le>Frö</Le>
+          <Ra>TH1</Ra>
+          <Nr>198</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>SPOm</Fa>
+          <Ku2>SPOm</Ku2>
+          <Le>Bl</Le>
+          <Ra>TH2</Ra>
+          <Nr>199</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>DE</Fa>
+          <Le>Ju</Le>
+          <Ra>102</Ra>
+          <Nr>202</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>ETH</Fa>
+          <Le>Krü</Le>
+          <Ra>A103</Ra>
+          <Nr>204</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>PH</Fa>
+          <Le>Irr</Le>
+          <Ra>201</Ra>
+          <Nr>212</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>PH</Fa>
+          <Le>Irr</Le>
+          <Ra>201</Ra>
+          <Nr>212</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>9a</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Kl">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA9</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kin">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Irr">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Hö">REe</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Fr">SIVO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Hau">SIVO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ung">SPA9</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tipp">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="BIO">213</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="CH">214</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="DE">215</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="EN">216</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH">217</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="FR" UeGr="FR2">218</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR1">219</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ra" UeFa="GE">220</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="GEO">221</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="GRW">222</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="INF2">223</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF1">224</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">225</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA9">226</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wün" UeFa="MA">227</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">228</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PH">229</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="PRO" UeGr="PRO2">230</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PRO" UeGr="PRO3">231</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="PRO" UeGr="PRO1">232</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hö" UeFa="REe" UeGr="REe">233</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="SIVO" UeGr="SIVO1">234</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hau" UeFa="SIVO" UeGr="SIVO2">235</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA9">236</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA9">237</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">238</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO" UeGr="SPOm">239</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>GRW</Fa>
+          <Le>Jü</Le>
+          <Ra>102</Ra>
+          <Nr>222</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>GRW</Fa>
+          <Le>Jü</Le>
+          <Ra>102</Ra>
+          <Nr>222</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>KU</Fa>
+          <Le>Ju</Le>
+          <Ra>07</Ra>
+          <Nr>225</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>KU</Fa>
+          <Le>Ju</Le>
+          <Ra>07</Ra>
+          <Nr>225</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>FR2</Fa>
+          <Ku2>FR2</Ku2>
+          <Le>Zie</Le>
+          <Ra>A110</Ra>
+          <Nr>218</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>FR1</Fa>
+          <Ku2>FR1</Ku2>
+          <Le>Kl</Le>
+          <Ra>02</Ra>
+          <Nr>219</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>LA9</Fa>
+          <Ku2>LA9</Ku2>
+          <Le>Red</Le>
+          <Ra>08</Ra>
+          <Nr>226</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>FR2</Fa>
+          <Ku2>FR2</Ku2>
+          <Le>Zie</Le>
+          <Ra>A110</Ra>
+          <Nr>218</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>FR1</Fa>
+          <Ku2>FR1</Ku2>
+          <Le>Kl</Le>
+          <Ra>02</Ra>
+          <Nr>219</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>LA9</Fa>
+          <Ku2>LA9</Ku2>
+          <Le>Red</Le>
+          <Ra>08</Ra>
+          <Nr>226</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>CH</Fa>
+          <Le>Gru</Le>
+          <Ra>203</Ra>
+          <Nr>214</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>CH</Fa>
+          <Le>Gru</Le>
+          <Ra>203</Ra>
+          <Nr>214</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>9b</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Kl">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ru">INF3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA9</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kin">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Irr">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ung">SPA9</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tipp">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="FR" UeGr="FR2">218</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR1">219</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA9">226</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="PRO" UeGr="PRO2">230</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PRO" UeGr="PRO3">231</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="PRO" UeGr="PRO1">232</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA9">236</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA9">237</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">238</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO" UeGr="SPOm">239</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="BIO">240</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="CH">241</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="DE">242</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sei" UeFa="EN">243</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH">244</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="GE">245</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">246</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="GRW">247</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF1">248</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ru" UeFa="INF" UeGr="INF3">249</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="INF2">250</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">251</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="MA">252</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">253</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PH">254</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>3</St>
+          <Fa>DE</Fa>
+          <Le>Ung</Le>
+          <Ra>03</Ra>
+          <Nr>242</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE</Fa>
+          <Le>Ung</Le>
+          <Ra>03</Ra>
+          <Nr>242</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>FR2</Fa>
+          <Ku2>FR2</Ku2>
+          <Le>Zie</Le>
+          <Ra>A110</Ra>
+          <Nr>218</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>FR1</Fa>
+          <Ku2>FR1</Ku2>
+          <Le>Kl</Le>
+          <Ra>02</Ra>
+          <Nr>219</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>LA9</Fa>
+          <Ku2>LA9</Ku2>
+          <Le>Red</Le>
+          <Ra>08</Ra>
+          <Nr>226</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>FR2</Fa>
+          <Ku2>FR2</Ku2>
+          <Le>Zie</Le>
+          <Ra>A110</Ra>
+          <Nr>218</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>FR1</Fa>
+          <Ku2>FR1</Ku2>
+          <Le>Kl</Le>
+          <Ra>02</Ra>
+          <Nr>219</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>LA9</Fa>
+          <Ku2>LA9</Ku2>
+          <Le>Red</Le>
+          <Ra>08</Ra>
+          <Nr>226</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>ETH</Fa>
+          <Le>Krü</Le>
+          <Ra>Extra</Ra>
+          <Nr>244</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>BIO</Fa>
+          <Le>Dre</Le>
+          <Ra>208</Ra>
+          <Nr>240</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>9c</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Kl">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ru">INF3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">LA9</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kin">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Irr">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Mar">REk</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ot">SIVO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="No">SIVO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">SIVO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ung">SPA9</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tipp">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="FR" UeGr="FR2">218</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="FR1">219</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="LA" UeGr="LA9">226</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="PRO" UeGr="PRO2">230</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PRO" UeGr="PRO3">231</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="PRO" UeGr="PRO1">232</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA9">236</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="SPA" UeGr="SPA9">237</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF" UeGr="INF1">248</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ru" UeFa="INF" UeGr="INF3">249</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="INF2">250</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="BIO">255</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="CH">256</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hof" UeFa="DE">257</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sei" UeFa="EN">258</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH">259</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ra" UeFa="GE">260</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ger" UeFa="GEO">261</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="GRW">262</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU">263</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="MA">264</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU">265</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PH">266</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Mar" UeFa="REk" UeGr="REk">267</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ot" UeFa="SIVO" UeGr="SIVO1">268</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="No" UeFa="SIVO" UeGr="SIVO2">269</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="SIVO" UeGr="SIVO3">270</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO" UeGr="SPOm">271</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">272</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>3</St>
+          <Fa>GRW</Fa>
+          <Le>Jü</Le>
+          <Ra>102</Ra>
+          <Nr>262</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>GRW</Fa>
+          <Le>Jü</Le>
+          <Ra>102</Ra>
+          <Nr>262</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>FR2</Fa>
+          <Ku2>FR2</Ku2>
+          <Le>Zie</Le>
+          <Ra>A110</Ra>
+          <Nr>218</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>FR1</Fa>
+          <Ku2>FR1</Ku2>
+          <Le>Kl</Le>
+          <Ra>02</Ra>
+          <Nr>219</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>LA9</Fa>
+          <Ku2>LA9</Ku2>
+          <Le>Red</Le>
+          <Ra>08</Ra>
+          <Nr>226</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>FR2</Fa>
+          <Ku2>FR2</Ku2>
+          <Le>Zie</Le>
+          <Ra>A110</Ra>
+          <Nr>218</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>FR1</Fa>
+          <Ku2>FR1</Ku2>
+          <Le>Kl</Le>
+          <Ra>02</Ra>
+          <Nr>219</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>LA9</Fa>
+          <Ku2>LA9</Ku2>
+          <Le>Red</Le>
+          <Ra>08</Ra>
+          <Nr>226</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>GE</Fa>
+          <Le>Ra</Le>
+          <Ra>109</Ra>
+          <Nr>260</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>DE</Fa>
+          <Le>Hof</Le>
+          <Ra>302</Ra>
+          <Nr>257</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>9</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>111</Ra>
+          <Nr>267</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>10</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>111</Ra>
+          <Nr>267</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>10a</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="De">ETH1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">ETH2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Do">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Alb">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Irr">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Hö">REe</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Mar">REk</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Mar" UeFa="REk" UeGr="REk">267</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="BIO">273</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="CH">274</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ack" UeFa="DE">275</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sei" UeFa="EN">276</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="ETH2">277</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH" UeGr="ETH1">278</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="FR" UeGr="FR1">279</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="FR" UeGr="FR2">280</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Rei" UeFa="GE">281</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="GEO">282</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="GRW">283</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="INF">284</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="KU">285</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="LA">286</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="MA">287</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">288</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PH">289</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PRO" UeGr="PRO3">290</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PRO" UeGr="PRO2">291</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="PRO" UeGr="PRO1">292</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hö" UeFa="REe" UeGr="REe">293</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="SPA">294</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="SPA">295</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO" UeGr="SPOm">296</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">297</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>GEO</Fa>
+          <Le>Ilg</Le>
+          <Ra>A107</Ra>
+          <Nr>282</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>GEO</Fa>
+          <Le>Ilg</Le>
+          <Ra>A107</Ra>
+          <Nr>282</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>MA</Fa>
+          <Le>Gru</Le>
+          <Ra>09</Ra>
+          <Nr>287</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>MA</Fa>
+          <Le>Gru</Le>
+          <Ra>09</Ra>
+          <Nr>287</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>DE</Fa>
+          <Le>Ack</Le>
+          <Ra>209</Ra>
+          <Nr>275</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>DE</Fa>
+          <Le>Ack</Le>
+          <Ra>209</Ra>
+          <Nr>275</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>BIO</Fa>
+          <Le>Lu</Le>
+          <Ra>204</Ra>
+          <Nr>273</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>BIO</Fa>
+          <Le>Lu</Le>
+          <Ra>204</Ra>
+          <Nr>273</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>9</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>111</Ra>
+          <Nr>267</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>10</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>111</Ra>
+          <Nr>267</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>10b</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="De">ETH1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">ETH2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ru">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Do">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Alb">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Irr">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="ETH2">277</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH" UeGr="ETH1">278</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="FR" UeGr="FR1">279</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="FR" UeGr="FR2">280</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="LA">286</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PRO" UeGr="PRO3">290</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PRO" UeGr="PRO2">291</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="PRO" UeGr="PRO1">292</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="SPA">294</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="SPA">295</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO" UeGr="SPOm">296</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">297</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="BIO">298</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="CH">299</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="DE">300</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="EN">301</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Rei" UeFa="GE">302</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="GEO">303</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="GRW">304</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="INF" UeGr="INF2">305</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ru" UeFa="INF" UeGr="INF1">306</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="KU">307</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="MA">308</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">309</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PH">310</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>EN</Fa>
+          <Le>Da</Le>
+          <Ra>08</Ra>
+          <Nr>301</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>EN</Fa>
+          <Le>Da</Le>
+          <Ra>08</Ra>
+          <Nr>301</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>MU</Fa>
+          <Le>Zie</Le>
+          <Ra>01</Ra>
+          <Nr>309</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>MU</Fa>
+          <Le>Zie</Le>
+          <Ra>01</Ra>
+          <Nr>309</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>PH</Fa>
+          <Le>Alb</Le>
+          <Ra>201</Ra>
+          <Nr>310</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>CH</Fa>
+          <Le>Dre</Le>
+          <Ra>203</Ra>
+          <Nr>299</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>BIO</Fa>
+          <Le>Dre</Le>
+          <Ra>208</Ra>
+          <Nr>298</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>MA</Fa>
+          <Le>Kin</Le>
+          <Ra>206</Ra>
+          <Nr>308</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>10c</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="De">ETH1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">ETH2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">FR1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">FR2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ru">INF1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">INF2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Do">PRO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Alb">PRO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Irr">PRO3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Mar">REk</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">SPOm</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">SPOw</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Mar" UeFa="REk" UeGr="REk">267</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="ETH2">277</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH" UeGr="ETH1">278</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="FR" UeGr="FR1">279</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="FR" UeGr="FR2">280</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="LA">286</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PRO" UeGr="PRO3">290</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PRO" UeGr="PRO2">291</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="PRO" UeGr="PRO1">292</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="SPA">294</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="SPA">295</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="INF" UeGr="INF2">305</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ru" UeFa="INF" UeGr="INF1">306</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="BIO">311</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="CH">312</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="No" UeFa="DE">313</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="EN">314</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="GE">315</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gatt" UeFa="GEO">316</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="GRW">317</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="KU">318</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ger" UeFa="MA">319</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU">320</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="PH">321</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO" UeGr="SPOm">322</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="SPOw">323</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>PH</Fa>
+          <Le>Alb</Le>
+          <Ra>202</Ra>
+          <Nr>321</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>PH</Fa>
+          <Le>Alb</Le>
+          <Ra>202</Ra>
+          <Nr>321</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>KU</Fa>
+          <Le>Tau</Le>
+          <Ra>04</Ra>
+          <Nr>318</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>KU</Fa>
+          <Le>Tau</Le>
+          <Ra>04</Ra>
+          <Nr>318</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>BIO</Fa>
+          <Le>Lu</Le>
+          <Ra>207</Ra>
+          <Nr>311</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>GE</Fa>
+          <Le>Lu</Le>
+          <Ra>A109</Ra>
+          <Nr>315</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>CH</Fa>
+          <Le>Fr</Le>
+          <Ra>207</Ra>
+          <Nr>312</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>CH</Fa>
+          <Le>Fr</Le>
+          <Ra>207</Ra>
+          <Nr>312</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>9</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>111</Ra>
+          <Nr>267</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>10</St>
+          <Fa>REk</Fa>
+          <Ku2>REk</Ku2>
+          <Le>Mar</Le>
+          <Ra>111</Ra>
+          <Nr>267</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>11</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Sipp">ast1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Lu">BIO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ze">bio1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Dre">BIO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sa">bio2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sa">bio3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Fr">btec1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Lu">btec2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Spe">CH1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ze">ch1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Dre">ch2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ack">DE1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Srei">de1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">DE2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ung">de2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Red">EN1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Srei">en1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Da">en2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Re">EN2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ber">en21</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">eth1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">eth2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">eth3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kl">fr1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Her">GE1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ra">ge1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tei">ge2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Vo">ge3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ger">geo1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">geo2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Do">geo3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">grw1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Vo">grw2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">inf1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">inf2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tau">ku1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ju">ku2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Alb">MA1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wün">ma1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ri">MA2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Spe">ma2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kin">MA3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">mu1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Pau">mu2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">ph1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zo">PH1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Irr">ph2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">phi1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Hö">ree1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">s11</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tipp">s21</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wün">s31</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">s41</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Czi">spa1</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="AST" UeGr="ast1">324</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="BIO" UeGr="BIO2">325</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="BIO" UeGr="bio2">326</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="BIO" UeGr="bio1">327</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="BIO" UeGr="BIO1">328</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="BIO" UeGr="bio3">329</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="BTEC" UeGr="btec2">330</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BTEC" UeGr="btec1">331</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Spe" UeFa="CH" UeGr="CH1">332</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ze" UeFa="CH" UeGr="ch1">333</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Dre" UeFa="CH" UeGr="ch2">334</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ack" UeFa="DE" UeGr="DE1">335</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Srei" UeFa="DE" UeGr="de1">336</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ung" UeFa="DE" UeGr="de2">337</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="DE" UeGr="DE2">338</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="EN" UeGr="en2">339</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Red" UeFa="EN" UeGr="EN1">340</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="EN" UeGr="EN2">341</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Srei" UeFa="EN" UeGr="en1">342</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ber" UeFa="EN2" UeGr="en21">343</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="eth2">344</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="eth3">345</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="eth1">346</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="fr1">347</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ra" UeFa="GE" UeGr="ge1">348</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tei" UeFa="GE" UeGr="ge2">349</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Her" UeFa="GE" UeGr="GE1">350</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Vo" UeFa="GE" UeGr="ge3">351</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="GEO" UeGr="geo2">352</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Do" UeFa="GEO" UeGr="geo3">353</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ger" UeFa="GEO" UeGr="geo1">354</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="GRW" UeGr="grw1">355</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Vo" UeFa="GRW" UeGr="grw2">356</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="inf2">357</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="INF" UeGr="inf1">358</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU" UeGr="ku2">359</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="KU" UeGr="ku1">360</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Spe" UeFa="MA" UeGr="ma2">361</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ri" UeFa="MA" UeGr="MA2">362</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="MA" UeGr="MA3">363</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wün" UeFa="MA" UeGr="ma1">364</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Alb" UeFa="MA" UeGr="MA1">365</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Pau" UeFa="MU" UeGr="mu2">366</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU" UeGr="mu1">367</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="PH" UeGr="ph1">368</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Irr" UeFa="PH" UeGr="ph2">369</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zo" UeFa="PH" UeGr="PH1">370</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="PHI" UeGr="phi1">371</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hö" UeFa="REe" UeGr="ree1">372</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="SPO" UeGr="s11">373</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO" UeGr="s21">374</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wün" UeFa="SPO" UeGr="s31">375</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="s41">376</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Czi" UeFa="SPA" UeGr="spa1">377</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>bio3</Fa>
+          <Ku2>bio3</Ku2>
+          <Le>Sa</Le>
+          <Ra>204</Ra>
+          <Nr>329</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>ch1</Fa>
+          <Ku2>ch1</Ku2>
+          <Le>Ze</Le>
+          <Ra>203</Ra>
+          <Nr>333</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>eth2</Fa>
+          <Ku2>eth2</Ku2>
+          <Le>Krü</Le>
+          <Ra>110</Ra>
+          <Nr>344</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>bio3</Fa>
+          <Ku2>bio3</Ku2>
+          <Le>Sa</Le>
+          <Ra>204</Ra>
+          <Nr>329</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>ch1</Fa>
+          <Ku2>ch1</Ku2>
+          <Le>Ze</Le>
+          <Ra>203</Ra>
+          <Nr>333</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>eth2</Fa>
+          <Ku2>eth2</Ku2>
+          <Le>Krü</Le>
+          <Ra>110</Ra>
+          <Nr>344</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>BIO2</Fa>
+          <Ku2>BIO2</Ku2>
+          <Le>Dre</Le>
+          <Ra>208</Ra>
+          <Nr>325</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>BIO1</Fa>
+          <Ku2>BIO1</Ku2>
+          <Le>Lu</Le>
+          <Ra>207</Ra>
+          <Nr>328</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>EN1</Fa>
+          <Ku2>EN1</Ku2>
+          <Le>Red</Le>
+          <Ra>A211</Ra>
+          <Nr>340</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>EN2</Fa>
+          <Ku2>EN2</Ku2>
+          <Le>Re</Le>
+          <Ra>08</Ra>
+          <Nr>341</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>GE1</Fa>
+          <Ku2>GE1</Ku2>
+          <Le>Her</Le>
+          <Ra>103</Ra>
+          <Nr>350</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>PH1</Fa>
+          <Ku2>PH1</Ku2>
+          <Le>Zo</Le>
+          <Ra>201</Ra>
+          <Nr>370</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>CH1</Fa>
+          <Ku2>CH1</Ku2>
+          <Le LeAe="LeGeaendert">Sa</Le>
+          <Ra>203</Ra>
+          <Nr>332</Nr>
+          <If>für CH Frau Sperling </If>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>BIO2</Fa>
+          <Ku2>BIO2</Ku2>
+          <Le>Dre</Le>
+          <Ra>208</Ra>
+          <Nr>325</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>BIO1</Fa>
+          <Ku2>BIO1</Ku2>
+          <Le>Lu</Le>
+          <Ra>207</Ra>
+          <Nr>328</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>EN1</Fa>
+          <Ku2>EN1</Ku2>
+          <Le>Red</Le>
+          <Ra>A211</Ra>
+          <Nr>340</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>EN2</Fa>
+          <Ku2>EN2</Ku2>
+          <Le>Re</Le>
+          <Ra>08</Ra>
+          <Nr>341</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>GE1</Fa>
+          <Ku2>GE1</Ku2>
+          <Le>Her</Le>
+          <Ra>103</Ra>
+          <Nr>350</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>PH1</Fa>
+          <Ku2>PH1</Ku2>
+          <Le>Zo</Le>
+          <Ra>201</Ra>
+          <Nr>370</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>CH1</Fa>
+          <Ku2>CH1</Ku2>
+          <Le LeAe="LeGeaendert">Sa</Le>
+          <Ra>203</Ra>
+          <Nr>332</Nr>
+          <If>für CH Frau Sperling </If>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>ku1</Fa>
+          <Ku2>ku1</Ku2>
+          <Le>Tau</Le>
+          <Ra>07</Ra>
+          <Nr>360</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>mu2</Fa>
+          <Ku2>mu2</Ku2>
+          <Le>Pau</Le>
+          <Ra>01</Ra>
+          <Nr>366</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>s11</Fa>
+          <Ku2>s11</Ku2>
+          <Le>Bl</Le>
+          <Ra>TH1</Ra>
+          <Nr>373</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>s41</Fa>
+          <Ku2>s41</Ku2>
+          <Le>Frö</Le>
+          <Ra>TH2</Ra>
+          <Nr>376</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>ku1</Fa>
+          <Ku2>ku1</Ku2>
+          <Le>Tau</Le>
+          <Ra>07</Ra>
+          <Nr>360</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>mu2</Fa>
+          <Ku2>mu2</Ku2>
+          <Le>Pau</Le>
+          <Ra>01</Ra>
+          <Nr>366</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>s11</Fa>
+          <Ku2>s11</Ku2>
+          <Le>Bl</Le>
+          <Ra>TH1</Ra>
+          <Nr>373</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>s41</Fa>
+          <Ku2>s41</Ku2>
+          <Le>Frö</Le>
+          <Ra>TH2</Ra>
+          <Nr>376</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>en2</Fa>
+          <Ku2>en2</Ku2>
+          <Le>Da</Le>
+          <Ra>A210</Ra>
+          <Nr>339</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>en1</Fa>
+          <Ku2>en1</Ku2>
+          <Le>Srei</Le>
+          <Ra>A211</Ra>
+          <Nr>342</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>spa1</Fa>
+          <Ku2>spa1</Ku2>
+          <Le>Czi</Le>
+          <Ra>A110</Ra>
+          <Nr>377</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>en2</Fa>
+          <Ku2>en2</Ku2>
+          <Le>Da</Le>
+          <Ra>A210</Ra>
+          <Nr>339</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>en1</Fa>
+          <Ku2>en1</Ku2>
+          <Le>Srei</Le>
+          <Ra>A211</Ra>
+          <Nr>342</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>spa1</Fa>
+          <Ku2>spa1</Ku2>
+          <Le>Czi</Le>
+          <Ra>A110</Ra>
+          <Nr>377</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+    <Kl>
+      <Kurz>12</Kurz>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Sipp">ast1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bau">bio1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sa">BIO1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bau">bio2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Hau">BIO2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Lu">bio3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Fr">btec1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Lu">btec2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sa">ch1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Gru">ch2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ra">DE1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tei">de1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">DE2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ju">de2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Da">DE3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">en1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sei">EN1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Leh">EN2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Srei">en2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Re">en21</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Stei">eth1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Krü">eth2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">eth3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kl">fr1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">fr2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ot">GE1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Stei">ge1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Hau">ge2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ot">ge3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ger">geo1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Bl">geo2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Snei">grw1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Jü">grw2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Vo">grw3</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">inf1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Uhl">inf2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Sipp">ins1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tau">ku1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ju">ku2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zob">la1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Kin">ma1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ri">MA1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ger">MA2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ilg">ma2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zie">mu1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zub">mu2</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Ad">PH1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zo">ph1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="De">phi1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zub">ree1</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Tipp">s11</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Wün">s21</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Zob">s31</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Frö">s41</KKz>
+        </Ku>
+        <Ku>
+          <KKz KLe="Czi">spa1</KKz>
+        </Ku>
+      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="AST" UeGr="ast1">378</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="BIO" UeGr="bio3">379</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bau" UeFa="BIO" UeGr="bio1">380</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bau" UeFa="BIO" UeGr="bio2">381</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hau" UeFa="BIO" UeGr="BIO2">382</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="BIO" UeGr="BIO1">383</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Lu" UeFa="BTEC" UeGr="btec2">384</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Fr" UeFa="BTEC" UeGr="btec1">385</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Czi" UeFa="SPA" UeGr="spa1">434</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="SPO" UeGr="s41">433</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sa" UeFa="CH" UeGr="ch1">388</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Gru" UeFa="CH" UeGr="ch2">389</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tei" UeFa="DE" UeGr="de1">390</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Da" UeFa="DE" UeGr="DE3">391</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ra" UeFa="DE" UeGr="DE1">392</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="DE" UeGr="DE2">393</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="DE" UeGr="de2">394</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Frö" UeFa="EN" UeGr="en1">395</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sei" UeFa="EN" UeGr="EN1">396</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Leh" UeFa="EN" UeGr="EN2">397</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Srei" UeFa="EN" UeGr="en2">398</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Re" UeFa="EN2" UeGr="en21">399</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Krü" UeFa="ETH" UeGr="eth2">400</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="ETH" UeGr="eth3">401</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="ETH" UeGr="eth1">402</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="FR" UeGr="fr2">403</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kl" UeFa="FR" UeGr="fr1">404</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ot" UeFa="GE" UeGr="GE1">405</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ot" UeFa="GE" UeGr="ge3">406</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Stei" UeFa="GE" UeGr="ge1">407</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Hau" UeFa="GE" UeGr="ge2">408</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Bl" UeFa="GEO" UeGr="geo2">409</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ger" UeFa="GEO" UeGr="geo1">410</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Vo" UeFa="GRW" UeGr="grw3">411</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Snei" UeFa="GRW" UeGr="grw1">412</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Jü" UeFa="GRW" UeGr="grw2">413</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="inf1">414</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Uhl" UeFa="INF" UeGr="inf2">415</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Sipp" UeFa="INS" UeGr="ins1">416</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ju" UeFa="KU" UeGr="ku2">417</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tau" UeFa="KU" UeGr="ku1">418</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="LA" UeGr="la1">419</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ri" UeFa="MA" UeGr="MA1">420</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ger" UeFa="MA" UeGr="MA2">421</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ilg" UeFa="MA" UeGr="ma2">422</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Kin" UeFa="MA" UeGr="ma1">423</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="MU" UeGr="mu2">424</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zie" UeFa="MU" UeGr="mu1">425</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zo" UeFa="PH" UeGr="ph1">426</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Ad" UeFa="PH" UeGr="PH1">427</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="De" UeFa="PHI" UeGr="phi1">428</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zub" UeFa="REe" UeGr="ree1">429</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Tipp" UeFa="SPO" UeGr="s11">430</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Wün" UeFa="SPO" UeGr="s21">431</UeNr>
+        </Ue>
+        <Ue>
+          <UeNr UeLe="Zob" UeFa="SPO" UeGr="s31">432</UeNr>
+        </Ue>
+      </Unterricht>
+      <Pl>
+        <Std>
+          <St>1</St>
+          <Fa>geo1</Fa>
+          <Ku2>geo1</Ku2>
+          <Le>Ger</Le>
+          <Ra>A202</Ra>
+          <Nr>410</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>grw1</Fa>
+          <Ku2>grw1</Ku2>
+          <Le>Snei</Le>
+          <Ra>A103</Ra>
+          <Nr>412</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>1</St>
+          <Fa>ku2</Fa>
+          <Ku2>ku2</Ku2>
+          <Le>Ju</Le>
+          <Ra>07</Ra>
+          <Nr>417</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>geo1</Fa>
+          <Ku2>geo1</Ku2>
+          <Le>Ger</Le>
+          <Ra>A202</Ra>
+          <Nr>410</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>grw1</Fa>
+          <Ku2>grw1</Ku2>
+          <Le>Snei</Le>
+          <Ra>A103</Ra>
+          <Nr>412</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>2</St>
+          <Fa>ku2</Fa>
+          <Ku2>ku2</Ku2>
+          <Le>Ju</Le>
+          <Ra>07</Ra>
+          <Nr>417</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>DE3</Fa>
+          <Ku2>DE3</Ku2>
+          <Le>Da</Le>
+          <Ra>A213</Ra>
+          <Nr>391</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>DE1</Fa>
+          <Ku2>DE1</Ku2>
+          <Le>Ra</Le>
+          <Ra>109</Ra>
+          <Nr>392</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>DE2</Fa>
+          <Ku2>DE2</Ku2>
+          <Le>De</Le>
+          <Ra>A107</Ra>
+          <Nr>393</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>MA1</Fa>
+          <Ku2>MA1</Ku2>
+          <Le>Ri</Le>
+          <Ra>A109</Ra>
+          <Nr>420</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>3</St>
+          <Fa>MA2</Fa>
+          <Ku2>MA2</Ku2>
+          <Le>Ger</Le>
+          <Ra>A111</Ra>
+          <Nr>421</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE3</Fa>
+          <Ku2>DE3</Ku2>
+          <Le>Da</Le>
+          <Ra>A213</Ra>
+          <Nr>391</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE1</Fa>
+          <Ku2>DE1</Ku2>
+          <Le>Ra</Le>
+          <Ra>109</Ra>
+          <Nr>392</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>DE2</Fa>
+          <Ku2>DE2</Ku2>
+          <Le>De</Le>
+          <Ra>A107</Ra>
+          <Nr>393</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>MA1</Fa>
+          <Ku2>MA1</Ku2>
+          <Le>Ri</Le>
+          <Ra>A109</Ra>
+          <Nr>420</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>4</St>
+          <Fa>MA2</Fa>
+          <Ku2>MA2</Ku2>
+          <Le>Ger</Le>
+          <Ra>A111</Ra>
+          <Nr>421</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>btec1</Fa>
+          <Ku2>btec1</Ku2>
+          <Le>Fr</Le>
+          <Ra>204</Ra>
+          <Nr>385</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>en21</Fa>
+          <Ku2>en21</Ku2>
+          <Le>Re</Le>
+          <Ra>A211</Ra>
+          <Nr>399</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>eth3</Fa>
+          <Ku2>eth3</Ku2>
+          <Le>De</Le>
+          <Ra>110</Ra>
+          <Nr>401</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>5</St>
+          <Fa>ge3</Fa>
+          <Ku2>ge3</Ku2>
+          <Le>Ot</Le>
+          <Ra>103</Ra>
+          <Nr>406</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>btec1</Fa>
+          <Ku2>btec1</Ku2>
+          <Le>Fr</Le>
+          <Ra>204</Ra>
+          <Nr>385</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>en21</Fa>
+          <Ku2>en21</Ku2>
+          <Le>Re</Le>
+          <Ra>A211</Ra>
+          <Nr>399</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>eth3</Fa>
+          <Ku2>eth3</Ku2>
+          <Le>De</Le>
+          <Ra>110</Ra>
+          <Nr>401</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>6</St>
+          <Fa>ge3</Fa>
+          <Ku2>ge3</Ku2>
+          <Le>Ot</Le>
+          <Ra>103</Ra>
+          <Nr>406</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>7</St>
+          <Fa>ph1</Fa>
+          <Ku2>ph1</Ku2>
+          <Le>Zo</Le>
+          <Ra>202</Ra>
+          <Nr>426</Nr>
+          <If/>
+        </Std>
+        <Std>
+          <St>8</St>
+          <Fa>ph1</Fa>
+          <Ku2>ph1</Ku2>
+          <Le>Zo</Le>
+          <Ra>202</Ra>
+          <Nr>426</Nr>
+          <If/>
+        </Std>
+      </Pl>
+    </Kl>
+  </Klassen>
+</VpMobil>
