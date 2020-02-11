@@ -1,8 +1,11 @@
 package net.hermlon.gcgtimetable.database
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import net.hermlon.gcgtimetable.domain.TimetableLesson
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 
 @Entity
 data class DatabaseSource constructor(
@@ -13,6 +16,18 @@ data class DatabaseSource constructor(
     val isStudent: Boolean,
     val username: String? = null,
     val password: String? = null
+)
+
+@Entity(
+    indices = [Index(value = ["sourceId", "date"], unique = true)])
+data class DatabaseDay constructor(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long,
+    val sourceId: Long,
+    val date: LocalDate,
+    val updatedAt: LocalDateTime,
+    val lastRefresh: LocalDateTime,
+    val information: String?
 )
 
 @Entity(primaryKeys = ["dayId", "number", "courseId", "className"])

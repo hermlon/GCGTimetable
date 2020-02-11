@@ -3,6 +3,9 @@ package net.hermlon.gcgtimetable.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
+import java.util.*
 
 @Dao
 interface SourceDao {
@@ -20,6 +23,37 @@ interface SourceDao {
 }
 
 @Dao
+interface DayDao {
+
+    @Insert
+    fun insert(day: DatabaseDay): Long
+
+    @Query("UPDATE DatabaseDay " +
+            "SET updatedAt=:updatedAt, lastRefresh=:lastRefresh, information=:information " +
+            "WHERE sourceId = :sourceId AND date = :date")
+    fun update(sourceId: Long, date: LocalDate, updatedAt: LocalDateTime, lastRefresh: LocalDateTime, information: String?): Int
+
+    @Transaction
+    fun upsert(day: DatabaseDay): Long {
+        return if(update(day.sourceId, day.date, day.updatedAt, day.lastRefresh, day.information) == 0) {
+            // no update, entity therefore doesn't exist yet, create one
+            insert(day)
+        } else {
+            //TODO: unsure whether this is good practice
+
+            // we did an update, id must be queried for
+            getId(day.sourceId, day.date)
+        }
+    }
+
+    @Query("SELECT id FROM DatabaseDay WHERE sourceId = :sourceId AND date = :date")
+    fun getId(sourceId: Long, date: LocalDate): Long
+
+    @Query("SELECT * FROM DatabaseDay WHERE id = :key")
+    fun get(key: Long): LiveData<DatabaseDay>
+}
+
+@Dao
 interface LessonDao {
     @Query("SELECT * FROM DatabaseLesson")
     fun getLessons(): LiveData<List<DatabaseLesson>>
@@ -31,13 +65,15 @@ interface LessonDao {
 
 @Database(entities = [
     DatabaseLesson::class,
-    DatabaseSource::class
+    DatabaseSource::class,
+    DatabaseDay::class
 ], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
 
     abstract val lessonDao: LessonDao
     abstract val sourceDao: SourceDao
+    abstract val dayDao: DayDao
 }
 
 private lateinit var INSTANCE: TimetableDatabase

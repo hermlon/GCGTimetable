@@ -6,6 +6,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
 import net.hermlon.gcgtimetable.api.TimetableRepository
+import net.hermlon.gcgtimetable.database.DatabaseDay
 import net.hermlon.gcgtimetable.database.DatabaseLesson
 import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.database.DatabaseSource
@@ -20,7 +21,10 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 import java.io.IOException
+import java.util.*
 
 @RunWith(AndroidJUnit4::class)
 class TimetableDatabaseTest {
@@ -60,15 +64,28 @@ class TimetableDatabaseTest {
             // THEN - The loaded data contains the expected values
             assertThat<DatabaseLesson>(loaded, notNullValue())
             assertThat(loaded.className, `is`(lesson.className))
-            assertThat(loaded.courseId, `is` (lesson.courseId))
-            assertThat(loaded.dayId, `is` (24L))
-            assertThat(loaded.information, `is` (lesson.information))
-            assertThat(loaded.subject, `is` (lesson.subject))
-            assertThat(loaded.subjectChanged, `is` (lesson.subjectChanged))
-            assertThat(loaded.teacher, `is` (lesson.teacher))
-            assertThat(loaded.teacherChanged, `is` (lesson.teacherChanged))
-            assertThat(loaded.room, `is` (lesson.room))
-            assertThat(loaded.roomChanged, `is` (lesson.roomChanged))
+            assertThat(loaded.courseId, `is`(lesson.courseId))
+            assertThat(loaded.dayId, `is`(24L))
+            assertThat(loaded.information, `is`(lesson.information))
+            assertThat(loaded.subject, `is`(lesson.subject))
+            assertThat(loaded.subjectChanged, `is`(lesson.subjectChanged))
+            assertThat(loaded.teacher, `is`(lesson.teacher))
+            assertThat(loaded.teacherChanged, `is`(lesson.teacherChanged))
+            assertThat(loaded.room, `is`(lesson.room))
+            assertThat(loaded.roomChanged, `is`(lesson.roomChanged))
+        }
+    }
+
+    @Test
+    fun upsertDay() = runBlocking {
+        val commonDate = LocalDate.now()
+        val day = DatabaseDay(0, 2, commonDate, LocalDateTime.now(), LocalDateTime.now(), null)
+        database.dayDao.upsert(day)
+        val day2 = DatabaseDay(0, 2, commonDate, LocalDateTime.now(), LocalDateTime.now(), "no school for today! yay!")
+        val id = database.dayDao.upsert(day2)
+
+        database.dayDao.get(id).observeForever {
+            assertThat(it.information, `is`("no school for today! yay!"))
         }
     }
 

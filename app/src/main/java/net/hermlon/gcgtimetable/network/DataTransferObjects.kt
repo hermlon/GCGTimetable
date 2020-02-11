@@ -1,19 +1,21 @@
 package net.hermlon.gcgtimetable.network
 
 import net.hermlon.gcgtimetable.database.DatabaseLesson
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 import java.util.*
 
 data class NetworkParseResult(
     val courses: Set<NetworkCourse>,
     val lessons: Set<NetworkLesson>,
     val day: NetworkDay,
-    val freeDays: Set<Date>,
+    val freeDays: Set<LocalDate>,
     val exams: Set<NetworkExam>,
     val standardLessons: Set<NetworkStandardLesson>
 )
 
 data class NetworkDay(
-    var updatedAt: Date,
+    var updatedAt: LocalDateTime,
     var information: String
 )
 

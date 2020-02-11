@@ -2,12 +2,14 @@ package net.hermlon.gcgtimetable.api
 
 import android.util.Xml
 import net.hermlon.gcgtimetable.network.*
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.format.DateTimeFormatter
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
 import java.lang.Exception
-import java.text.SimpleDateFormat
 import java.util.*
 
 private val ns: String? = null
@@ -17,7 +19,7 @@ class InvalidDateException(message: String) : Exception(message)
 
 class Stundenplan24StudentXMLParser {
 
-    val DATE_FORMAT = "yyMMdd"
+    val FREE_DAYS_DATE_FORMAT = "yyMMdd"
     val UPDATED_AT_DATE_FORMAT = "dd.MM.yyyy, HH:mm"
 
     lateinit var courses: MutableSet<NetworkCourse>
@@ -33,13 +35,13 @@ class Stundenplan24StudentXMLParser {
             parser.setInput(myInputStream, null)
             parser.nextTag()
 
-            var updatedAt = Date()
+            var updatedAt = LocalDateTime.now()
             var information = ""
             courses = mutableSetOf()
             lessons = mutableSetOf()
             standardLessons = mutableSetOf()
             exams = mutableSetOf()
-            var freeDays: MutableSet<Date> = mutableSetOf()
+            var freeDays: MutableSet<LocalDate> = mutableSetOf()
 
             parser.require(XmlPullParser.START_TAG, ns, "VpMobil")
             while (parser.next() != XmlPullParser.END_TAG) {
@@ -320,7 +322,7 @@ class Stundenplan24StudentXMLParser {
     }
 
     @Throws(IOException::class, XmlPullParserException::class, TimetableMissingInformationException::class)
-    private fun readUpdatedAt(parser: XmlPullParser): Date {
+    private fun readUpdatedAt(parser: XmlPullParser): LocalDateTime {
         parser.require(XmlPullParser.START_TAG, ns, "Kopf")
 
         var date: String? = null
@@ -335,9 +337,9 @@ class Stundenplan24StudentXMLParser {
         }
         return if(date == null) {
             /* use current time when no updated at information is available */
-            Date()
+            LocalDateTime.now()
         } else {
-            SimpleDateFormat(UPDATED_AT_DATE_FORMAT, Locale.GERMANY).parse(date) ?:
+            LocalDateTime.parse(date, DateTimeFormatter.ofPattern(UPDATED_AT_DATE_FORMAT, Locale.GERMANY)) ?:
             throw InvalidDateException("date $date doesn't follow format $UPDATED_AT_DATE_FORMAT")
         }
     }
@@ -360,17 +362,17 @@ class Stundenplan24StudentXMLParser {
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readFreeDays(parser: XmlPullParser) : MutableSet<Date> {
+    private fun readFreeDays(parser: XmlPullParser) : MutableSet<LocalDate> {
         parser.require(XmlPullParser.START_TAG, ns, "FreieTage")
 
-        var freeDays = mutableSetOf<Date>()
+        var freeDays = mutableSetOf<LocalDate>()
 
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
             }
             when (parser.name) {
-                "ft" -> freeDays.add(readDate(parser))
+                "ft" -> freeDays.add(readFreeDaysDate(parser))
                 else -> skip(parser)
             }
         }
@@ -378,11 +380,11 @@ class Stundenplan24StudentXMLParser {
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readDate(parser: XmlPullParser): Date {
+    private fun readFreeDaysDate(parser: XmlPullParser): LocalDate {
         parser.name
         var date = readText(parser)
-        return SimpleDateFormat(DATE_FORMAT, Locale.GERMANY).parse(date) ?:
-        throw InvalidDateException("date $date doesn't follow format $DATE_FORMAT")
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern(FREE_DAYS_DATE_FORMAT, Locale.GERMANY)) ?:
+        throw InvalidDateException("date $date doesn't follow format $FREE_DAYS_DATE_FORMAT")
 
     }
 

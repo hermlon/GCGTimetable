@@ -8,6 +8,8 @@ import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import okhttp3.*
+import org.threeten.bp.LocalDate
+import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
 import java.util.*
@@ -17,7 +19,7 @@ class TimetableRepository(private val database: TimetableDatabase) {
     // TODO: Inject with Dagger
     private  val client = OkHttpClient()
 
-    suspend fun fetch(source: DatabaseSource, date: Date?) {
+    suspend fun fetch(source: DatabaseSource, date: LocalDate?) {
         // don't do this on Main Thread -> coroutines?
 
         var requestBuild = Request.Builder()
@@ -43,9 +45,9 @@ class TimetableRepository(private val database: TimetableDatabase) {
         }
     }
 
-    private fun formatUrl(url: String, date: Date?, isStudent: Boolean): String {
+    private fun formatUrl(url: String, date: LocalDate?, isStudent: Boolean): String {
         return if(date != null) {
-            var datestring = DateFormat.format("yyyyMMdd", date)
+            var datestring = date.format(DateTimeFormatter.BASIC_ISO_DATE)
             if(isStudent) {
                 "$url/mobdaten/PlanKl$datestring.xml"
             } else {
