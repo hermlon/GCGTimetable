@@ -71,7 +71,17 @@ interface LessonDao {
     fun insertAll(vararg lessons: DatabaseLesson)
 }
 
+@Dao
+interface ExamDao {
+    @Query("SELECT * FROM DatabaseExam")
+    fun getExams(): LiveData<List<DatabaseExam>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(vararg exams: DatabaseExam)
+}
+
 @Database(entities = [
+    DatabaseExam::class,
     DatabaseCourse::class,
     DatabaseLesson::class,
     DatabaseSource::class,
@@ -80,6 +90,7 @@ interface LessonDao {
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
 
+    abstract val examDao: ExamDao
     abstract val courseDao: CourseDao
     abstract val lessonDao: LessonDao
     abstract val sourceDao: SourceDao

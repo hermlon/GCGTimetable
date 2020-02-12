@@ -55,6 +55,17 @@ data class DatabaseLesson constructor(
     val courseId: Long,
     val className: String
 )
+
+@Entity(primaryKeys = ["dayId", "number", "courseId"])
+data class DatabaseExam constructor(
+    val dayId: Long,
+    val number: Int,
+    val beginsAt: String,
+    val length: Int,
+    val information: String,
+    val courseId: Long
+)
+
 /*
 fun List<DatabaseTimetableLesson>.asDomainModel(): List<TimetableLesson> {
     return map {

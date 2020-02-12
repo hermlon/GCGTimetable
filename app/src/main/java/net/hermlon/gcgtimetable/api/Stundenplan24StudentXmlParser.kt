@@ -320,7 +320,6 @@ class Stundenplan24StudentXMLParser {
             if(number != null && beginsAt != null && length != null && courseId != null) {
                 exams.add(
                     NetworkExam(
-                        className,
                         number,
                         beginsAt,
                         length,

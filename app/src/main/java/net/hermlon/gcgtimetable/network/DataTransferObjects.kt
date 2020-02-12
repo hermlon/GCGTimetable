@@ -1,6 +1,7 @@
 package net.hermlon.gcgtimetable.network
 
 import net.hermlon.gcgtimetable.database.DatabaseCourse
+import net.hermlon.gcgtimetable.database.DatabaseExam
 import net.hermlon.gcgtimetable.database.DatabaseLesson
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
@@ -43,7 +44,6 @@ data class NetworkLesson(
 )
 
 data class NetworkExam(
-    val className: String,
     val number: Int,
     val beginsAt: String,
     val length: Int,
@@ -57,6 +57,19 @@ data class NetworkStandardLesson(
     val courseId: Long,
     val room: String
 )
+
+fun Set<NetworkExam>.asDatabaseModel(dayId: Long): Array<DatabaseExam> {
+    return map {
+        DatabaseExam(
+            dayId = dayId,
+            number = it.number,
+            beginsAt = it.beginsAt,
+            length = it.length,
+            information = it.information,
+            courseId = it.courseId
+        )
+    }.toTypedArray()
+}
 
 fun Set<NetworkCourse>.asDatabaseModel(dayId: Long): Array<DatabaseCourse> {
     return map {

@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.*
 import net.hermlon.gcgtimetable.network.NetworkCourse
+import net.hermlon.gcgtimetable.network.NetworkExam
 import net.hermlon.gcgtimetable.network.NetworkLesson
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import org.hamcrest.CoreMatchers.`is`
@@ -47,6 +48,20 @@ class TimetableDatabaseTest {
     @Throws(IOException::class)
     fun closeDb() {
         database.close()
+    }
+
+    @Test
+    fun insertExamAndGetById() = runBlocking {
+        val exam = NetworkExam(1, "7:30", 240, "turning a mouse into a snuff box", 342)
+        val databaseExam = setOf(exam).asDatabaseModel(24)
+        database.examDao.insertAll(*databaseExam)
+
+        database.examDao.getExams().observeForever {
+            val loaded = it[0]
+            assertThat<DatabaseExam>(loaded, notNullValue())
+            assertThat(loaded.dayId, `is`(24L))
+            assertThat(loaded.courseId, `is`(342L))
+        }
     }
 
     @Test
