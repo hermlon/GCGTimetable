@@ -8,6 +8,8 @@ import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.equalTo
 import org.junit.Before
 import org.junit.Test
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 import java.io.File
 import java.io.FileNotFoundException
 
@@ -30,17 +32,21 @@ class Stundenplan24ParserTest {
     fun testschoolXml() {
         val result = parseXml("student-test-data/testschool-example-1.xml")
 
-        assertThat(result.lessons.size, equalTo(229))
-        assertThat(result.courses.size, equalTo(522))
-        assertThat(result.exams.size, equalTo(0))
+        assertThat(result.lessons.size, `is`(229))
+        assertThat(result.courses.size, `is`(522))
+        assertThat(result.exams.size, `is`(0))
+        assertThat(result.day.date, `is`(LocalDate.of(2020, 2, 5)))
+        assertThat(result.day.updatedAt, `is`(LocalDateTime.of(2020, 2, 5, 9, 39)))
     }
 
     @Test
     fun gcgXml() {
         val result = parseXml("student-test-data/gcg-example-1.xml")
 
-        assertThat(result.lessons.size, equalTo(204))
-        assertThat(result.courses.size, equalTo(456))
-        assertThat(result.exams.size, equalTo(4))
+        assertThat(result.lessons.size, `is`(204))
+        assertThat(result.courses.size, `is`(456))
+        assertThat(result.exams.size, `is`(4))
+        assertThat(result.day.date, `is`(LocalDate.of(2020, 2, 17)))
+        assertThat(result.day.updatedAt, `is`(LocalDateTime.of(2020, 2, 7, 11, 42)))
     }
 }

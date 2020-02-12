@@ -15,6 +15,7 @@ data class NetworkParseResult(
 )
 
 data class NetworkDay(
+    var date: LocalDate,
     var updatedAt: LocalDateTime,
     var information: String
 )

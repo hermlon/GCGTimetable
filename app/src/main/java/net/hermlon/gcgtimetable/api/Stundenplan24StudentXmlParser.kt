@@ -18,14 +18,28 @@ class TimetableMissingInformationException(message: String) : Exception(message)
 class InvalidDateException(message: String) : Exception(message)
 
 class Stundenplan24StudentXMLParser {
+    companion object {
+        val FREE_DAYS_DATE_FORMAT = "yyMMdd"
+        val UPDATED_AT_DATE_FORMAT = "dd.MM.yyyy, HH:mm"
+        val TIMETABLE_DATE_FROMAT = "EEEE, dd. LLLL yyyy"
 
-    val FREE_DAYS_DATE_FORMAT = "yyMMdd"
-    val UPDATED_AT_DATE_FORMAT = "dd.MM.yyyy, HH:mm"
+        fun parseRequiredLocalDate(d: String, format: String): LocalDate {
+            return LocalDate.parse(d, DateTimeFormatter.ofPattern(format, Locale.GERMANY)) ?:
+            throw InvalidDateException("date $d doesn't follow format $format")
+        }
+
+        fun parseRequiredLocalDateTime(d: String, format: String): LocalDateTime {
+            return LocalDateTime.parse(d, DateTimeFormatter.ofPattern(format, Locale.GERMANY)) ?:
+            throw InvalidDateException("date $d doesn't follow format $format")
+        }
+    }
 
     lateinit var courses: MutableSet<NetworkCourse>
     lateinit var lessons: MutableSet<NetworkLesson>
     lateinit var standardLessons: MutableSet<NetworkStandardLesson>
     lateinit var exams: MutableSet<NetworkExam>
+    var updatedAt: LocalDateTime? = null
+    var date: LocalDate? = null
 
     @Throws(XmlPullParserException::class, IOException::class)
     fun parse(inputStream: InputStream): NetworkParseResult {
@@ -35,7 +49,6 @@ class Stundenplan24StudentXMLParser {
             parser.setInput(myInputStream, null)
             parser.nextTag()
 
-            var updatedAt = LocalDateTime.now()
             var information = ""
             courses = mutableSetOf()
             lessons = mutableSetOf()
@@ -49,7 +62,7 @@ class Stundenplan24StudentXMLParser {
                     continue
                 }
                 when (parser.name) {
-                    "Kopf" -> updatedAt = readUpdatedAt(parser)
+                    "Kopf" -> readHead(parser)
                     "FreieTage" -> freeDays = readFreeDays(parser)
                     "ZusatzInfo" -> information = readAdditionalInfo(parser)
                     "Klassen" -> readClasses(parser)
@@ -60,7 +73,7 @@ class Stundenplan24StudentXMLParser {
             return NetworkParseResult(
                 courses,
                 lessons,
-                NetworkDay(updatedAt, information),
+                NetworkDay(date ?: throw TimetableMissingInformationException("missing date"),updatedAt ?: throw TimetableMissingInformationException("missing updated at"), information),
                 freeDays,
                 exams,
                 standardLessons
@@ -321,26 +334,23 @@ class Stundenplan24StudentXMLParser {
         }
     }
 
-    @Throws(IOException::class, XmlPullParserException::class, TimetableMissingInformationException::class)
-    private fun readUpdatedAt(parser: XmlPullParser): LocalDateTime {
+    @Throws(IOException::class, XmlPullParserException::class)
+    private fun readHead(parser: XmlPullParser) {
         parser.require(XmlPullParser.START_TAG, ns, "Kopf")
 
-        var date: String? = null
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) {
                 continue
             }
             when (parser.name) {
-                "zeitstempel" -> date = readText(parser)
+                "zeitstempel" -> {
+                    updatedAt = parseRequiredLocalDateTime(readText(parser), UPDATED_AT_DATE_FORMAT)
+                }
+                "DatumPlan" -> {
+                    date = parseRequiredLocalDate(readText(parser), TIMETABLE_DATE_FROMAT)
+                }
                 else -> skip(parser)
             }
-        }
-        return if(date == null) {
-            /* use current time when no updated at information is available */
-            LocalDateTime.now()
-        } else {
-            LocalDateTime.parse(date, DateTimeFormatter.ofPattern(UPDATED_AT_DATE_FORMAT, Locale.GERMANY)) ?:
-            throw InvalidDateException("date $date doesn't follow format $UPDATED_AT_DATE_FORMAT")
         }
     }
 

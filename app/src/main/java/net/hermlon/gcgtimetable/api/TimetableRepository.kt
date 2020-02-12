@@ -3,6 +3,7 @@ package net.hermlon.gcgtimetable.api
 import android.text.format.DateFormat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import net.hermlon.gcgtimetable.database.DatabaseDay
 import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
@@ -41,6 +42,7 @@ class TimetableRepository(private val database: TimetableDatabase) {
 
         withContext(Dispatchers.IO) {
             //TODO: create new day first and then use it's dayId here:
+            //database.dayDao.upsert(DatabaseDay(0, source.id, result.day.date, ))
             database.lessonDao.insertAll(*result.lessons.asDatabaseModel(24))
         }
     }
