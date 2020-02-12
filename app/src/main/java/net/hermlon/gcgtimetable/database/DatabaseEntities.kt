@@ -30,6 +30,17 @@ data class DatabaseDay constructor(
     val information: String?
 )
 
+@Entity
+data class DatabaseCourse constructor(
+    @PrimaryKey
+    val id: Long,
+    val dayId: Long,
+    val className: String,
+    val teacher: String,
+    val subject: String,
+    val name: String
+)
+
 @Entity(primaryKeys = ["dayId", "number", "courseId", "className"])
 data class DatabaseLesson constructor(
     val dayId: Long,

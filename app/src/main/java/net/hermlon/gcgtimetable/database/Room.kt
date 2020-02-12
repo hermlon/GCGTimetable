@@ -54,16 +54,25 @@ interface DayDao {
 }
 
 @Dao
+interface CourseDao {
+    @Query("SELECT * FROM DatabaseCourse")
+    fun getCourses(): LiveData<List<DatabaseCourse>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(vararg courses: DatabaseCourse)
+}
+
+@Dao
 interface LessonDao {
     @Query("SELECT * FROM DatabaseLesson")
     fun getLessons(): LiveData<List<DatabaseLesson>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg lessons: DatabaseLesson)
-
 }
 
 @Database(entities = [
+    DatabaseCourse::class,
     DatabaseLesson::class,
     DatabaseSource::class,
     DatabaseDay::class
@@ -71,6 +80,7 @@ interface LessonDao {
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
 
+    abstract val courseDao: CourseDao
     abstract val lessonDao: LessonDao
     abstract val sourceDao: SourceDao
     abstract val dayDao: DayDao

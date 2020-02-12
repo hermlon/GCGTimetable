@@ -6,10 +6,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
 import net.hermlon.gcgtimetable.api.TimetableRepository
-import net.hermlon.gcgtimetable.database.DatabaseDay
-import net.hermlon.gcgtimetable.database.DatabaseLesson
-import net.hermlon.gcgtimetable.database.TimetableDatabase
-import net.hermlon.gcgtimetable.database.DatabaseSource
+import net.hermlon.gcgtimetable.database.*
+import net.hermlon.gcgtimetable.network.NetworkCourse
 import net.hermlon.gcgtimetable.network.NetworkLesson
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import org.hamcrest.CoreMatchers.`is`
@@ -49,6 +47,21 @@ class TimetableDatabaseTest {
     @Throws(IOException::class)
     fun closeDb() {
         database.close()
+    }
+
+    @Test
+    fun insertCourseAndGetById() = runBlocking {
+        val course = NetworkCourse(342, "7/1", "Severus Snape", "Defence Against the Dark Arts", "DATDA3")
+        val databaseCourse = setOf(course).asDatabaseModel(24)
+        database.courseDao.insertAll(*databaseCourse)
+
+        database.courseDao.getCourses().observeForever {
+            val loaded = it[0]
+            assertThat<DatabaseCourse>(loaded, notNullValue())
+            assertThat(loaded.id, `is`(342L))
+            assertThat(loaded.dayId, `is`(24L))
+            assertThat(loaded.teacher, `is`("Severus Snape"))
+        }
     }
 
     @Test
@@ -105,6 +118,9 @@ class TimetableDatabaseTest {
 
         database.lessonDao.getLessons().observeForever { lessons ->
             assertThat(lessons.size, greaterThan(0))
+        }
+        database.courseDao.getCourses().observeForever { courses ->
+            assertThat(courses.size, greaterThan(0))
         }
     }
 }

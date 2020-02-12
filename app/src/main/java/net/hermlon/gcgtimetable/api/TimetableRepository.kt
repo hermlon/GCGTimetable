@@ -10,6 +10,7 @@ import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import okhttp3.*
 import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
@@ -41,9 +42,16 @@ class TimetableRepository(private val database: TimetableDatabase) {
         //result.day.day = date
 
         withContext(Dispatchers.IO) {
-            //TODO: create new day first and then use it's dayId here:
-            //database.dayDao.upsert(DatabaseDay(0, source.id, result.day.date, ))
-            database.lessonDao.insertAll(*result.lessons.asDatabaseModel(24))
+            val dayId = database.dayDao.upsert(DatabaseDay(
+                0,
+                source.id,
+                result.day.date,
+                result.day.updatedAt,
+                /* last time the xml file was fetched and parsed, i. e. now */
+                LocalDateTime.now(),
+                result.day.information))
+            database.lessonDao.insertAll(*result.lessons.asDatabaseModel(dayId))
+            database.courseDao.insertAll(*result.courses.asDatabaseModel(dayId))
         }
     }
 
