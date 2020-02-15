@@ -7,10 +7,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.*
-import net.hermlon.gcgtimetable.network.NetworkCourse
-import net.hermlon.gcgtimetable.network.NetworkExam
-import net.hermlon.gcgtimetable.network.NetworkLesson
-import net.hermlon.gcgtimetable.network.asDatabaseModel
+import net.hermlon.gcgtimetable.network.*
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.notNullValue
 import org.hamcrest.Matchers.greaterThan
@@ -67,14 +64,13 @@ class TimetableDatabaseTest {
     @Test
     fun insertCourseAndGetById() = runBlocking {
         val course = NetworkCourse(342, "7/1", "Severus Snape", "Defence Against the Dark Arts", "DATDA3")
-        val databaseCourse = setOf(course).asDatabaseModel(24)
+        val databaseCourse = setOf(course).asDatabaseModel()
         database.courseDao.insertAll(*databaseCourse)
 
         database.courseDao.getCourses().observeForever {
             val loaded = it[0]
             assertThat<DatabaseCourse>(loaded, notNullValue())
             assertThat(loaded.id, `is`(342L))
-            assertThat(loaded.dayId, `is`(24L))
             assertThat(loaded.teacher, `is`("Severus Snape"))
         }
     }
@@ -82,7 +78,7 @@ class TimetableDatabaseTest {
     @Test
     fun insertLessonAndGetById() = runBlocking {
         // GIVEN - insert a task
-        val lesson = NetworkLesson("7/1", 1, "Deu", false, "Kipp", false, "207", false, 235, null)
+        val lesson = NetworkLesson(1, "Deu", false, "Kipp", false, "207", false, 235, null)
         val databaseLesson = setOf(lesson).asDatabaseModel(24)
         database.lessonDao.insertAll(*databaseLesson)
 
@@ -91,7 +87,6 @@ class TimetableDatabaseTest {
             val loaded = it[0]
             // THEN - The loaded data contains the expected values
             assertThat<DatabaseLesson>(loaded, notNullValue())
-            assertThat(loaded.className, `is`(lesson.className))
             assertThat(loaded.courseId, `is`(lesson.courseId))
             assertThat(loaded.dayId, `is`(24L))
             assertThat(loaded.information, `is`(lesson.information))
@@ -102,6 +97,15 @@ class TimetableDatabaseTest {
             assertThat(loaded.room, `is`(lesson.room))
             assertThat(loaded.roomChanged, `is`(lesson.roomChanged))
         }
+    }
+
+    @Test
+    fun insertStandardLessonAndGetByKey() = runBlocking {
+        val stdLesson = NetworkStandardLesson(3, 34, "344")
+        val dbStdLesson = setOf(stdLesson).asDatabaseModel(2)
+        database.standardLessonDao.insertAll(*dbStdLesson)
+
+        //TODO: some request to verify it worked
     }
 
     @Test

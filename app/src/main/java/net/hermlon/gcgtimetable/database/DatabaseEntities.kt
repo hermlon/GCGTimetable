@@ -34,14 +34,13 @@ data class DatabaseDay constructor(
 data class DatabaseCourse constructor(
     @PrimaryKey
     val id: Long,
-    val dayId: Long,
     val className: String,
     val teacher: String,
     val subject: String,
     val name: String
 )
 
-@Entity(primaryKeys = ["dayId", "number", "courseId", "className"])
+@Entity(primaryKeys = ["dayId", "number", "courseId"])
 data class DatabaseLesson constructor(
     val dayId: Long,
     val number: Int,
@@ -52,8 +51,7 @@ data class DatabaseLesson constructor(
     val room: String,
     val roomChanged: Boolean = false,
     val information: String?,
-    val courseId: Long,
-    val className: String
+    val courseId: Long
 )
 
 @Entity(primaryKeys = ["dayId", "number", "courseId"])
@@ -64,6 +62,14 @@ data class DatabaseExam constructor(
     val length: Int,
     val information: String,
     val courseId: Long
+)
+
+@Entity(primaryKeys = ["dayOfWeek", "number", "courseId"])
+data class DatabaseStandardLesson constructor(
+    val dayOfWeek: Int,
+    val number: Int,
+    val courseId: Long,
+    val room: String
 )
 
 /*

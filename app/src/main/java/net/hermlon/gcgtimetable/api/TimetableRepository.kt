@@ -51,8 +51,9 @@ class TimetableRepository(private val database: TimetableDatabase) {
                 LocalDateTime.now(),
                 result.day.information))
             database.lessonDao.insertAll(*result.lessons.asDatabaseModel(dayId))
-            database.courseDao.insertAll(*result.courses.asDatabaseModel(dayId))
+            database.courseDao.insertAll(*result.courses.asDatabaseModel())
             database.examDao.insertAll(*result.exams.asDatabaseModel(dayId))
+            database.standardLessonDao.insertAll(*result.standardLessons.asDatabaseModel(result.day.date.dayOfWeek.value))
         }
     }
 

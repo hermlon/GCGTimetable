@@ -3,6 +3,7 @@ package net.hermlon.gcgtimetable.network
 import net.hermlon.gcgtimetable.database.DatabaseCourse
 import net.hermlon.gcgtimetable.database.DatabaseExam
 import net.hermlon.gcgtimetable.database.DatabaseLesson
+import net.hermlon.gcgtimetable.database.DatabaseStandardLesson
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import java.util.*
@@ -31,7 +32,6 @@ data class NetworkCourse(
 )
 
 data class NetworkLesson(
-    val className: String,
     val number: Int,
     val subject: String,
     val subjectChanged: Boolean = false,
@@ -52,7 +52,6 @@ data class NetworkExam(
 )
 
 data class NetworkStandardLesson(
-    val className: String,
     val number: Int,
     val courseId: Long,
     val room: String
@@ -71,11 +70,10 @@ fun Set<NetworkExam>.asDatabaseModel(dayId: Long): Array<DatabaseExam> {
     }.toTypedArray()
 }
 
-fun Set<NetworkCourse>.asDatabaseModel(dayId: Long): Array<DatabaseCourse> {
+fun Set<NetworkCourse>.asDatabaseModel(): Array<DatabaseCourse> {
     return map {
         DatabaseCourse(
             id = it.courseId,
-            dayId = dayId,
             className = it.className,
             teacher = it.teacher,
             subject = it.subject,
@@ -96,8 +94,18 @@ fun Set<NetworkLesson>.asDatabaseModel(dayId: Long): Array<DatabaseLesson> {
             room = it.room,
             roomChanged = it.roomChanged,
             information = it.information,
+            courseId = it.courseId
+        )
+    }.toTypedArray()
+}
+
+fun Set<NetworkStandardLesson>.asDatabaseModel(dayOfWeek: Int): Array<DatabaseStandardLesson> {
+    return map {
+        DatabaseStandardLesson(
+            dayOfWeek = dayOfWeek,
+            number = it.number,
             courseId = it.courseId,
-            className = it.className
+            room = it.room
         )
     }.toTypedArray()
 }

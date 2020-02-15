@@ -80,10 +80,17 @@ interface ExamDao {
     fun insertAll(vararg exams: DatabaseExam)
 }
 
+@Dao
+interface StandardLessonDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(vararg stdLessons: DatabaseStandardLesson)
+}
+
 @Database(entities = [
     DatabaseExam::class,
     DatabaseCourse::class,
     DatabaseLesson::class,
+    DatabaseStandardLesson::class,
     DatabaseSource::class,
     DatabaseDay::class
 ], version = 1, exportSchema = false)
@@ -93,6 +100,7 @@ abstract class TimetableDatabase : RoomDatabase() {
     abstract val examDao: ExamDao
     abstract val courseDao: CourseDao
     abstract val lessonDao: LessonDao
+    abstract val standardLessonDao: StandardLessonDao
     abstract val sourceDao: SourceDao
     abstract val dayDao: DayDao
 }

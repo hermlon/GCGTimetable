@@ -178,7 +178,6 @@ class Stundenplan24StudentXMLParser {
         if(number != null && subject != null && subjectChanged != null && teacher != null
             && teacherChanged != null && room != null && roomChanged != null) {
             lessons.add(NetworkLesson(
-                className,
                 number,
                 subject,
                 subjectChanged,
@@ -199,7 +198,6 @@ class Stundenplan24StudentXMLParser {
             if(!roomChanged && courseId != null) {
                 standardLessons.add(
                     NetworkStandardLesson(
-                        className,
                         number,
                         courseId,
                         room
