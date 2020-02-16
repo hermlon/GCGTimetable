@@ -27,9 +27,11 @@ class TimetableRepository(private val database: TimetableDatabase) {
 
     val fetchResult = MutableLiveData<Resource<NetworkParseResult>>()
 
-    suspend fun getTimetable(source: TempSource, date: LocalDate?) {
+    suspend fun getTimetable(source: TempSource, date: LocalDate?): Resource<NetworkParseResult> {
         fetchResult.value = Resource.Loading()
-        fetchResult.value = fetch(source, date)
+        val result = fetch(source, date)
+        fetchResult.value = result
+        return result
     }
 
     suspend fun refreshTimetableDay(source: DatabaseSource, date: LocalDate?) {
@@ -72,6 +74,12 @@ class TimetableRepository(private val database: TimetableDatabase) {
             Resource.Success(Stundenplan24StudentXMLParser().parse(response.body!!.byteStream()))
         }
 
+    }
+
+    suspend fun addSource(source: TempSource, name: String) {
+        withContext(Dispatchers.IO) {
+            database.sourceDao.insert(DatabaseSource(0, name, source.url, source.isStudent, source.username, source.password))
+        }
     }
 
     private suspend fun updateDatabase(source: DatabaseSource, newData: NetworkParseResult) {

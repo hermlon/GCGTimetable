@@ -61,7 +61,10 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
         viewModelScope.launch {
             val source = TempSource(urlFromSchoolNr(schoolNr), isStudent, username, password)
             /* fetch latest timetable to test configuration */
-            timetableRepository.getTimetable(source, null)
+            val result = timetableRepository.getTimetable(source, null)
+            if(result is Resource.Success) {
+                timetableRepository.addSource(source, "Stundenplan24: $schoolNr")
+            }
         }
     }
 
