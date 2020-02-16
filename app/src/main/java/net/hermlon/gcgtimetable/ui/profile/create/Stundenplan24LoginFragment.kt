@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import net.hermlon.gcgtimetable.R
-import net.hermlon.gcgtimetable.databinding.FragmentAskhostingBinding
 import net.hermlon.gcgtimetable.databinding.FragmentStundenplan24loginBinding
 
 class Stundenplan24LoginFragment : Fragment() {
