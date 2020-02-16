@@ -3,6 +3,7 @@ package net.hermlon.gcgtimetable.database
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.domain.TimetableLesson
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
@@ -87,4 +88,13 @@ fun List<DatabaseLesson>.asDomainModel(): List<TimetableLesson> {
             it.courseId
         )
     }
+}
+
+fun DatabaseSource.asTempSource(): TempSource {
+    return TempSource(
+        url,
+        isStudent,
+        username,
+        password
+    )
 }

@@ -133,7 +133,7 @@ class TimetableDatabaseTest {
         var repo = TimetableRepository(database)
 
         // date null will fetch the latest
-        repo.fetch(source, null)
+        repo.refreshTimetableDay(source, null)
 
         database.lessonDao.getLessons().observeForever { lessons ->
             assertThat(lessons.size, greaterThan(0))

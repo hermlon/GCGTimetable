@@ -1,12 +1,17 @@
 package net.hermlon.gcgtimetable.api
 
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.DatabaseDay
 import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.database.TimetableDatabase
+import net.hermlon.gcgtimetable.database.asTempSource
+import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
+import net.hermlon.gcgtimetable.util.Resource
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -14,14 +19,31 @@ import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
-import java.io.IOException
 
 class TimetableRepository(private val database: TimetableDatabase) {
 
     // TODO: Inject with Dagger
     private  val client = OkHttpClient()
 
-    suspend fun fetch(source: DatabaseSource, date: LocalDate?) {
+    val fetchResult = MutableLiveData<Resource<NetworkParseResult>>()
+
+    suspend fun getTimetable(source: TempSource, date: LocalDate?) {
+        fetchResult.value = Resource.Loading()
+        fetchResult.value = fetch(source, date)
+    }
+
+    suspend fun refreshTimetableDay(source: DatabaseSource, date: LocalDate?) {
+        val res = fetch(source.asTempSource(), date)
+        if(res is Resource.Success && res.data != null) {
+            updateDatabase(source, res.data)
+        }
+        else {
+            throw Exception(res.message)
+        }
+
+    }
+
+    suspend fun fetch(source: TempSource, date: LocalDate?): Resource<NetworkParseResult> {
 
         var requestBuild = Request.Builder()
             .url(formatUrl(source.url, date, source.isStudent))
@@ -32,25 +54,40 @@ class TimetableRepository(private val database: TimetableDatabase) {
 
         val response = client.newCall(request).await()
 
-        if (!response.isSuccessful) throw IOException("Unexpected code $response")
-
-        val result: NetworkParseResult = response.body!!.byteStream().use { stream ->
-            Stundenplan24StudentXMLParser().parse(stream)
+        if (!response.isSuccessful) {
+            Log.e("TimetableRepository", response.toString())
+            return when (response.code) {
+                // TODO: somehow make these strings a constant somewhere
+                401 -> Resource.Error("wrong username")
+                else -> Resource.Error("wrong url")
+            }
         }
 
+        /* The parsing of the input steam mustn't happen on Main Thread, because it is slow
+        * and more importantly will trigger Android's NetworkOnMainThreadException. Dispatchers.Default
+        * could be used because parsing is CPU heavy, but I'm unsure to which extend the network request
+        * is still running while accessing the input stream. During the network call OkHttp takes care
+        * of main-safety by itself. */
+        return withContext(Dispatchers.IO) {
+            Resource.Success(Stundenplan24StudentXMLParser().parse(response.body!!.byteStream()))
+        }
+
+    }
+
+    private suspend fun updateDatabase(source: DatabaseSource, newData: NetworkParseResult) {
         withContext(Dispatchers.IO) {
             val dayId = database.dayDao.upsert(DatabaseDay(
                 0,
                 source.id,
-                result.day.date,
-                result.day.updatedAt,
+                newData.day.date,
+                newData.day.updatedAt,
                 /* last time the xml file was fetched and parsed, i. e. now */
                 LocalDateTime.now(),
-                result.day.information))
-            database.lessonDao.insertAll(*result.lessons.asDatabaseModel(dayId))
-            database.courseDao.insertAll(*result.courses.asDatabaseModel())
-            database.examDao.insertAll(*result.exams.asDatabaseModel(dayId))
-            database.standardLessonDao.insertAll(*result.standardLessons.asDatabaseModel(result.day.date.dayOfWeek.value))
+                newData.day.information))
+            database.lessonDao.insertAll(*newData.lessons.asDatabaseModel(dayId))
+            database.courseDao.insertAll(*newData.courses.asDatabaseModel())
+            database.examDao.insertAll(*newData.exams.asDatabaseModel(dayId))
+            database.standardLessonDao.insertAll(*newData.standardLessons.asDatabaseModel(newData.day.date.dayOfWeek.value))
         }
     }
 

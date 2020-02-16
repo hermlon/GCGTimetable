@@ -12,3 +12,10 @@ data class TimetableLesson(
     val information: String?,
     val courseId: Long
 )
+
+data class TempSource(
+    val url: String,
+    val isStudent: Boolean,
+    val username: String? = null,
+    val password: String? = null
+)
