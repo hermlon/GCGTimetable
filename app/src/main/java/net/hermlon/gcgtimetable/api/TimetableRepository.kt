@@ -1,20 +1,20 @@
 package net.hermlon.gcgtimetable.api
 
-import android.text.format.DateFormat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.DatabaseDay
-import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.database.DatabaseSource
+import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
-import okhttp3.*
+import okhttp3.Credentials
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
 import java.io.IOException
-import java.util.*
 
 class TimetableRepository(private val database: TimetableDatabase) {
 
@@ -22,7 +22,6 @@ class TimetableRepository(private val database: TimetableDatabase) {
     private  val client = OkHttpClient()
 
     suspend fun fetch(source: DatabaseSource, date: LocalDate?) {
-        // don't do this on Main Thread -> coroutines?
 
         var requestBuild = Request.Builder()
             .url(formatUrl(source.url, date, source.isStudent))
@@ -38,8 +37,6 @@ class TimetableRepository(private val database: TimetableDatabase) {
         val result: NetworkParseResult = response.body!!.byteStream().use { stream ->
             Stundenplan24StudentXMLParser().parse(stream)
         }
-        // the date we fetched is the date of the result we got
-        //result.day.day = date
 
         withContext(Dispatchers.IO) {
             val dayId = database.dayDao.upsert(DatabaseDay(

@@ -72,25 +72,19 @@ data class DatabaseStandardLesson constructor(
     val room: String
 )
 
-/*
-fun List<DatabaseTimetableLesson>.asDomainModel(): List<TimetableLesson> {
+fun List<DatabaseLesson>.asDomainModel(): List<TimetableLesson> {
     return map {
         TimetableLesson(
-            id = it.id,
-            //dayId = it.dayId
-            number = it.number,
-            subject = it.subject,
-            subjectChanged = it.subjectChanged,
-            subjectNormal = it.subjectNormal,
-            courseName = it.courseName,
-            teacher = it.teacher,
-            teacherChanged = it.teacherChanged,
-            teacherNormal = it.teacherNormal,
-            room = it.room,
-            roomChanged = it.roomChanged,
-            information = it.information,
-            courseNr = it.courseNr,
-            className = it.className
+            it.dayId,
+            it.number,
+            it.subject,
+            it.subjectChanged,
+            it.teacher,
+            it.teacherChanged,
+            it.room,
+            it.roomChanged,
+            it.information,
+            it.courseId
         )
     }
-}*/
+}
