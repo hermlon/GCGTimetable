@@ -22,4 +22,9 @@
         android:id="@+id/stundenplan24LoginFragment"
         android:name="net.hermlon.gcgtimetable.ui.profile.create.Stundenplan24LoginFragment"
         android:label="@string/profile_login" />
+    <fragment
+        android:id="@+id/nav_manage_profiles"
+        android:name="net.hermlon.gcgtimetable.ui.profile.manage.ManageProfilesFragment"
+        android:label="fragment_manage_profiles"
+        tools:layout="@layout/fragment_manage_profiles" />
 </navigation>

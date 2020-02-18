@@ -24,4 +24,7 @@
     <string name="password">password</string>
     <string name="profile_student">student</string>
     <string name="profile_teacher">teacher</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
