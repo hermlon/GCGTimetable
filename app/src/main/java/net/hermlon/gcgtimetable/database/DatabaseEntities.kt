@@ -3,10 +3,21 @@ package net.hermlon.gcgtimetable.database
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import net.hermlon.gcgtimetable.domain.Profile
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.domain.TimetableLesson
+import net.hermlon.gcgtimetable.network.NetworkStandardLesson
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
+
+@Entity
+data class DatabaseProfile constructor(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long,
+    val name: String,
+    val sourceId: Long,
+    val position: Int
+)
 
 @Entity
 data class DatabaseSource constructor(
@@ -73,7 +84,7 @@ data class DatabaseStandardLesson constructor(
     val room: String
 )
 
-fun List<DatabaseLesson>.asDomainModel(): List<TimetableLesson> {
+fun List<DatabaseLesson>.asDomainModel(): Array<TimetableLesson> {
     return map {
         TimetableLesson(
             it.dayId,
@@ -87,7 +98,19 @@ fun List<DatabaseLesson>.asDomainModel(): List<TimetableLesson> {
             it.information,
             it.courseId
         )
-    }
+    }.toTypedArray()
+}
+
+
+fun List<NetworkStandardLesson>.asDomainModel(dayOfWeek: Int): Array<DatabaseStandardLesson> {
+    return map {
+        DatabaseStandardLesson(
+            dayOfWeek = dayOfWeek,
+            number = it.number,
+            courseId = it.courseId,
+            room = it.room
+        )
+    }.toTypedArray()
 }
 
 fun DatabaseSource.asTempSource(): TempSource {
@@ -97,4 +120,15 @@ fun DatabaseSource.asTempSource(): TempSource {
         username,
         password
     )
+}
+
+fun List<DatabaseProfile>.asDomainModel(): List<Profile> {
+    return map {
+        Profile(
+            it.id,
+            it.name,
+            it.sourceId,
+            it.position
+        )
+    }
 }

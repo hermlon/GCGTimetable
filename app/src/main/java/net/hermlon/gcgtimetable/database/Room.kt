@@ -8,6 +8,15 @@ import org.threeten.bp.LocalDateTime
 import java.util.*
 
 @Dao
+interface ProfileDao {
+    @Insert
+    fun insert(profile: DatabaseProfile)
+
+    @Query("SELECT * FROM DatabaseProfile ORDER BY position")
+    fun getProfiles(): LiveData<List<DatabaseProfile>>
+}
+
+@Dao
 interface SourceDao {
     @Insert
     fun insert(source: DatabaseSource)
@@ -92,8 +101,9 @@ interface StandardLessonDao {
     DatabaseLesson::class,
     DatabaseStandardLesson::class,
     DatabaseSource::class,
-    DatabaseDay::class
-], version = 1, exportSchema = false)
+    DatabaseDay::class,
+    DatabaseProfile::class
+], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
 
@@ -103,6 +113,7 @@ abstract class TimetableDatabase : RoomDatabase() {
     abstract val standardLessonDao: StandardLessonDao
     abstract val sourceDao: SourceDao
     abstract val dayDao: DayDao
+    abstract val profileDao: ProfileDao
 }
 
 private lateinit var INSTANCE: TimetableDatabase
@@ -112,7 +123,10 @@ fun getDatabase(context: Context): TimetableDatabase {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(context.applicationContext,
                 TimetableDatabase::class.java,
-                "timetable_database").build()
+                "timetable_database")
+                    //TODO: Remove this in production and write migrations instead!
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
     return INSTANCE

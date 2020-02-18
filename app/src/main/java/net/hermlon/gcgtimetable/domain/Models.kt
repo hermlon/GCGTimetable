@@ -19,3 +19,10 @@ data class TempSource(
     val username: String? = null,
     val password: String? = null
 )
+
+data class Profile constructor(
+    val id: Long,
+    val name: String,
+    val sourceId: Long,
+    val position: Int
+)

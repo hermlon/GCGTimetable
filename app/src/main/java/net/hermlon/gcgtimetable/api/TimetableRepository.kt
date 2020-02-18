@@ -1,13 +1,15 @@
 package net.hermlon.gcgtimetable.api
 
+import android.text.method.TransformationMethod
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.hermlon.gcgtimetable.database.DatabaseDay
-import net.hermlon.gcgtimetable.database.DatabaseSource
-import net.hermlon.gcgtimetable.database.TimetableDatabase
-import net.hermlon.gcgtimetable.database.asTempSource
+import net.hermlon.gcgtimetable.database.*
+import net.hermlon.gcgtimetable.domain.Profile
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
@@ -26,6 +28,10 @@ class TimetableRepository(private val database: TimetableDatabase) {
     private  val client = OkHttpClient()
 
     val fetchResult = MutableLiveData<Resource<NetworkParseResult>>()
+
+    val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getProfiles()) {
+        it.asDomainModel()
+    }
 
     suspend fun getTimetable(source: TempSource, date: LocalDate?): Resource<NetworkParseResult> {
         fetchResult.value = Resource.Loading()
