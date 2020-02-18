@@ -1,25 +1,22 @@
 package net.hermlon.gcgtimetable
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_main.view.*
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.google.android.material.navigation.NavigationView
 import net.hermlon.gcgtimetable.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -51,16 +48,27 @@ class MainActivity : AppCompatActivity() {
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        //navView.setupWithNavController(navController)
+        navView.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener { item ->
+            drawerLayout.closeDrawer(navView)
+            if(item.itemId in profileMenuIds.keys) {
+                Toast.makeText(this, item.itemId.toString(), Toast.LENGTH_SHORT).show()
+                return@OnNavigationItemSelectedListener true
+            }
+            else {
+                return@OnNavigationItemSelectedListener NavigationUI.onNavDestinationSelected(item, navController)
+            }
+        })
 
         viewModel.profiles.observe(this, Observer { profiles ->
             profileMenuIds.clear()
-            navView.menu.removeGroup(R.id.menu_profiles)
+            // remove previous profile entries
+            navView.menu.children.first().subMenu.clear()
 
             profiles.forEachIndexed { index, profile ->
                 val id = View.generateViewId()
                 profileMenuIds[id] = profile.id
-                navView.menu.add(R.id.menu_profiles, id, index, profile.name)
+                navView.menu.children.first().subMenu.add(R.id.menu_profiles, id, index, profile.name)
             }
         })
     }
