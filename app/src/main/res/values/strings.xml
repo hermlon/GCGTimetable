@@ -10,6 +10,7 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_manage_profiles">Manage Profiles</string>
     <string name="menu_date">Time machine</string>
+    <string name="menu_profiles">Profiles</string>
 
     <string name="profile_new">New Profile</string>
     <string name="askhosting_option_stundenplan24">Do you use <b>www.stundenplan24.de</b> for accessing your timetable?</string>
