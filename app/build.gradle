@@ -43,6 +43,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
+    // UI
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation 'com.google.android.material:material:1.4.0'
+
     // Android KTX
     implementation 'androidx.core:core-ktx:1.6.0'
 
@@ -68,6 +72,7 @@ dependencies {
     // room
     implementation 'androidx.room:room-ktx:2.3.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     kapt 'androidx.room:room-compiler:2.3.0'
 
     // AndroidX Test - Instrumented testing
