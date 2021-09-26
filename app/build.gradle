@@ -2,8 +2,6 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -46,7 +44,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
     // Android KTX
-    implementation "androidx.core:core-ktx:1.2.0"
+    implementation 'androidx.core:core-ktx:1.6.0'
 
     // okhttp
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
@@ -56,28 +54,28 @@ dependencies {
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.2'
 
     // App dependencies
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 
     // lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
 
     // navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.2.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.2.1"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     // room
-    implementation "androidx.room:room-ktx:2.2.3"
+    implementation 'androidx.room:room-ktx:2.3.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    kapt "androidx.room:room-compiler:2.2.3"
+    kapt 'androidx.room:room-compiler:2.3.0'
 
     // AndroidX Test - Instrumented testing
-    androidTestImplementation "androidx.test.ext:junit:1.1.1"
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:3.2.0"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     // AndroidX Test - JVM testing
-    testImplementation "androidx.test.ext:junit:1.1.1"
+    testImplementation 'androidx.test.ext:junit:1.1.3'
 }

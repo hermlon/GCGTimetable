@@ -1,11 +1,9 @@
 package net.hermlon.gcgtimetable.api
 
-import android.text.method.TransformationMethod
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.*
