@@ -8,11 +8,13 @@ import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
 import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter
 import net.hermlon.gcgtimetable.ui.timetable.WeekTabLayoutMediator
 import java.text.DateFormatSymbols
 
+@AndroidEntryPoint
 class SimpleMainActivity : AppCompatActivity() {
 
     private lateinit var timetableDayAdapter: TimetableDayAdapter

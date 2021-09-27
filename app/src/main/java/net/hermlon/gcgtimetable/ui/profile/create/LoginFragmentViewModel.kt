@@ -3,20 +3,22 @@ package net.hermlon.gcgtimetable.ui.profile.create
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.DatabaseSource
-import net.hermlon.gcgtimetable.database.getDatabase
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.util.Resource
+import javax.inject.Inject
 
 enum class LoginApiStatus { LOADING, ERROR_LOGIN, ERROR_URL, SUCCESS }
 
-class LoginFragmentViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class LoginFragmentViewModel @Inject constructor(application: Application, private var timetableRepository: TimetableRepository) : AndroidViewModel(application) {
 
     /**
      * This is the job for all coroutines started by this ViewModel.
@@ -32,9 +34,6 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
      * viewModelJob.cancel()
      */
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
-
-    private val database = getDatabase(application)
-    private val timetableRepository = TimetableRepository(database)
 
     val status = Transformations.map(timetableRepository.fetchResult) {
         if(it is Resource.Success) {

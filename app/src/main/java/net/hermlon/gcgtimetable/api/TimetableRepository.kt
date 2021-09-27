@@ -19,8 +19,9 @@ import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
+import javax.inject.Inject
 
-class TimetableRepository(private val database: TimetableDatabase) {
+class TimetableRepository @Inject constructor(private val database: TimetableDatabase) {
 
     // TODO: Inject with Dagger
     private  val client = OkHttpClient()
@@ -49,8 +50,7 @@ class TimetableRepository(private val database: TimetableDatabase) {
 
     }
 
-    suspend fun fetch(source: TempSource, date: LocalDate?): Resource<NetworkParseResult> {
-
+    private suspend fun fetch(source: TempSource, date: LocalDate?): Resource<NetworkParseResult> {
         var requestBuild = Request.Builder()
             .url(formatUrl(source.url, date, source.isStudent))
         if(source.username != null && source.password != null) {

@@ -1,10 +1,13 @@
 package net.hermlon.gcgtimetable.ui.timetable
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import java.time.LocalDate
+import org.threeten.bp.LocalDate
 
 
 class TimetableDayAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
@@ -14,7 +17,7 @@ class TimetableDayAdapter(activity: FragmentActivity) : FragmentStateAdapter(act
         val fragment = TimetableDayFragment()
         fragment.arguments = Bundle().apply {
             // pass date to fragment
-            putInt(Companion.ARG_OBJECT, position)
+            putSerializable(ARG_DATE, LocalDate.now())
         }
         return fragment
     }
@@ -28,6 +31,6 @@ class TimetableDayAdapter(activity: FragmentActivity) : FragmentStateAdapter(act
     }
 
     companion object {
-        const val ARG_OBJECT = "object"
+        const val ARG_DATE = "date"
     }
 }

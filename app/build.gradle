@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'dagger.hilt.android.plugin'
+
 android {
     compileSdkVersion 31
     defaultConfig {
@@ -17,7 +19,8 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = ["room.incremental": "true"]
+								// += instead of = is a workaround?
+                arguments += ["room.incremental": "true"]
             }
         }
     }
@@ -74,6 +77,10 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     kapt 'androidx.room:room-compiler:2.3.0'
+
+    // hilt
+    implementation 'com.google.dagger:hilt-android:2.38.1'
+    kapt 'com.google.dagger:hilt-compiler:2.38.1'
 
     // AndroidX Test - Instrumented testing
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

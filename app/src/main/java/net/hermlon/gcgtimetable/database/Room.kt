@@ -115,19 +115,3 @@ abstract class TimetableDatabase : RoomDatabase() {
     abstract val dayDao: DayDao
     abstract val profileDao: ProfileDao
 }
-
-private lateinit var INSTANCE: TimetableDatabase
-
-fun getDatabase(context: Context): TimetableDatabase {
-    synchronized(TimetableDatabase::class.java) {
-        if (!::INSTANCE.isInitialized) {
-            INSTANCE = Room.databaseBuilder(context.applicationContext,
-                TimetableDatabase::class.java,
-                "timetable_database")
-                    //TODO: Remove this in production and write migrations instead!
-                .fallbackToDestructiveMigration()
-                .build()
-        }
-    }
-    return INSTANCE
-}

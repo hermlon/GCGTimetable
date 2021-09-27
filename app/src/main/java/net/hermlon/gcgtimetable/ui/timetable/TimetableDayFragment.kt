@@ -1,22 +1,22 @@
 package net.hermlon.gcgtimetable.ui.timetable
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.SavedStateViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
-import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter.Companion.ARG_OBJECT
+import net.hermlon.gcgtimetable.util.Resource
+import org.threeten.bp.format.DateTimeFormatter
 
+@AndroidEntryPoint
 class TimetableDayFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = TimetableDayFragment()
-    }
-
-    private lateinit var viewModel: TimetableDayViewModel
+    private val viewModel: TimetableDayViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,17 +25,19 @@ class TimetableDayFragment : Fragment() {
         return inflater.inflate(R.layout.timetable_day_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TimetableDayViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        arguments?.takeIf { it.containsKey(ARG_OBJECT) }?.apply {
-            val textView: TextView = view.findViewById(R.id.demoText)
-            textView.text = getInt(ARG_OBJECT).toString() + " mod 5: " + (getInt(ARG_OBJECT) % 5).toString()
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.timetable.observe(viewLifecycleOwner) {
+            val textView = view.findViewById<TextView>(R.id.demoText)
+            if(it is Resource.Success) {
+               textView.text = it.data?.day?.updatedAt?.format(DateTimeFormatter.BASIC_ISO_DATE) ?: ""
+            }
+            if(it is Resource.Loading) {
+                textView.text = "Loading"
+            }
+            if(it is Resource.Error) {
+                textView.text = "Error " + it.message
+            }
         }
     }
-
 }

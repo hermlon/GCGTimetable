@@ -3,18 +3,20 @@ package net.hermlon.gcgtimetable.ui.profile.manage
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.DatabaseSource
-import net.hermlon.gcgtimetable.database.getDatabase
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.util.Resource
+import javax.inject.Inject
 
-class ManageProfilesViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class ManageProfilesViewModel @Inject constructor(application: Application, timetableRepository: TimetableRepository) : AndroidViewModel(application) {
 
     /**
      * This is the job for all coroutines started by this ViewModel.
@@ -30,10 +32,6 @@ class ManageProfilesViewModel(application: Application) : AndroidViewModel(appli
      * viewModelJob.cancel()
      */
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
-
-    private val database = getDatabase(application)
-    private val timetableRepository = TimetableRepository(database)
-
 
     /**
      * Cancel all coroutines when the ViewModel is cleared
