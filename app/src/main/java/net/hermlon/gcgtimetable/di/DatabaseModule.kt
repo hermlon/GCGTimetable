@@ -16,7 +16,7 @@ class DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideAppDatabase(@ApplicationContext context: Context): TimetableDatabase {
+    fun provideDatabase(@ApplicationContext context: Context): TimetableDatabase {
         return Room.databaseBuilder(context,
             TimetableDatabase::class.java,
             "timetable_database")

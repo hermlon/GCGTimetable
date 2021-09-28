@@ -10,8 +10,9 @@ import net.hermlon.gcgtimetable.database.*
 import net.hermlon.gcgtimetable.domain.Profile
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.network.NetworkParseResult
+import net.hermlon.gcgtimetable.network.Webservice
 import net.hermlon.gcgtimetable.network.asDatabaseModel
-import net.hermlon.gcgtimetable.util.Resource
+import net.hermlon.gcgtimetable.util.ResourceStatus
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -19,65 +20,28 @@ import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
+import java.lang.Exception
 import javax.inject.Inject
 
-class TimetableRepository @Inject constructor(private val database: TimetableDatabase) {
+class TimetableRepository @Inject constructor(private val database: TimetableDatabase, private val webservice: Webservice) {
 
-    // TODO: Inject with Dagger
-    private  val client = OkHttpClient()
-
-    val fetchResult = MutableLiveData<Resource<NetworkParseResult>>()
+    val fetchStatus = MutableLiveData<ResourceStatus>()
 
     val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getProfiles()) {
         it.asDomainModel()
     }
 
-    suspend fun getTimetable(source: TempSource, date: LocalDate?): Resource<NetworkParseResult> {
-        fetchResult.value = Resource.Loading()
-        val result = fetch(source, date)
-        fetchResult.value = result
-        return result
-    }
+    val timetable: LiveData<List<DatabaseLesson>> = database.lessonDao.getLessons()
 
-    suspend fun refreshTimetableDay(source: DatabaseSource, date: LocalDate?) {
-        val res = fetch(source.asTempSource(), date)
-        if(res is Resource.Success && res.data != null) {
-            updateDatabase(source, res.data)
+    suspend fun refreshTimetable(source: DatabaseSource, date: LocalDate?) {
+        fetchStatus.value = ResourceStatus.LOADING
+        val res = webservice.fetch(source.asTempSource(), date)
+        if(res.status == ResourceStatus.SUCCESS && res.data != null) {
+            updateDatabase(source, res.data!!)
+            fetchStatus.value = ResourceStatus.SUCCESS
+        } else {
+            fetchStatus.value = res.status
         }
-        else {
-            throw Exception(res.message)
-        }
-
-    }
-
-    private suspend fun fetch(source: TempSource, date: LocalDate?): Resource<NetworkParseResult> {
-        var requestBuild = Request.Builder()
-            .url(formatUrl(source.url, date, source.isStudent))
-        if(source.username != null && source.password != null) {
-            requestBuild = requestBuild.header("Authorization", Credentials.basic(source.username, source.password))
-        }
-        val request = requestBuild.build()
-
-        val response = client.newCall(request).await()
-
-        if (!response.isSuccessful) {
-            Log.e("TimetableRepository", response.toString())
-            return when (response.code) {
-                // TODO: somehow make these strings a constant somewhere
-                401 -> Resource.Error("wrong username")
-                else -> Resource.Error("wrong url")
-            }
-        }
-
-        /* The parsing of the input steam mustn't happen on Main Thread, because it is slow
-        * and more importantly will trigger Android's NetworkOnMainThreadException. Dispatchers.Default
-        * could be used because parsing is CPU heavy, but I'm unsure to which extend the network request
-        * is still running while accessing the input stream. During the network call OkHttp takes care
-        * of main-safety by itself. */
-        return withContext(Dispatchers.IO) {
-            Resource.Success(Stundenplan24StudentXMLParser().parse(response.body!!.byteStream()))
-        }
-
     }
 
     suspend fun addSource(source: TempSource, name: String) {
@@ -100,23 +64,6 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
             database.courseDao.insertAll(*newData.courses.asDatabaseModel())
             database.examDao.insertAll(*newData.exams.asDatabaseModel(dayId))
             database.standardLessonDao.insertAll(*newData.standardLessons.asDatabaseModel(newData.day.date.dayOfWeek.value))
-        }
-    }
-
-    private fun formatUrl(url: String, date: LocalDate?, isStudent: Boolean): String {
-        return if(date != null) {
-            var datestring = date.format(DateTimeFormatter.BASIC_ISO_DATE)
-            if(isStudent) {
-                "$url/mobdaten/PlanKl$datestring.xml"
-            } else {
-                "$url/mobdaten/PlanLe$datestring.xml"
-            }
-        } else {
-            //if(isStudent) {
-                "$url/mobdaten/Klassen.xml"
-            //} else {
-            // TODO: implement default for teachers
-            //}
         }
     }
 }

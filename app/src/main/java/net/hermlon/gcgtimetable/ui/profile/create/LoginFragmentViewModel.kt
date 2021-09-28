@@ -35,35 +35,31 @@ class LoginFragmentViewModel @Inject constructor(application: Application, priva
      */
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+    val status = MutableLiveData<LoginApiStatus>()
+    /*
     val status = Transformations.map(timetableRepository.fetchResult) {
-        if(it is Resource.Success) {
-            LoginApiStatus.SUCCESS
+        when(it) {
+            is Resource.Success -> LoginApiStatus.SUCCESS
+            is Resource.Loading -> LoginApiStatus.LOADING
+            is Resource.ErrorAuth -> LoginApiStatus.ERROR_LOGIN
+            is Resource.ErrorNotFound -> LoginApiStatus.ERROR_URL
+            else -> LoginApiStatus.ERROR_URL
         }
-        else {
-            if (it is Resource.Loading) LoginApiStatus.LOADING
-            else {
-                if(it.message == "wrong username") {
-                    LoginApiStatus.ERROR_LOGIN
-                }
-                else {
-                    LoginApiStatus.ERROR_URL
-                }
-            }
-        }
-    }
-
+    }*/
+    val isLoading = false
+/*
     val isLoading = Transformations.map(status) {
         it == LoginApiStatus.LOADING
-    }
+    }*/
 
     fun onLogin(schoolNr: String, username: String, password: String, isStudent: Boolean) {
         viewModelScope.launch {
             val source = TempSource(urlFromSchoolNr(schoolNr), isStudent, username, password)
             /* fetch latest timetable to test configuration */
-            val result = timetableRepository.getTimetable(source, null)
+            /*val result = timetableRepository.getTimetable(source, null)
             if(result is Resource.Success) {
                 timetableRepository.addSource(source, "Stundenplan24: $schoolNr")
-            }
+            }*/
         }
     }
 
