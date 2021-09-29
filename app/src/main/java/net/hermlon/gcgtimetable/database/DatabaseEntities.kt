@@ -84,25 +84,45 @@ data class DatabaseStandardLesson constructor(
     val room: String
 )
 
-fun List<DatabaseLesson>.asDomainModel(): Array<TimetableLesson> {
+data class EnrichedStandardLesson(
+    val number: Int,
+    val subject: String,
+    val teacher: String,
+    val room: String,
+    val courseId: Long
+)
+
+@JvmName("asDomainModelDatabaseLesson")
+fun List<DatabaseLesson>.asDomainModel(): List<TimetableLesson> {
     return map {
         TimetableLesson(
-            it.dayId,
-            it.number,
-            it.subject,
-            it.subjectChanged,
-            it.teacher,
-            it.teacherChanged,
-            it.room,
-            it.roomChanged,
-            it.information,
-            it.courseId
+            number = it.number,
+            subject = it.subject,
+            subjectChanged = it.subjectChanged,
+            teacher = it.teacher,
+            teacherChanged = it.teacherChanged,
+            room = it.room,
+            roomChanged = it.roomChanged,
+            information = it.information,
+            courseId = it.courseId
         )
-    }.toTypedArray()
+    }
 }
 
+@JvmName("asDomainModelEnrichedStandardLesson")
+fun List<EnrichedStandardLesson>.asDomainModel(): List<TimetableLesson> {
+    return map{
+        TimetableLesson(
+            number = it.number,
+            subject = it.subject,
+            teacher = it.teacher,
+            room = it.room,
+            courseId = it.courseId
+        )
+    }
+}
 
-fun List<NetworkStandardLesson>.asDomainModel(dayOfWeek: Int): Array<DatabaseStandardLesson> {
+/*fun List<NetworkStandardLesson>.asDomainModel(dayOfWeek: Int): Array<DatabaseStandardLesson> {
     return map {
         DatabaseStandardLesson(
             dayOfWeek = dayOfWeek,
@@ -111,7 +131,7 @@ fun List<NetworkStandardLesson>.asDomainModel(dayOfWeek: Int): Array<DatabaseSta
             room = it.room
         )
     }.toTypedArray()
-}
+}*/
 
 fun DatabaseSource.asTempSource(): TempSource {
     return TempSource(

@@ -1,7 +1,18 @@
 package net.hermlon.gcgtimetable.domain
 
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
+
+data class TimetableDay(
+    val isStandard: Boolean,
+    val date: LocalDate,
+    val updatedAt: LocalDateTime,
+    val lastRefresh: LocalDateTime,
+    val information: String?,
+    val lessons: List<TimetableLesson>
+)
+
 data class TimetableLesson(
-    val dayId: Long,
     val number: Int,
     val subject: String,
     val subjectChanged: Boolean = false,
@@ -9,7 +20,7 @@ data class TimetableLesson(
     val teacherChanged: Boolean = false,
     val room: String,
     val roomChanged: Boolean = false,
-    val information: String?,
+    val information: String? = null,
     val courseId: Long
 )
 

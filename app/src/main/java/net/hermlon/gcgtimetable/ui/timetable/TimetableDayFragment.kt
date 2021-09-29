@@ -31,12 +31,11 @@ class TimetableDayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.timetable.observe(viewLifecycleOwner) {
             val textView = view.findViewById<TextView>(R.id.demoText)
-            if(it.size ?: 0  != 0) {
-                textView.text = it.get(0).teacher
+            var text = it.status.toString()
+            if(it.data != null) {
+                text += " " + it.data!!.lastRefresh.toString()
             }
-        }
-        viewModel.fetchStatus.observe(viewLifecycleOwner) {
-            Log.d("TDFragment", it.toString())
+            textView.text = text
         }
     }
 }

@@ -7,6 +7,7 @@ import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.DatabaseLesson
 import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.domain.TempSource
+import net.hermlon.gcgtimetable.domain.TimetableDay
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter.Companion.ARG_DATE
 import net.hermlon.gcgtimetable.util.Resource
@@ -22,11 +23,8 @@ class TimetableDayViewModel @Inject constructor(
 ) : ViewModel() {
     val date: LocalDate = savedStateHandle[ARG_DATE] ?: throw IllegalArgumentException("missing date")
 
-    private val _timetable = timetableRepository.timetable
-    val timetable: LiveData<List<DatabaseLesson>> = _timetable
-
-    private val _fetchStatus = timetableRepository.fetchStatus
-    val fetchStatus: LiveData<ResourceStatus> = _fetchStatus
+    private val _timetable = timetableRepository.getTimetable(date)
+    val timetable: LiveData<Resource<TimetableDay>> = _timetable
 
     init {
         viewModelScope.launch {
