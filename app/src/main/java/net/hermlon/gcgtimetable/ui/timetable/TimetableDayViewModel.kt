@@ -1,5 +1,6 @@
 package net.hermlon.gcgtimetable.ui.timetable
 
+import android.util.Log
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,15 +22,21 @@ class TimetableDayViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     timetableRepository: TimetableRepository
 ) : ViewModel() {
+    // todo make private
     val date: LocalDate = savedStateHandle[ARG_DATE] ?: throw IllegalArgumentException("missing date")
 
-    private val _timetable = timetableRepository.getTimetable(date)
+    private val _timetable = MutableLiveData<Resource<TimetableDay>>()
     val timetable: LiveData<Resource<TimetableDay>> = _timetable
 
     init {
         viewModelScope.launch {
             val testsource = DatabaseSource(0, "test", "https://www.stundenplan24.de/10000000/mobil", true, "sfa", "pasefsf")
-            timetableRepository.refreshTimetable(testsource, date)
+            timetableRepository.refreshTimetable(_timetable, testsource, date)
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("TimetableViewModel", "onCleared " + date.toString())
     }
 }

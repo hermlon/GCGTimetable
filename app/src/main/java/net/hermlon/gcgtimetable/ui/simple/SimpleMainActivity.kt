@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -12,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
 import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter
 import net.hermlon.gcgtimetable.ui.timetable.WeekTabLayoutMediator
+import org.threeten.bp.LocalDate
 import java.text.DateFormatSymbols
 
 @AndroidEntryPoint
@@ -33,6 +35,6 @@ class SimpleMainActivity : AppCompatActivity() {
             tab.text = DateFormatSymbols.getInstance().shortWeekdays[position+2]
         }.attach()
 
-        viewPager.setCurrentItem(50, false)
+        viewPager.setCurrentItem(timetableDayAdapter.getPositionByDate(LocalDate.now()), false)
     }
 }

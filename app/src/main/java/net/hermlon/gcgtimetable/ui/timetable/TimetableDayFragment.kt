@@ -9,21 +9,26 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.SavedStateViewModelFactory
+import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
+import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter.Companion.ARG_DATE
 import net.hermlon.gcgtimetable.util.Resource
 import net.hermlon.gcgtimetable.util.ResourceStatus
 import org.threeten.bp.format.DateTimeFormatter
+import java.lang.IllegalArgumentException
 
 @AndroidEntryPoint
 class TimetableDayFragment : Fragment() {
 
-    private val viewModel: TimetableDayViewModel by viewModels()
+    private lateinit var viewModel: TimetableDayViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val fragmentId = requireArguments().getSerializable(ARG_DATE).toString()
+        viewModel = ViewModelProvider(this).get(fragmentId, TimetableDayViewModel::class.java)
         return inflater.inflate(R.layout.timetable_day_fragment, container, false)
     }
 
@@ -35,7 +40,7 @@ class TimetableDayFragment : Fragment() {
             if(it.data != null) {
                 text += " " + it.data!!.lastRefresh.toString()
             }
-            textView.text = text
+            textView.text = viewModel.date.dayOfWeek.toString() + "\n\n" + viewModel.date.toString() + " " + text
         }
     }
 }

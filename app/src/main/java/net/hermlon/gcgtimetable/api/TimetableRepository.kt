@@ -1,61 +1,47 @@
 package net.hermlon.gcgtimetable.api
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.*
-import net.hermlon.gcgtimetable.domain.Profile
-import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.domain.TimetableDay
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.Webservice
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import net.hermlon.gcgtimetable.util.Resource
 import net.hermlon.gcgtimetable.util.ResourceStatus
-import okhttp3.Credentials
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
-import org.threeten.bp.format.DateTimeFormatter
-import ru.gildor.coroutines.okhttp.await
-import java.lang.Exception
 import javax.inject.Inject
 
 class TimetableRepository @Inject constructor(private val database: TimetableDatabase, private val webservice: Webservice) {
 
-    val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getProfiles()) {
-        it.asDomainModel()
-    }
-
-    val dayCache: HashMap<LocalDate, MutableLiveData<Resource<TimetableDay>>> = HashMap()
+    //val dayCache: HashMap<LocalDate, MutableLiveData<Resource<TimetableDay>>> = HashMap()
 
     val sourceId = 0L
 
-    fun getTimetable(date: LocalDate): LiveData<Resource<TimetableDay>> {
-        dayCache[date] = MutableLiveData()
-        dayCache[date]!!.value = Resource(ResourceStatus.LOADING)
-        return dayCache[date]!!
-    }
+    //fun getTimetable(date: LocalDate): LiveData<Resource<TimetableDay>> {
+    //    dayCache[date] = MutableLiveData()
+    //    dayCache[date]!!.value = Resource(ResourceStatus.LOADING)
+    //    return dayCache[date]!!
+    //}
 
-    suspend fun refreshTimetable(source: DatabaseSource, date: LocalDate) {
-        dayCache[date]!!.value = Resource(ResourceStatus.LOADING)
+    suspend fun refreshTimetable(liveData: MutableLiveData<Resource<TimetableDay>>, source: DatabaseSource, date: LocalDate) {
+        liveData.value = Resource(ResourceStatus.LOADING)
         // read old data from database
         val oldData = getTimetableDay(sourceId, date)
         if(oldData != null) {
-            dayCache[date]!!.value = Resource(ResourceStatus.LOADING, oldData)
+            liveData.value = Resource(ResourceStatus.LOADING, oldData)
         }
         // fetch new data from server
         val res = webservice.fetch(source.asTempSource(), date)
         if(res.status == ResourceStatus.SUCCESS && res.data != null && date.isEqual(res.data!!.day.date)) {
             updateDatabase(source, res.data!!)
-            dayCache[date]!!.value = Resource(ResourceStatus.SUCCESS, getTimetableDay(sourceId, date))
+            liveData.value = Resource(ResourceStatus.SUCCESS, getTimetableDay(sourceId, date))
         } else {
             // make sure to show an error if 2nd and 3rd of the three if conditions fails
-            dayCache[date]!!.value = Resource(if(res.status == ResourceStatus.SUCCESS) ResourceStatus.ERROR else res.status)
+            liveData.value = Resource(if(res.status == ResourceStatus.SUCCESS) ResourceStatus.ERROR else res.status)
         }
     }
 
@@ -67,7 +53,6 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
             if(lessons.isEmpty()) {
                 isStandard = true
                 lessons = database.standardLessonDao.getStandardLessons(date.dayOfWeek.value).asDomainModel()
-                Log.d("TimetableRepository", lessons.toString())
             }
             TimetableDay(
                 isStandard = isStandard,
@@ -77,12 +62,6 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
                 information = day.information,
                 lessons = lessons
             )
-        }
-    }
-
-    suspend fun addSource(source: TempSource, name: String) {
-        withContext(Dispatchers.IO) {
-            database.sourceDao.insert(DatabaseSource(0, name, source.url, source.isStudent, source.username, source.password))
         }
     }
 

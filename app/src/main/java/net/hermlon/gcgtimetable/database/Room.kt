@@ -67,10 +67,10 @@ interface DayDao {
     fun getId(sourceId: Long, date: LocalDate): Long
 
     @Query("SELECT * FROM DatabaseDay WHERE sourceId = :sourceId AND date = :date")
-    fun getByDate(sourceId: Long, date: LocalDate): DatabaseDay
+    fun getByDate(sourceId: Long, date: LocalDate): DatabaseDay?
 
     @Query("SELECT * FROM DatabaseDay WHERE id = :key")
-    fun get(key: Long): DatabaseDay
+    fun get(key: Long): DatabaseDay?
 }
 
 @Dao
