@@ -2,6 +2,7 @@ package net.hermlon.gcgtimetable.network
 
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.api.Stundenplan24StudentXMLParser
 import net.hermlon.gcgtimetable.domain.TempSource
@@ -10,6 +11,7 @@ import net.hermlon.gcgtimetable.util.ResourceStatus
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.Response
 import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
@@ -28,11 +30,14 @@ class Webservice {
         val request = requestBuild.build()
 
         try {
-            val response = client.newCall(request).await()
+            var response: Response? = null
+            withContext(Dispatchers.IO) {
+                response = client.newCall(request).await()
+            }
 
-            if (!response.isSuccessful) {
-                Log.e("TimetableRepository", "Error fetching data: " + response.headers + (response.body?.string() ?: ""))
-                return when (response.code) {
+            if (response != null && !response!!.isSuccessful) {
+                Log.e("TimetableRepository", "Error fetching data: " + response!!.headers + (response!!.body?.string() ?: ""))
+                return when (response!!.code) {
                     401 -> Resource(ResourceStatus.ERROR_AUTH)
                     404 -> Resource(ResourceStatus.ERROR_NOT_FOUND)
                     else -> Resource(ResourceStatus.ERROR)
@@ -45,7 +50,7 @@ class Webservice {
             * is still running while accessing the input stream. During the network call OkHttp takes care
             * of main-safety by itself. */
             return withContext(Dispatchers.IO) {
-                Resource(ResourceStatus.SUCCESS, Stundenplan24StudentXMLParser().parse(response.body!!.byteStream()))
+                Resource(ResourceStatus.SUCCESS, Stundenplan24StudentXMLParser().parse(response!!.body!!.byteStream()))
             }
         } catch(e: Exception) {
             Log.d("TimetableRepository", e.stackTraceToString())

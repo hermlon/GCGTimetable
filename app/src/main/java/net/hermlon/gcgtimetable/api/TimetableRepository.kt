@@ -17,15 +17,7 @@ import javax.inject.Inject
 
 class TimetableRepository @Inject constructor(private val database: TimetableDatabase, private val webservice: Webservice) {
 
-    //val dayCache: HashMap<LocalDate, MutableLiveData<Resource<TimetableDay>>> = HashMap()
-
     val sourceId = 0L
-
-    //fun getTimetable(date: LocalDate): LiveData<Resource<TimetableDay>> {
-    //    dayCache[date] = MutableLiveData()
-    //    dayCache[date]!!.value = Resource(ResourceStatus.LOADING)
-    //    return dayCache[date]!!
-    //}
 
     suspend fun refreshTimetable(liveData: MutableLiveData<Resource<TimetableDay>>, source: DatabaseSource, date: LocalDate) {
         liveData.value = Resource(ResourceStatus.LOADING)

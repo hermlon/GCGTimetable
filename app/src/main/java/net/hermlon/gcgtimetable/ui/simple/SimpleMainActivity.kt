@@ -29,6 +29,7 @@ class SimpleMainActivity : AppCompatActivity() {
         timetableDayAdapter = TimetableDayAdapter(this)
         viewPager = findViewById(R.id.pager)
         viewPager.adapter = timetableDayAdapter
+        //viewPager.offscreenPageLimit = 5
 
         val tabLayout: TabLayout = findViewById(R.id.tab_layout)
         WeekTabLayoutMediator(tabLayout, viewPager, 5) { tab, position ->
