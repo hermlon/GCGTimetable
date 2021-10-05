@@ -17,6 +17,20 @@ class ProfileRepository @Inject constructor(private val database: TimetableDatab
         it.asDomainModel()
     }
 
+    var cachedDefaultSource: DatabaseSource? = null
+
+    suspend fun getDefaultSource(): DatabaseSource {
+        if(cachedDefaultSource == null) {
+            withContext(Dispatchers.IO) {
+               cachedDefaultSource = database.sourceDao.get(0)
+               if(cachedDefaultSource == null) {
+                    // read from shared preferences and update
+               }
+            }
+        }
+        return cachedDefaultSource!!
+    }
+
     suspend fun addSource(source: TempSource, name: String) {
         withContext(Dispatchers.IO) {
             database.sourceDao.insert(DatabaseSource(0, name, source.url, source.isStudent, source.username, source.password))

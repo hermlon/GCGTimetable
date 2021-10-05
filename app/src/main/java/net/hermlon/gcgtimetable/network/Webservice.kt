@@ -31,9 +31,7 @@ class Webservice {
 
         try {
             var response: Response? = null
-            withContext(Dispatchers.IO) {
-                response = client.newCall(request).await()
-            }
+            response = client.newCall(request).await()
 
             if (response != null && !response!!.isSuccessful) {
                 Log.e("TimetableRepository", "Error fetching data: " + response!!.headers + (response!!.body?.string() ?: ""))

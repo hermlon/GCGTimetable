@@ -13,6 +13,7 @@
         <entry key="../../../../../layout/compose-model-1633197154453.xml" value="0.3713592233009709" />
         <entry key="../../../../../layout/compose-model-1633197154840.xml" value="1.1063291139240505" />
         <entry key="../../../../../layout/compose-model-1633203846734.xml" value="0.67" />
+        <entry key="app/src/main/res/drawable/circle_shape.xml" value="0.38177083333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3632246376811594" />
         <entry key="app/src/main/res/layout/activity_simple_main.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.3632246376811594" />
@@ -20,8 +21,9 @@
         <entry key="app/src/main/res/layout/fragment_manage_profiles.xml" value="0.3632246376811594" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.3632246376811594" />
         <entry key="app/src/main/res/layout/fragment_stundenplan24login.xml" value="0.3632246376811594" />
+        <entry key="app/src/main/res/layout/lesson_item.xml" value="0.5458786936236392" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.3632246376811594" />
-        <entry key="app/src/main/res/layout/timetable_day_fragment.xml" value="0.2046875" />
+        <entry key="app/src/main/res/layout/timetable_day_fragment.xml" value="0.33" />
       </map>
     </option>
   </component>

@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.DatabaseSource
+import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.domain.TimetableDay
 import net.hermlon.gcgtimetable.domain.TimetableLesson
 import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter.Companion.ARG_DATE
@@ -27,20 +28,32 @@ class TimetableDayViewModel @Inject constructor(
     private val _timetable = MutableLiveData<Resource<TimetableDay>>()
     val timetable: LiveData<Resource<TimetableDay>> = _timetable
 
+    var tmpSource: DatabaseSource? = null
+
     val isLoading = Transformations.map(timetable) {
        it.status == ResourceStatus.LOADING
     }
 
     init {
-        refresh()
+        //refresh()
+    }
+
+    fun setOldProfile(url: String, username: String?, password: String?, className: String) {
+        if(tmpSource == null) {
+            tmpSource = DatabaseSource(1, "default", url, true, username, password)
+        }
     }
 
     fun refresh() {
         _timetable.value = Resource(ResourceStatus.LOADING)
         viewModelScope.launch {
-            val testsource = DatabaseSource(0, "test", "https://www.stundenplan24.de/10000000/mobil", true, "sfa", "pasefsf")
-            timetableRepository.refreshTimetable(_timetable, testsource, date)
-            /*delay(500)
+            //val testsource = DatabaseSource(0, "test", "https://www.stundenplan24.de/10000000/mobil", true, "sfa", "pasefsf")
+            delay(500)
+            /*if(tmpSource != null) {
+                timetableRepository.refreshTimetable(_timetable, tmpSource!!, date)
+            } else {
+                _timetable.value = Resource(ResourceStatus.ERROR)
+            }*/
             val res = Resource<TimetableDay>(ResourceStatus.SUCCESS)
             res.data = TimetableDay(
                 true,
@@ -68,7 +81,7 @@ class TimetableDayViewModel @Inject constructor(
                     TimetableLesson(3, "Geo", false, "Bro", true, "108V", false, "Geo bei Herr Brode statt Frau Lange", 5),
                 )
             )
-            _timetable.value = res*/
+            _timetable.value = res
         }
     }
 }

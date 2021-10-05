@@ -32,10 +32,10 @@ interface SourceDao {
     fun update(source: DatabaseSource)
 
     @Query("SELECT * FROM DatabaseSource WHERE id = :key")
-    fun get(key: Long): LiveData<DatabaseSource>
+    fun get(key: Long): DatabaseSource?
 
     @Query("SELECT * FROM DatabaseSource ORDER BY id DESC")
-    fun getSources(): LiveData<List<DatabaseSource>>
+    fun getSources(): List<DatabaseSource>
 }
 
 @Dao
