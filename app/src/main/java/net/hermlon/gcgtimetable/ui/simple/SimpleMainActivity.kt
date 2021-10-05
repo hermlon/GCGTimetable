@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -19,6 +21,8 @@ import java.text.DateFormatSymbols
 @AndroidEntryPoint
 class SimpleMainActivity : AppCompatActivity() {
 
+    private val viewModel: SimpleMainViewModel by viewModels()
+
     private lateinit var timetableDayAdapter: TimetableDayAdapter
     private lateinit var viewPager: ViewPager2
 
@@ -29,7 +33,7 @@ class SimpleMainActivity : AppCompatActivity() {
         timetableDayAdapter = TimetableDayAdapter(this)
         viewPager = findViewById(R.id.pager)
         viewPager.adapter = timetableDayAdapter
-        viewPager.offscreenPageLimit = 3
+        viewPager.offscreenPageLimit = 1
 
         val tabLayout: TabLayout = findViewById(R.id.tab_layout)
         WeekTabLayoutMediator(tabLayout, viewPager, 5) { tab, position ->
@@ -37,5 +41,25 @@ class SimpleMainActivity : AppCompatActivity() {
         }.attach()
 
         viewPager.setCurrentItem(timetableDayAdapter.getPositionByDate(LocalDate.now()), false)
+
+        val swipeRefresh: SwipeRefreshLayout = findViewById(R.id.refresh_timetable)
+        swipeRefresh.setOnRefreshListener {
+            Log.d("REF", "setRefreshing true")
+            viewModel.setRefreshing(RefreshingDate(true, timetableDayAdapter.getDateByPosition(viewPager.currentItem)))
+        }
+        viewModel.isRefreshing.observe(this, {
+            Log.d("REF", "is refreshing " + it.toString())
+            if(it.date == timetableDayAdapter.getDateByPosition(viewPager.currentItem)) {
+                swipeRefresh.isRefreshing = it.isRefreshing
+            }
+        })
+
+        /*viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                // overwrite date
+                //viewModel.setRefreshing(RefreshingDate(swipeRefresh.isRefreshing, timetableDayAdapter.getDateByPosition(position)))
+            }
+        })*/
     }
 }

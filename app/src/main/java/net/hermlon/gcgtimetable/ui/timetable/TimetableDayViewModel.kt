@@ -23,7 +23,7 @@ class TimetableDayViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     val timetableRepository: TimetableRepository
 ) : ViewModel() {
-    private val date: LocalDate = savedStateHandle[ARG_DATE] ?: throw IllegalArgumentException("missing date")
+    val date: LocalDate = savedStateHandle[ARG_DATE] ?: throw IllegalArgumentException("missing date")
 
     private val _timetable = MutableLiveData<Resource<TimetableDay>>()
     val timetable: LiveData<Resource<TimetableDay>> = _timetable
@@ -35,7 +35,7 @@ class TimetableDayViewModel @Inject constructor(
     }
 
     init {
-        //refresh()
+        refresh()
     }
 
     fun setOldProfile(url: String, username: String?, password: String?, className: String) {
@@ -44,17 +44,24 @@ class TimetableDayViewModel @Inject constructor(
         }
     }
 
+    fun tryRefresh() {
+        if(isLoading.value == null || !isLoading.value!!) {
+           refresh()
+        }
+    }
+
     fun refresh() {
         _timetable.value = Resource(ResourceStatus.LOADING)
         viewModelScope.launch {
-            //val testsource = DatabaseSource(0, "test", "https://www.stundenplan24.de/10000000/mobil", true, "sfa", "pasefsf")
-            delay(500)
+            val testsource = DatabaseSource(0, "test", "https://www.stundenplan24.de/10000000/mobil", true, "sfa", "pasefsf")
+            //delay(1000)
+            timetableRepository.refreshTimetable(_timetable, testsource, date)
             /*if(tmpSource != null) {
                 timetableRepository.refreshTimetable(_timetable, tmpSource!!, date)
             } else {
                 _timetable.value = Resource(ResourceStatus.ERROR)
             }*/
-            val res = Resource<TimetableDay>(ResourceStatus.SUCCESS)
+            /*val res = Resource<TimetableDay>(ResourceStatus.SUCCESS)
             res.data = TimetableDay(
                 true,
                 date,
@@ -81,7 +88,7 @@ class TimetableDayViewModel @Inject constructor(
                     TimetableLesson(3, "Geo", false, "Bro", true, "108V", false, "Geo bei Herr Brode statt Frau Lange", 5),
                 )
             )
-            _timetable.value = res
+            _timetable.value = res*/
         }
     }
 }

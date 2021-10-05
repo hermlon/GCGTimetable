@@ -189,7 +189,7 @@ class Stundenplan24StudentXMLParser {
                    shared courseId -1
                 */
                 courseId ?: -1,
-                information
+                if(information != "") information else null
             ))
             /* All information to add a standard lesson is given, i. e. the room isn't changed
                and the lesson isn't a weird one which has no courseId (this can be the case e. g.

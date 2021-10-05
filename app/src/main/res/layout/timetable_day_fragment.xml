@@ -12,10 +12,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lessons_recycler_view"
             tools:listitem="@layout/lesson_item"

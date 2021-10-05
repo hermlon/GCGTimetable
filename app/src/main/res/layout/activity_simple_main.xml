@@ -16,11 +16,17 @@
             android:layout_height="wrap_content"
             android:id="@+id/tab_layout"/>
 
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_timetable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/pager" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 </layout>

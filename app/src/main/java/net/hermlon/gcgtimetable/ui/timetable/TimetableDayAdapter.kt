@@ -1,17 +1,14 @@
 package net.hermlon.gcgtimetable.ui.timetable
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.threeten.bp.DayOfWeek
 import org.threeten.bp.LocalDate
-import org.threeten.bp.Period
 import org.threeten.bp.temporal.ChronoUnit
-import org.threeten.bp.temporal.TemporalAdjuster
 import org.threeten.bp.temporal.TemporalAdjusters
-import kotlin.math.abs
 
 
 class TimetableDayAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
@@ -20,10 +17,12 @@ class TimetableDayAdapter(activity: FragmentActivity) : FragmentStateAdapter(act
     private val dayZero = LocalDate.now().with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY))
     private val positionZero = 730000
 
+    private val sharedPool = RecyclerView.RecycledViewPool()
+
     override fun getItemCount(): Int = 2 * positionZero
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = TimetableDayFragment()
+        val fragment = TimetableDayFragment(sharedPool)
         fragment.arguments = Bundle().apply {
             // pass date to fragment
             putSerializable(ARG_DATE, getDateByPosition(position))

@@ -16,6 +16,7 @@ import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
 import ru.gildor.coroutines.okhttp.await
 import java.lang.Exception
+import java.net.UnknownHostException
 
 class Webservice {
 
@@ -50,9 +51,11 @@ class Webservice {
             return withContext(Dispatchers.IO) {
                 Resource(ResourceStatus.SUCCESS, Stundenplan24StudentXMLParser().parse(response!!.body!!.byteStream()))
             }
-        } catch(e: Exception) {
-            Log.d("TimetableRepository", e.stackTraceToString())
+        } catch(e: UnknownHostException) {
             return Resource(ResourceStatus.ERROR_OFFLINE)
+        } catch(e: Exception) {
+            Log.e("TimetableRepository", e.toString() + e.stackTraceToString())
+            return Resource(ResourceStatus.ERROR)
         }
     }
 
