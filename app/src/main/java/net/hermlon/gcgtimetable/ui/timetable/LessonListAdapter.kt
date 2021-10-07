@@ -35,7 +35,7 @@ class LessonListAdapter : ListAdapter<TimetableLesson, LessonListAdapter.LessonV
         private val color: ImageView = itemView.findViewById(R.id.circle_icon)
 
         fun bind(lesson: TimetableLesson) {
-            subject.text = lesson.subject
+            subject.text = lesson.subject.replaceFirstChar { it.uppercase() }
             teacher.text = lesson.teacher
             room.text = lesson.room
             number.text = lesson.number.toString()

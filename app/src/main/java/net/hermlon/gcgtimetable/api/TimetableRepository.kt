@@ -14,15 +14,15 @@ import net.hermlon.gcgtimetable.util.ResourceStatus
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class TimetableRepository @Inject constructor(private val database: TimetableDatabase, private val webservice: Webservice) {
-
-    val sourceId = 0L
 
     suspend fun refreshTimetable(liveData: MutableLiveData<Resource<TimetableDay>>, source: DatabaseSource, date: LocalDate) {
         liveData.value = Resource(ResourceStatus.LOADING)
         // read old data from database
-        val oldData = getTimetableDay(sourceId, date)
+        val oldData = getTimetableDay(source.id, date)
         if(oldData != null) {
             liveData.value = Resource(ResourceStatus.LOADING, oldData)
         }
@@ -30,7 +30,7 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
         val res = webservice.fetch(source.asTempSource(), date)
         if(res.status == ResourceStatus.SUCCESS && res.data != null && date.isEqual(res.data!!.day.date)) {
             updateDatabase(source, res.data!!)
-            liveData.value = Resource(ResourceStatus.SUCCESS, getTimetableDay(sourceId, date))
+            liveData.value = Resource(ResourceStatus.SUCCESS, getTimetableDay(source.id, date))
         } else {
             // make sure to show an error if 2nd and 3rd of the three if conditions fails
             liveData.value = Resource(if(res.status == ResourceStatus.SUCCESS) ResourceStatus.ERROR else res.status)

@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import net.hermlon.gcgtimetable.api.ProfileRepository
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.domain.TempSource
@@ -21,14 +22,13 @@ import javax.inject.Inject
 @HiltViewModel
 class TimetableDayViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    val timetableRepository: TimetableRepository
+    private val timetableRepository: TimetableRepository,
+    private val profileRepository: ProfileRepository
 ) : ViewModel() {
     val date: LocalDate = savedStateHandle[ARG_DATE] ?: throw IllegalArgumentException("missing date")
 
     private val _timetable = MutableLiveData<Resource<TimetableDay>>()
     val timetable: LiveData<Resource<TimetableDay>> = _timetable
-
-    var tmpSource: DatabaseSource? = null
 
     val isLoading = Transformations.map(timetable) {
        it.status == ResourceStatus.LOADING
@@ -36,12 +36,6 @@ class TimetableDayViewModel @Inject constructor(
 
     init {
         refresh()
-    }
-
-    fun setOldProfile(url: String, username: String?, password: String?, className: String) {
-        if(tmpSource == null) {
-            tmpSource = DatabaseSource(1, "default", url, true, username, password)
-        }
     }
 
     fun tryRefresh() {
@@ -53,42 +47,13 @@ class TimetableDayViewModel @Inject constructor(
     fun refresh() {
         _timetable.value = Resource(ResourceStatus.LOADING)
         viewModelScope.launch {
-            val testsource = DatabaseSource(0, "test", "https://www.stundenplan24.de/10000000/mobil", true, "sfa", "pasefsf")
-            //delay(1000)
-            timetableRepository.refreshTimetable(_timetable, testsource, date)
-            /*if(tmpSource != null) {
-                timetableRepository.refreshTimetable(_timetable, tmpSource!!, date)
-            } else {
+            profileRepository.getDefaultSource()?.let {
+                timetableRepository.refreshTimetable(_timetable,
+                    it, date)
+            }
+            if(profileRepository.getDefaultSource() == null) {
                 _timetable.value = Resource(ResourceStatus.ERROR)
-            }*/
-            /*val res = Resource<TimetableDay>(ResourceStatus.SUCCESS)
-            res.data = TimetableDay(
-                true,
-                date,
-                LocalDateTime.now(),
-                LocalDateTime.now(),
-                null,
-                listOf(
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(2, "Deu", false, "Gel", false, "108V", false, null, 5),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(2, "Deu", false, "Gel", false, "108V", false, null, 5),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(1, "Mat", false, "Kra", false, "304", false, null, 3),
-                    TimetableLesson(2, "Deu", false, "Gel", false, "108V", false, null, 5),
-                    TimetableLesson(3, "Geo", false, "Bro", true, "108V", false, "Geo bei Herr Brode statt Frau Lange", 5),
-                    TimetableLesson(2, "Deu", false, "Gel", false, "108V", false, null, 5),
-                    TimetableLesson(3, "Geo", false, "Bro", true, "108V", false, "Geo bei Herr Brode statt Frau Lange", 5),
-                    TimetableLesson(2, "Deu", false, "Gel", false, "108V", false, null, 5),
-                    TimetableLesson(3, "Geo", false, "Bro", true, "108V", false, "Geo bei Herr Brode statt Frau Lange", 5),
-                )
-            )
-            _timetable.value = res*/
+            }
         }
     }
 }

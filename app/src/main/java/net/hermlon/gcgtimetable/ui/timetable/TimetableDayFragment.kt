@@ -18,12 +18,15 @@ import net.hermlon.gcgtimetable.domain.TimetableDay
 import net.hermlon.gcgtimetable.ui.simple.RefreshingDate
 import net.hermlon.gcgtimetable.ui.simple.SimpleMainViewModel
 import net.hermlon.gcgtimetable.util.ResourceStatus
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class TimetableDayFragment(private val sharedPool: RecyclerView.RecycledViewPool) : Fragment() {
+class TimetableDayFragment : Fragment() {
 
     private val viewModel: TimetableDayViewModel by viewModels()
     private val activityViewModel: SimpleMainViewModel by viewModels({ requireActivity() })
+
+    @Inject lateinit var sharedPool: RecyclerView.RecycledViewPool
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,15 +74,5 @@ class TimetableDayFragment(private val sharedPool: RecyclerView.RecycledViewPool
             Log.d("REF", "set refreshing from fragment " + it.toString())
             activityViewModel.setRefreshing(RefreshingDate(it, viewModel.date))
         })
-    }
-
-    fun updateOldLogin() {
-        val settings = PreferenceManager.getDefaultSharedPreferences(context)
-        viewModel.setOldProfile(
-            "https://www.stundenplan24.de/" + settings.getString("schoolnr", "10000000") +"/mobil",
-            settings.getString("username", null),
-            settings.getString("password", null),
-            settings.getString("grade", "") + "/" + settings.getString("subclass", "")
-        )
     }
 }

@@ -1,18 +1,17 @@
 package net.hermlon.gcgtimetable.ui.simple
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
+import androidx.preference.PreferenceManager
 import android.util.Log
-import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
+import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter
 import net.hermlon.gcgtimetable.ui.timetable.WeekTabLayoutMediator
 import org.threeten.bp.LocalDate
@@ -54,6 +53,20 @@ class SimpleMainActivity : AppCompatActivity() {
             }
         })
 
+        viewModel.noSourceAvailable.observe(this, {
+            if(it) {
+                val oldLogin = getOldLogin()
+                if(oldLogin != null) {
+                    Toast.makeText(this, "Found old profile", Toast.LENGTH_SHORT).show()
+                    viewModel.setDefaultSource(oldLogin)
+                    viewModel.setRefreshing(RefreshingDate(true, timetableDayAdapter.getDateByPosition(viewPager.currentItem)))
+                } else {
+                    // launch profile configuration activity
+                    Toast.makeText(this, "No old profile found", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+
         /*viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -61,5 +74,21 @@ class SimpleMainActivity : AppCompatActivity() {
                 //viewModel.setRefreshing(RefreshingDate(swipeRefresh.isRefreshing, timetableDayAdapter.getDateByPosition(position)))
             }
         })*/
+    }
+
+    private fun getOldLogin(): TempSource? {
+        val settings = PreferenceManager.getDefaultSharedPreferences(this)
+        val schoolnum = settings.getString("schoolnr", null)
+        if (schoolnum != null) {
+            var grade = settings.getString("grade", "") + "/" + settings.getString("subclass", "")
+            return TempSource(
+                url = "https://www.stundenplan24.de/$schoolnum/mobil",
+                isStudent = true,
+                username = settings.getString("username", null),
+                password = settings.getString("password", null)
+            )
+        } else {
+            return null
+        }
     }
 }

@@ -1,6 +1,7 @@
 package net.hermlon.gcgtimetable.database
 
 import android.content.Context
+import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
@@ -25,11 +26,20 @@ interface ProfileDao {
 
 @Dao
 interface SourceDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     fun insert(source: DatabaseSource)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.ABORT)
     fun update(source: DatabaseSource)
+
+    @Transaction
+    fun upsert(source: DatabaseSource) {
+        try {
+            insert(source)
+        } catch(e: SQLiteConstraintException) {
+            update(source)
+        }
+    }
 
     @Query("SELECT * FROM DatabaseSource WHERE id = :key")
     fun get(key: Long): DatabaseSource?

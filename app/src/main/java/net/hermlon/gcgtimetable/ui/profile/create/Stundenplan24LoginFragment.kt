@@ -36,7 +36,7 @@ class Stundenplan24LoginFragment : Fragment() {
             viewModel.onLogin(schoolnr, username, password, isStudent)
         }
 
-        viewModel.status.observe(this, Observer { status ->
+        viewModel.status.observe(viewLifecycleOwner, Observer { status ->
             when(status) {
                 LoginApiStatus.SUCCESS -> Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
                 LoginApiStatus.ERROR_URL -> Toast.makeText(this.context, "Check URL", Toast.LENGTH_SHORT).show()
