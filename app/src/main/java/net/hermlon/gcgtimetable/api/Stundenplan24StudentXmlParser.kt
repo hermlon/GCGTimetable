@@ -399,7 +399,7 @@ class Stundenplan24StudentXMLParser {
     private fun readText(parser: XmlPullParser): String {
         var result = ""
         if (parser.next() == XmlPullParser.TEXT) {
-            result = parser.text
+            result = parser.text.replace("&nbsp;", "", true)
             parser.nextTag()
         }
         return result

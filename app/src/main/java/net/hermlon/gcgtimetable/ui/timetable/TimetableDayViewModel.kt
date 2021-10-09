@@ -27,7 +27,7 @@ class TimetableDayViewModel @Inject constructor(
 ) : ViewModel() {
     val date: LocalDate = savedStateHandle[ARG_DATE] ?: throw IllegalArgumentException("missing date")
 
-    private val _timetable = MutableLiveData<Resource<TimetableDay>>()
+    private val _timetable = timetableRepository.getTimetableLiveData(date)
     val timetable: LiveData<Resource<TimetableDay>> = _timetable
 
     val isLoading = Transformations.map(timetable) {
@@ -48,12 +48,16 @@ class TimetableDayViewModel @Inject constructor(
         _timetable.value = Resource(ResourceStatus.LOADING)
         viewModelScope.launch {
             profileRepository.getDefaultSource()?.let {
-                timetableRepository.refreshTimetable(_timetable,
-                    it, date)
+                timetableRepository.refreshTimetable(it, date)
             }
             if(profileRepository.getDefaultSource() == null) {
                 _timetable.value = Resource(ResourceStatus.ERROR)
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        timetableRepository.clearTimetableLiveData(date)
     }
 }

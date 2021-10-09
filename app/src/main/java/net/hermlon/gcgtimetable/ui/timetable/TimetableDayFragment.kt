@@ -21,7 +21,6 @@ import javax.inject.Inject
 class TimetableDayFragment : Fragment() {
 
     private val viewModel: TimetableDayViewModel by viewModels()
-    private val parentViewModel: SimpleMainViewModel by viewModels({ requireActivity() })
 
     @Inject lateinit var sharedPool: RecyclerView.RecycledViewPool
 
@@ -52,24 +51,13 @@ class TimetableDayFragment : Fragment() {
                 lastData = it
             }
             if(lastData != null){
+                Log.d("TDF", "refresh")
                 status.visibility = View.GONE
                 adapter.submitList(lastData!!.lessons)
             } else {
                 status.visibility = View.VISIBLE
                 status.text = timetable.status.toString()
             }
-        })
-
-        parentViewModel.isRefreshing.observe(viewLifecycleOwner, {
-            if(it.isRefreshing && it.date == viewModel.date) {
-               Log.d("REF", "try timetable refresh")
-               viewModel.tryRefresh()
-            }
-        })
-
-        viewModel.isLoading.observe(viewLifecycleOwner, {
-            Log.d("REF", "set refreshing from fragment " + it.toString())
-            parentViewModel.setRefreshing(RefreshingDate(it, viewModel.date))
         })
     }
 }

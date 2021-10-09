@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -53,14 +52,11 @@ class SimpleMainFragment : Fragment() {
 
         val swipeRefresh: SwipeRefreshLayout = view.findViewById(R.id.refresh_timetable)
         swipeRefresh.setOnRefreshListener {
-            Log.d("REF", "setRefreshing true")
-            viewModel.setRefreshing(RefreshingDate(true, timetableDayAdapter.getDateByPosition(viewPager.currentItem)))
+            viewModel.userRefresh(timetableDayAdapter.getDateByPosition(viewPager.currentItem))
         }
-        viewModel.isRefreshing.observe(viewLifecycleOwner, {
-            Log.d("REF", "is refreshing " + it.toString())
-            if(it.date == timetableDayAdapter.getDateByPosition(viewPager.currentItem)) {
-                swipeRefresh.isRefreshing = it.isRefreshing
-            }
+
+        viewModel.isLoading.observe(viewLifecycleOwner, {
+            swipeRefresh.isRefreshing = it
         })
 
         viewModel.noSourceAvailable.observe(viewLifecycleOwner, {
@@ -68,36 +64,19 @@ class SimpleMainFragment : Fragment() {
                 if(noSource) {
                     val oldLogin = getOldLogin()
                     if (oldLogin != null) {
-                        Toast.makeText(requireContext(), "Found old profile", Toast.LENGTH_SHORT)
-                            .show()
                         viewModel.setDefaultSource(oldLogin)
-                        viewModel.setRefreshing(
-                            RefreshingDate(
-                                true,
-                                timetableDayAdapter.getDateByPosition(viewPager.currentItem)
-                            )
-                        )
                     } else {
                         // launch profile configuration activity
-                        Toast.makeText(requireContext(), "No old profile found", Toast.LENGTH_SHORT)
-                            .show()
-                        // is somehow called multiple times in a row
-                        Log.d("SMF", "navigation to login")
                         findNavController().navigate(R.id.action_login_s24)
                     }
                 }
             }
         })
-
-        /*viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                // overwrite date
-                //viewModel.setRefreshing(RefreshingDate(swipeRefresh.isRefreshing, timetableDayAdapter.getDateByPosition(position)))
-            }
-        })*/
     }
 
+    /**
+     * reads legacy login data from v1 of GCGTimetable stored in SharedPreferences
+     */
     private fun getOldLogin(): TempSource? {
         val settings = PreferenceManager.getDefaultSharedPreferences(requireContext())
         val schoolnum = settings.getString("schoolnr", null)

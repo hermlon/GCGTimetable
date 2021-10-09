@@ -68,7 +68,6 @@ interface DayDao {
             //TODO: unsure whether this is good practice
 
             // we did an update, id must be queried for
-                Log.d("Room", "getting Id")
             getId(day.sourceId, day.date)
         }
     }

@@ -20,7 +20,14 @@ import javax.inject.Singleton
 @Singleton
 class TimetableRepository @Inject constructor(private val database: TimetableDatabase, private val webservice: Webservice) {
 
-    suspend fun refreshTimetable(liveData: MutableLiveData<Resource<TimetableDay>>, source: DatabaseSource, date: LocalDate) {
+    private val _loadingCount = MutableLiveData<Int>(0)
+    val loadingCount: LiveData<Int> = _loadingCount
+
+    private val _timetableDays = HashMap<LocalDate, MutableLiveData<Resource<TimetableDay>>>()
+
+    suspend fun refreshTimetable(source: DatabaseSource, date: LocalDate) {
+        val liveData = getTimetableLiveData(date)
+        startLoad()
         liveData.value = Resource(ResourceStatus.LOADING)
         // read old data from database
         val oldData = getTimetableDay(source.id, date)
@@ -36,11 +43,36 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
             // make sure to show an error if 2nd condition of the if conditions fails
             liveData.value = Resource(if(res.status == ResourceStatus.SUCCESS) ResourceStatus.ERROR else res.status)
         }
+        endLoad()
     }
 
     suspend fun testSource(source: TempSource): ResourceStatus {
         // date is null to fetch Klassen.xml (latest available timetable)
         return webservice.fetch(source, null).status
+    }
+
+    fun getTimetableLiveData(date: LocalDate): MutableLiveData<Resource<TimetableDay>> {
+        return _timetableDays.getOrPut(date, { MutableLiveData(Resource(ResourceStatus.LOADING)) })
+    }
+
+    fun clearTimetableLiveData(date: LocalDate) {
+        _timetableDays.remove(date)
+    }
+
+    private fun startLoad() {
+        if(_loadingCount.value == null) {
+            _loadingCount.value = 1
+        } else {
+            _loadingCount.value = _loadingCount.value!! + 1
+        }
+    }
+
+    private fun endLoad() {
+        if(_loadingCount.value == null) {
+            _loadingCount.value = 0
+        } else {
+            _loadingCount.value = _loadingCount.value!! - 1
+        }
     }
 
     private suspend fun getTimetableDay(sourceId: Long, date: LocalDate): TimetableDay? {
