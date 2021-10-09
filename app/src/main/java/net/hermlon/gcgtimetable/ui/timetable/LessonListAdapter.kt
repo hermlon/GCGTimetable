@@ -2,8 +2,6 @@ package net.hermlon.gcgtimetable.ui.timetable
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.shapes.Shape
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,7 +57,7 @@ class LessonListAdapter : ListAdapter<TimetableLesson, LessonListAdapter.LessonV
         companion object {
             fun create(parent: ViewGroup): LessonViewHolder {
                 val view: View = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.lesson_item, parent, false)
+                    .inflate(R.layout.view_lesson_item, parent, false)
                 return LessonViewHolder(view)
             }
         }

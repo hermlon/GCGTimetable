@@ -22,7 +22,7 @@ class AskhostingFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_askhosting, container, false)
 
         binding.buttonStundenplan24.setOnClickListener{ view: View ->
-            view.findNavController().navigate(R.id.action_askhostingFragment_to_stundenplan24LoginFragment)
+            //view.findNavController().navigate(R.id.action_askhostingFragment_to_stundenplan24LoginFragment)
         }
 
         return binding.root

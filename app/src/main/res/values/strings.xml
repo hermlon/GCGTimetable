@@ -1,23 +1,13 @@
 <resources>
     <string name="app_name">GCGTimetable</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">GCGTimetable</string>
-    <string name="nav_header_subtitle">Timetable application for Indiware</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="menu_settings">Settings</string>
-    <string name="menu_manage_profiles">Manage Profiles</string>
-    <string name="menu_date">Time machine</string>
-    <string name="menu_profiles">Profiles</string>
-
-    <string name="profile_new">New Profile</string>
+    <!-- AskhostingFragment -->
     <string name="askhosting_option_stundenplan24">Do you use <b>www.stundenplan24.de</b> for accessing your timetable?</string>
     <string name="askhosting_option_website">… or does your school use Indiware software hosted on their <b>own website</b>?</string>
     <string name="stundenplan24">stundenplan24</string>
     <string name="school_website">school website</string>
 
+    <!-- Stundenplan24LoginFragment -->
     <string name="profile_login">Login</string>
     <string name="profile_login_prompt">Login using your credentials for www.stundenplan24.de</string>
     <string name="schoolnr">school number</string>
@@ -25,16 +15,11 @@
     <string name="password">password</string>
     <string name="profile_student">student</string>
     <string name="profile_teacher">teacher</string>
+    <string name="login_error_offline">It looks like you are offline. Please check your Internet connection.</string>
+    <string name="login_error_auth">Wrong login credentials. Please check username or password.</string>
+    <string name="login_error_not_found">Couldn\'t find your school on stundenplan24.de. Please check your school number.</string>
+    <string name="login_error_unknown">We\'re sorry, an unusual error occurred. Please report this, if you\'re tech savvy have a look at the ADB logcat logs.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_single_main">SingleMainActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Content descriptions -->
+    <string name="current_week">Current week</string>
 </resources>

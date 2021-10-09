@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.*
+import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.domain.TimetableDay
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.Webservice
@@ -28,13 +29,18 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
         }
         // fetch new data from server
         val res = webservice.fetch(source.asTempSource(), date)
-        if(res.status == ResourceStatus.SUCCESS && res.data != null && date.isEqual(res.data!!.day.date)) {
+        if(res.status == ResourceStatus.SUCCESS && date.isEqual(res.data!!.day.date)) {
             updateDatabase(source, res.data!!)
             liveData.value = Resource(ResourceStatus.SUCCESS, getTimetableDay(source.id, date))
         } else {
-            // make sure to show an error if 2nd and 3rd of the three if conditions fails
+            // make sure to show an error if 2nd condition of the if conditions fails
             liveData.value = Resource(if(res.status == ResourceStatus.SUCCESS) ResourceStatus.ERROR else res.status)
         }
+    }
+
+    suspend fun testSource(source: TempSource): ResourceStatus {
+        // date is null to fetch Klassen.xml (latest available timetable)
+        return webservice.fetch(source, null).status
     }
 
     private suspend fun getTimetableDay(sourceId: Long, date: LocalDate): TimetableDay? {

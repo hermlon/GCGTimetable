@@ -1,12 +1,10 @@
 package net.hermlon.gcgtimetable.ui.timetable
 
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,14 +15,13 @@ import net.hermlon.gcgtimetable.R
 import net.hermlon.gcgtimetable.domain.TimetableDay
 import net.hermlon.gcgtimetable.ui.simple.RefreshingDate
 import net.hermlon.gcgtimetable.ui.simple.SimpleMainViewModel
-import net.hermlon.gcgtimetable.util.ResourceStatus
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class TimetableDayFragment : Fragment() {
 
     private val viewModel: TimetableDayViewModel by viewModels()
-    private val activityViewModel: SimpleMainViewModel by viewModels({ requireActivity() })
+    private val parentViewModel: SimpleMainViewModel by viewModels({ requireActivity() })
 
     @Inject lateinit var sharedPool: RecyclerView.RecycledViewPool
 
@@ -32,7 +29,7 @@ class TimetableDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.timetable_day_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_timetable_day, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,7 +60,7 @@ class TimetableDayFragment : Fragment() {
             }
         })
 
-        activityViewModel.isRefreshing.observe(viewLifecycleOwner, {
+        parentViewModel.isRefreshing.observe(viewLifecycleOwner, {
             if(it.isRefreshing && it.date == viewModel.date) {
                Log.d("REF", "try timetable refresh")
                viewModel.tryRefresh()
@@ -72,7 +69,7 @@ class TimetableDayFragment : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner, {
             Log.d("REF", "set refreshing from fragment " + it.toString())
-            activityViewModel.setRefreshing(RefreshingDate(it, viewModel.date))
+            parentViewModel.setRefreshing(RefreshingDate(it, viewModel.date))
         })
     }
 }

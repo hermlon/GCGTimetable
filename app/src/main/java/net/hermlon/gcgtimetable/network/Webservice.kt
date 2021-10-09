@@ -14,7 +14,9 @@ import okhttp3.Request
 import okhttp3.Response
 import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
+import org.xmlpull.v1.XmlPullParserException
 import ru.gildor.coroutines.okhttp.await
+import java.io.IOException
 import java.lang.Exception
 import java.net.UnknownHostException
 
@@ -31,12 +33,11 @@ class Webservice {
         val request = requestBuild.build()
 
         try {
-            var response: Response? = null
-            response = client.newCall(request).await()
+            val response = client.newCall(request).await()
 
-            if (response != null && !response!!.isSuccessful) {
-                Log.e("TimetableRepository", "Error fetching data: " + response!!.headers + (response!!.body?.string() ?: ""))
-                return when (response!!.code) {
+            if (!response.isSuccessful) {
+                Log.e("TimetableRepository", "Error fetching data: " + response.headers + (response.body?.string() ?: ""))
+                return when (response.code) {
                     401 -> Resource(ResourceStatus.ERROR_AUTH)
                     404 -> Resource(ResourceStatus.ERROR_NOT_FOUND)
                     else -> Resource(ResourceStatus.ERROR)
@@ -49,7 +50,16 @@ class Webservice {
             * is still running while accessing the input stream. During the network call OkHttp takes care
             * of main-safety by itself. */
             return withContext(Dispatchers.IO) {
-                Resource(ResourceStatus.SUCCESS, Stundenplan24StudentXMLParser().parse(response!!.body!!.byteStream()))
+                try {
+                    val parsedResult = Stundenplan24StudentXMLParser().parse(response.body!!.byteStream())
+                    Resource(ResourceStatus.SUCCESS, parsedResult)
+                } catch (e: XmlPullParserException) {
+                    Log.e("TimetableRepository", e.toString() + e.stackTraceToString())
+                    Resource(ResourceStatus.ERROR)
+                } catch (e: IOException) {
+                    Log.e("TimetableRepository", e.toString() + e.stackTraceToString())
+                    Resource(ResourceStatus.ERROR)
+                }
             }
         } catch(e: UnknownHostException) {
             return Resource(ResourceStatus.ERROR_OFFLINE)
