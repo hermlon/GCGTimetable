@@ -22,4 +22,6 @@
 
     <!-- Content descriptions -->
     <string name="current_week">Current week</string>
+    <string name="choose_courses">Choose courses</string>
+    <string name="edit_login">Edit login</string>
 </resources>

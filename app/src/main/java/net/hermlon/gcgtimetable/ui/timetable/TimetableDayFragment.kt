@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
 import net.hermlon.gcgtimetable.domain.TimetableDay
@@ -51,7 +54,6 @@ class TimetableDayFragment : Fragment() {
                 lastData = it
             }
             if(lastData != null){
-                Log.d("TDF", "refresh")
                 status.visibility = View.GONE
                 adapter.submitList(lastData!!.lessons)
             } else {

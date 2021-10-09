@@ -2,15 +2,18 @@ package net.hermlon.gcgtimetable.ui.simple
 
 import android.os.Bundle
 import androidx.preference.PreferenceManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
@@ -37,6 +40,25 @@ class SimpleMainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val navController = findNavController()
+        val toolbar: MaterialToolbar = view.findViewById(R.id.toolbar)
+        toolbar.setupWithNavController(navController, AppBarConfiguration(setOf(R.id.simpleMainFragment)))
+        toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.fragment_filter -> {
+                    navController.navigate(R.id.fragment_filter)
+                    true
+                }
+                R.id.stundenplan24LoginFragment -> {
+                    navController.navigate(R.id.stundenplan24LoginFragment)
+                    true
+                }
+                else -> false
+            }
+            // in the future use this directly, check on transitions and animation (back arrow sometimes shows up, sometimes doesn't, creates flickering)
+            //it.onNavDestinationSelected(navController)
+        }
 
         timetableDayAdapter = TimetableDayAdapter(requireActivity())
         viewPager = view.findViewById(R.id.pager)
