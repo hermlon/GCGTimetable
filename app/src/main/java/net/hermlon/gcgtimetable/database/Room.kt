@@ -1,19 +1,11 @@
 package net.hermlon.gcgtimetable.database
 
-import android.content.Context
 import android.database.sqlite.SQLiteConstraintException
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import androidx.room.*
-import net.hermlon.gcgtimetable.domain.TimetableDay
-import net.hermlon.gcgtimetable.domain.TimetableLesson
-import net.hermlon.gcgtimetable.util.Resource
-import net.hermlon.gcgtimetable.util.ResourceStatus
+import net.hermlon.gcgtimetable.network.NetworkParseResult
+import net.hermlon.gcgtimetable.network.asDatabaseModel
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
-import java.sql.Time
-import java.util.*
 
 @Dao
 interface ProfileDao {
@@ -21,7 +13,22 @@ interface ProfileDao {
     fun insert(profile: DatabaseProfile)
 
     @Query("SELECT * FROM DatabaseProfile ORDER BY position")
-    fun getProfiles(): LiveData<List<DatabaseProfile>>
+    fun getProfiles(): List<DatabaseProfile>
+
+    @Query("SELECT * FROM DatabaseProfile WHERE id = :profileId")
+    fun get(profileId: Long): DatabaseProfile?
+}
+
+@Dao
+interface WhitelistDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun whitelist(classNameWhitelist: DatabaseClassNameWhitelist)
+}
+
+@Dao
+interface BlacklistDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun blacklist(courseIdBlacklist: DatabaseCourseIdBlacklist)
 }
 
 @Dao
@@ -84,17 +91,24 @@ interface DayDao {
 
 @Dao
 interface CourseDao {
-    @Query("SELECT * FROM DatabaseCourse")
-    fun getCourses(): LiveData<List<DatabaseCourse>>
+    @Query("SELECT id, className, teacher, subject, name, " +
+            "id IN " + BLACKLISTED_COURSE_IDS_SUBQUERY + " AS blacklisted " +
+            "FROM DatabaseCourse")
+    fun getCourses(profileId: Long): List<FilterCourse>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg courses: DatabaseCourse)
+
+    @Query("SELECT DISTINCT className from DatabaseCourse")
+    fun getClassNames(): List<String>
 }
 
 @Dao
 interface LessonDao {
-    @Query("SELECT * FROM DatabaseLesson WHERE dayId = :dayId")
-    fun getLessons(dayId: Long): List<DatabaseLesson>
+    @Query("SELECT * FROM DatabaseLesson " +
+            "INNER JOIN DatabaseCourse ON DatabaseLesson.courseId = DatabaseCourse.id " +
+            "WHERE dayId = :dayId " + LESSON_FILTER_QUERY)
+    fun getLessons(dayId: Long, profileId: Long): List<DatabaseLesson>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg lessons: DatabaseLesson)
@@ -103,7 +117,7 @@ interface LessonDao {
 @Dao
 interface ExamDao {
     @Query("SELECT * FROM DatabaseExam")
-    fun getExams(): LiveData<List<DatabaseExam>>
+    fun getExams(): List<DatabaseExam>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg exams: DatabaseExam)
@@ -116,8 +130,8 @@ interface StandardLessonDao {
 
     @Query("SELECT number, subject, teacher, room, courseId FROM " +
             "DatabaseStandardLesson INNER JOIN DatabaseCourse ON DatabaseStandardLesson.courseId = DatabaseCourse.id " +
-            "WHERE dayOfWeek = :dayOfWeek")
-    fun getStandardLessons(dayOfWeek: Int): List<EnrichedStandardLesson>
+            "WHERE dayOfWeek = :dayOfWeek " + LESSON_FILTER_QUERY)
+    fun getStandardLessons(dayOfWeek: Int, profileId: Long): List<EnrichedStandardLesson>
 }
 
 @Database(entities = [
@@ -127,16 +141,25 @@ interface StandardLessonDao {
     DatabaseStandardLesson::class,
     DatabaseSource::class,
     DatabaseDay::class,
+    DatabaseClassNameWhitelist::class,
+    DatabaseCourseIdBlacklist::class,
     DatabaseProfile::class
-], version = 2, exportSchema = false)
+], version = 3, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
-
     abstract val examDao: ExamDao
     abstract val courseDao: CourseDao
     abstract val lessonDao: LessonDao
     abstract val standardLessonDao: StandardLessonDao
     abstract val sourceDao: SourceDao
     abstract val dayDao: DayDao
+    abstract val whitelistDao: WhitelistDao
+    abstract val blacklistDao: BlacklistDao
     abstract val profileDao: ProfileDao
 }
+
+const val BLACKLISTED_COURSE_IDS_SUBQUERY = "(SELECT courseId FROM DatabaseCourseIdBlacklist WHERE profileId = :profileId)"
+
+const val LESSON_FILTER_QUERY = "AND className IN " +
+            "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId) " +
+            "AND NOT courseId IN " + BLACKLISTED_COURSE_IDS_SUBQUERY

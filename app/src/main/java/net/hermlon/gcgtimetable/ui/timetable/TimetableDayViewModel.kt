@@ -48,7 +48,7 @@ class TimetableDayViewModel @Inject constructor(
         _timetable.value = Resource(ResourceStatus.LOADING)
         viewModelScope.launch {
             profileRepository.getDefaultSource()?.let {
-                timetableRepository.refreshTimetable(it, date)
+                timetableRepository.refreshTimetable(profileRepository.getDefaultProfile(), it, date)
             }
             if(profileRepository.getDefaultSource() == null) {
                 _timetable.value = Resource(ResourceStatus.ERROR)

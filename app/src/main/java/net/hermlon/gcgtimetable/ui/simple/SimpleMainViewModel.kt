@@ -25,7 +25,7 @@ class SimpleMainViewModel @Inject constructor(private val profileRepository: Pro
     fun userRefresh(date: LocalDate) {
         viewModelScope.launch {
             profileRepository.getDefaultSource()?.let {
-                timetableRepository.refreshTimetable(it, date)
+                timetableRepository.refreshTimetable(profileRepository.getDefaultProfile(), it, date)
             }
         }
     }

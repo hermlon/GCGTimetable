@@ -5,13 +5,9 @@ import net.hermlon.gcgtimetable.api.Stundenplan24StudentXMLParser
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
-import org.hamcrest.Matchers.equalTo
-import org.junit.Before
 import org.junit.Test
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
-import java.io.File
-import java.io.FileNotFoundException
 
 
 /**
@@ -30,7 +26,7 @@ class Stundenplan24ParserTest {
 
     @Test
     fun testschoolXml() {
-        val result = parseXml("student-test-data/testschool-example-1.xml")
+        val result = parseXml("sampledata/student-test-data/testschool-example-1.xml")
 
         assertThat(result.lessons.size, `is`(229))
         assertThat(result.courses.size, `is`(522))
@@ -41,7 +37,7 @@ class Stundenplan24ParserTest {
 
     @Test
     fun gcgXml() {
-        val result = parseXml("student-test-data/gcg-example-1.xml")
+        val result = parseXml("sampledata/student-test-data/gcg-example-1.xml")
 
         assertThat(result.lessons.size, `is`(204))
         assertThat(result.courses.size, `is`(456))

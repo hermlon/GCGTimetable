@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import net.hermlon.gcgtimetable.database.DatabaseProfile
 import net.hermlon.gcgtimetable.database.DatabaseSource
 import net.hermlon.gcgtimetable.database.TimetableDatabase
 import net.hermlon.gcgtimetable.database.asDomainModel
@@ -17,11 +18,12 @@ import javax.inject.Singleton
 @Singleton
 class ProfileRepository @Inject constructor(private val database: TimetableDatabase){
 
-    val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getProfiles()) {
-        it.asDomainModel()
-    }
+    //val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getProfiles()) {
+    //    it.asDomainModel()
+    //}
 
     var cachedDefaultSource: DatabaseSource? = null
+    var cachedDefaultProfile: DatabaseProfile? = null
 
     private val _noSourceAvailable = MutableLiveData<Event<Boolean>>(Event(false))
 
@@ -34,7 +36,7 @@ class ProfileRepository @Inject constructor(private val database: TimetableDatab
     suspend fun getDefaultSource(): DatabaseSource? {
         if(cachedDefaultSource == null) {
             withContext(Dispatchers.IO) {
-               cachedDefaultSource = database.sourceDao.get(Companion.DEFAULT_SOURCE_ID)
+               cachedDefaultSource = database.sourceDao.get(DEFAULT_SOURCE_ID)
             }
             if(cachedDefaultSource == null) {
                 // read from shared preferences or ask for setup
@@ -47,6 +49,26 @@ class ProfileRepository @Inject constructor(private val database: TimetableDatab
         return cachedDefaultSource
     }
 
+    suspend fun getDefaultProfile(): DatabaseProfile {
+        if(cachedDefaultProfile == null) {
+            withContext(Dispatchers.IO) {
+                cachedDefaultProfile = database.profileDao.get(DEFAULT_PROFILE_ID)
+                if(cachedDefaultProfile == null) {
+                    database.profileDao.insert(
+                        DatabaseProfile(
+                            DEFAULT_PROFILE_ID,
+                            "Default Profile",
+                            DEFAULT_SOURCE_ID,
+                            0
+                        )
+                    )
+                    cachedDefaultProfile = database.profileDao.get(DEFAULT_PROFILE_ID)
+                }
+            }
+        }
+        return cachedDefaultProfile!!
+    }
+
     suspend fun setDefaultSource(source: TempSource) {
         withContext(Dispatchers.IO) {
             database.sourceDao.upsert(DatabaseSource(Companion.DEFAULT_SOURCE_ID, "default source", source.url, source.isStudent, source.username, source.password))
@@ -56,5 +78,6 @@ class ProfileRepository @Inject constructor(private val database: TimetableDatab
 
     companion object {
         const val DEFAULT_SOURCE_ID = 1L
+        const val DEFAULT_PROFILE_ID = 1L
     }
 }

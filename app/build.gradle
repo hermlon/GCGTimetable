@@ -19,7 +19,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-								// += instead of = is a workaround?
+                // += instead of = is a workaround?
                 arguments += ["room.incremental": "true"]
             }
         }
@@ -40,6 +40,14 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    sourceSets {
+        test {
+            resources.srcDirs += ['sampledata']
+        }
+        androidTest {
+            resources.srcDirs += ['sampledata']
+        }
     }
 }
 

@@ -19,6 +19,18 @@ data class DatabaseProfile constructor(
     val position: Int
 )
 
+@Entity(primaryKeys = ["profileId", "className"])
+data class DatabaseClassNameWhitelist constructor(
+    val profileId: Long,
+    val className: String
+)
+
+@Entity(primaryKeys = ["profileId", "courseId"])
+data class DatabaseCourseIdBlacklist constructor(
+    val profileId: Long,
+    val courseId: Long
+)
+
 @Entity
 data class DatabaseSource constructor(
     @PrimaryKey(autoGenerate = true)
@@ -50,6 +62,15 @@ data class DatabaseCourse constructor(
     val teacher: String,
     val subject: String,
     val name: String
+)
+
+data class FilterCourse(
+    val id: Long,
+    val className: String,
+    val teacher: String,
+    val subject: String,
+    val name: String,
+    val blacklisted: Boolean
 )
 
 @Entity(primaryKeys = ["dayId", "number", "courseId"])

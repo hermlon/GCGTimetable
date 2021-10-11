@@ -25,12 +25,12 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
 
     private val _timetableDays = HashMap<LocalDate, MutableLiveData<Resource<TimetableDay>>>()
 
-    suspend fun refreshTimetable(source: DatabaseSource, date: LocalDate) {
+    suspend fun refreshTimetable(profile: DatabaseProfile, source: DatabaseSource, date: LocalDate) {
         val liveData = getTimetableLiveData(date)
         startLoad()
         liveData.value = Resource(ResourceStatus.LOADING)
         // read old data from database
-        val oldData = getTimetableDay(source.id, date)
+        val oldData = getTimetableDay(profile, date)
         if(oldData != null) {
             liveData.value = Resource(ResourceStatus.LOADING, oldData)
         }
@@ -38,7 +38,7 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
         val res = webservice.fetch(source.asTempSource(), date)
         if(res.status == ResourceStatus.SUCCESS && date.isEqual(res.data!!.day.date)) {
             updateDatabase(source, res.data!!)
-            liveData.value = Resource(ResourceStatus.SUCCESS, getTimetableDay(source.id, date))
+            liveData.value = Resource(ResourceStatus.SUCCESS, getTimetableDay(profile, date))
         } else {
             // make sure to show an error if 2nd condition of the if conditions fails
             liveData.value = Resource(if(res.status == ResourceStatus.SUCCESS) ResourceStatus.ERROR else res.status)
@@ -75,14 +75,14 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
         }
     }
 
-    private suspend fun getTimetableDay(sourceId: Long, date: LocalDate): TimetableDay? {
+    private suspend fun getTimetableDay(profile: DatabaseProfile, date: LocalDate): TimetableDay? {
         return withContext(Dispatchers.IO) {
-            val day = database.dayDao.getByDate(sourceId, date) ?: return@withContext null
-            var lessons = database.lessonDao.getLessons(day.id).asDomainModel()
+            val day = database.dayDao.getByDate(profile.sourceId, date) ?: return@withContext null
+            var lessons = database.lessonDao.getLessons(day.id, profile.id).asDomainModel()
             var isStandard = false
             if(lessons.isEmpty()) {
                 isStandard = true
-                lessons = database.standardLessonDao.getStandardLessons(date.dayOfWeek.value).asDomainModel()
+                lessons = database.standardLessonDao.getStandardLessons(date.dayOfWeek.value, profile.id).asDomainModel()
             }
             TimetableDay(
                 isStandard = isStandard,
@@ -95,7 +95,7 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
         }
     }
 
-    private suspend fun updateDatabase(source: DatabaseSource, newData: NetworkParseResult) {
+    suspend fun updateDatabase(source: DatabaseSource, newData: NetworkParseResult) {
         withContext(Dispatchers.IO) {
             val dayId = database.dayDao.upsert(DatabaseDay(
                 0,
