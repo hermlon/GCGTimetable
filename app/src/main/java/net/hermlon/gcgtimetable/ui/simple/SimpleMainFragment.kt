@@ -17,6 +17,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import net.hermlon.gcgtimetable.R
+import net.hermlon.gcgtimetable.database.FilterClassName
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter
 import net.hermlon.gcgtimetable.ui.timetable.WeekTabLayoutMediator
@@ -86,7 +87,8 @@ class SimpleMainFragment : Fragment() {
                 if(noSource) {
                     val oldLogin = getOldLogin()
                     if (oldLogin != null) {
-                        viewModel.setDefaultSource(oldLogin)
+                        viewModel.setFilter(oldLogin.second)
+                        viewModel.setDefaultSource(oldLogin.first)
                     } else {
                         // launch profile configuration activity
                         findNavController().navigate(R.id.action_login_s24)
@@ -99,19 +101,20 @@ class SimpleMainFragment : Fragment() {
     /**
      * reads legacy login data from v1 of GCGTimetable stored in SharedPreferences
      */
-    private fun getOldLogin(): TempSource? {
+    private fun getOldLogin(): Pair<TempSource, FilterClassName>? {
         val settings = PreferenceManager.getDefaultSharedPreferences(requireContext())
         val schoolnum = settings.getString("schoolnr", null)
-        if (schoolnum != null) {
-            var grade = settings.getString("grade", "") + "/" + settings.getString("subclass", "")
-            return TempSource(
+        return if(schoolnum != null) {
+            val grade = settings.getString("grade", "") + "/" + settings.getString("subclass", "")
+            Pair(TempSource(
                 url = "https://www.stundenplan24.de/$schoolnum/mobil",
                 isStudent = true,
                 username = settings.getString("username", null),
                 password = settings.getString("password", null)
-            )
+            ),
+                FilterClassName(grade, true))
         } else {
-            return null
+            null
         }
     }
 }

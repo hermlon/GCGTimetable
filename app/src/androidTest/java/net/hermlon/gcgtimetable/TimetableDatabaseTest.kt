@@ -120,6 +120,17 @@ class TimetableDatabaseTest {
         }.forEach {
             assertThat(it.blacklisted, `is`(false))
         }
+
+        val classNames = database.courseDao.getFilterClassNames(profile.id)
+        assertThat(classNames.filter {
+            it.className == "10/3"
+        }.first().whitelisted, `is`(true))
+
+        classNames.filter {
+            it.className != "10/3"
+        }.forEach {
+            assertThat(it.whitelisted, `is`(false))
+        }
     }
 
     companion object {

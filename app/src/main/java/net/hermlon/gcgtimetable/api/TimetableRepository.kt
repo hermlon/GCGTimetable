@@ -1,5 +1,6 @@
 package net.hermlon.gcgtimetable.api
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
@@ -44,6 +45,16 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
             liveData.value = Resource(if(res.status == ResourceStatus.SUCCESS) ResourceStatus.ERROR else res.status)
         }
         endLoad()
+    }
+
+    suspend fun refreshAll(profile: DatabaseProfile, source: DatabaseSource) {
+        withContext(Dispatchers.Main) {
+            startLoad()
+            _timetableDays.keys.forEach {
+                refreshTimetable(profile, source, it)
+            }
+            endLoad()
+        }
     }
 
     suspend fun testSource(source: TempSource): ResourceStatus {

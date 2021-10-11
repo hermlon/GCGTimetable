@@ -16,7 +16,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ProfileRepository @Inject constructor(private val database: TimetableDatabase){
+class ProfileRepository @Inject constructor(private val database: TimetableDatabase) {
 
     //val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getProfiles()) {
     //    it.asDomainModel()

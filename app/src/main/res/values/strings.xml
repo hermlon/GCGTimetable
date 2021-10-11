@@ -24,4 +24,6 @@
     <string name="current_week">Current week</string>
     <string name="choose_courses">Choose courses</string>
     <string name="edit_login">Edit login</string>
+    <string name="filter_class_names">Classes</string>
+    <string name="filter_course_ids">Courses</string>
 </resources>

@@ -73,6 +73,11 @@ data class FilterCourse(
     val blacklisted: Boolean
 )
 
+data class FilterClassName(
+    val className: String,
+    val whitelisted: Boolean
+)
+
 @Entity(primaryKeys = ["dayId", "number", "courseId"])
 data class DatabaseLesson constructor(
     val dayId: Long,

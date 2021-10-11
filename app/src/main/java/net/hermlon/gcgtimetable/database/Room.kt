@@ -23,12 +23,18 @@ interface ProfileDao {
 interface WhitelistDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun whitelist(classNameWhitelist: DatabaseClassNameWhitelist)
+
+    @Delete
+    fun delete(classNameWhitelist: DatabaseClassNameWhitelist)
 }
 
 @Dao
 interface BlacklistDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun blacklist(courseIdBlacklist: DatabaseCourseIdBlacklist)
+
+    @Delete
+    fun delete(classNameWhitelist: DatabaseClassNameWhitelist)
 }
 
 @Dao
@@ -92,22 +98,25 @@ interface DayDao {
 @Dao
 interface CourseDao {
     @Query("SELECT id, className, teacher, subject, name, " +
-            "id IN " + BLACKLISTED_COURSE_IDS_SUBQUERY + " AS blacklisted " +
+            "id IN $BLACKLISTED_COURSE_IDS_SUBQUERY AS blacklisted " +
             "FROM DatabaseCourse")
     fun getCourses(profileId: Long): List<FilterCourse>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg courses: DatabaseCourse)
 
-    @Query("SELECT DISTINCT className from DatabaseCourse")
+    @Query("SELECT DISTINCT className FROM DatabaseCourse ORDER BY className ASC")
     fun getClassNames(): List<String>
+
+    @Query("SELECT DISTINCT className, className IN $WHITELISTED_CLASS_NAMES_SUBQUERY AS whitelisted FROM DatabaseCourse ORDER BY className ASC")
+    fun getFilterClassNames(profileId: Long): List<FilterClassName>
 }
 
 @Dao
 interface LessonDao {
     @Query("SELECT * FROM DatabaseLesson " +
             "INNER JOIN DatabaseCourse ON DatabaseLesson.courseId = DatabaseCourse.id " +
-            "WHERE dayId = :dayId " + LESSON_FILTER_QUERY)
+            "WHERE dayId = :dayId $LESSON_FILTER_QUERY")
     fun getLessons(dayId: Long, profileId: Long): List<DatabaseLesson>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -130,7 +139,7 @@ interface StandardLessonDao {
 
     @Query("SELECT number, subject, teacher, room, courseId FROM " +
             "DatabaseStandardLesson INNER JOIN DatabaseCourse ON DatabaseStandardLesson.courseId = DatabaseCourse.id " +
-            "WHERE dayOfWeek = :dayOfWeek " + LESSON_FILTER_QUERY)
+            "WHERE dayOfWeek = :dayOfWeek $LESSON_FILTER_QUERY")
     fun getStandardLessons(dayOfWeek: Int, profileId: Long): List<EnrichedStandardLesson>
 }
 
@@ -159,6 +168,7 @@ abstract class TimetableDatabase : RoomDatabase() {
 }
 
 const val BLACKLISTED_COURSE_IDS_SUBQUERY = "(SELECT courseId FROM DatabaseCourseIdBlacklist WHERE profileId = :profileId)"
+const val WHITELISTED_CLASS_NAMES_SUBQUERY = "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId)"
 
 const val LESSON_FILTER_QUERY = "AND className IN " +
             "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId) " +

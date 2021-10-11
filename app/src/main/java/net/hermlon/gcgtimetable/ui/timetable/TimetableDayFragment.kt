@@ -53,8 +53,13 @@ class TimetableDayFragment : Fragment() {
             timetable.data?.let {
                 lastData = it
             }
-            if(lastData != null){
-                status.visibility = View.GONE
+            if(lastData != null) {
+                if(lastData!!.lessons.isEmpty()) {
+                    status.visibility = View.VISIBLE
+                    status.text = "check filter"
+                } else {
+                    status.visibility = View.GONE
+                }
                 adapter.submitList(lastData!!.lessons)
             } else {
                 status.visibility = View.VISIBLE
