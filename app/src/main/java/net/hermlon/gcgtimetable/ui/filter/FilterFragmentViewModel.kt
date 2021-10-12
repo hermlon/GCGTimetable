@@ -14,22 +14,32 @@ import net.hermlon.gcgtimetable.api.FilterRepository
 import net.hermlon.gcgtimetable.api.ProfileRepository
 import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.FilterClassName
+import net.hermlon.gcgtimetable.database.FilterCourse
 import javax.inject.Inject
 
 @HiltViewModel
 class FilterFragmentViewModel @Inject constructor(private val filterRepository: FilterRepository, private val profileRepository: ProfileRepository, private val timetableRepository: TimetableRepository) : ViewModel() {
 
-    var classNames: LiveData<List<FilterClassName>> = filterRepository.classNames
+    var classNames = filterRepository.classNames
+    var filterCourses = filterRepository.filterCourses
 
     init {
         viewModelScope.launch {
             filterRepository.updateClassNames(profileRepository.getDefaultProfile())
+            filterRepository.updateFilterCourses(profileRepository.getDefaultProfile())
         }
     }
 
     fun onClickClassName(className: FilterClassName) {
         viewModelScope.launch {
             filterRepository.updateClassName(profileRepository.getDefaultProfile(), className)
+            filterRepository.updateFilterCourses(profileRepository.getDefaultProfile())
+        }
+    }
+
+    fun onClickFilterCourse(filterCourse: FilterCourse) {
+        viewModelScope.launch {
+            filterRepository.updateFilterCourse(profileRepository.getDefaultProfile(), filterCourse)
         }
     }
 

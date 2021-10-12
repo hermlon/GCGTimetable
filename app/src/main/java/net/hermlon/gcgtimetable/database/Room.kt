@@ -34,7 +34,7 @@ interface BlacklistDao {
     fun blacklist(courseIdBlacklist: DatabaseCourseIdBlacklist)
 
     @Delete
-    fun delete(classNameWhitelist: DatabaseClassNameWhitelist)
+    fun delete(courseIdBlacklist: DatabaseCourseIdBlacklist)
 }
 
 @Dao
@@ -99,7 +99,7 @@ interface DayDao {
 interface CourseDao {
     @Query("SELECT id, className, teacher, subject, name, " +
             "id IN $BLACKLISTED_COURSE_IDS_SUBQUERY AS blacklisted " +
-            "FROM DatabaseCourse")
+            "FROM DatabaseCourse WHERE className IN $WHITELISTED_CLASS_NAMES_SUBQUERY ORDER BY subject, className ASC")
     fun getCourses(profileId: Long): List<FilterCourse>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

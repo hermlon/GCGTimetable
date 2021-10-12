@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.hermlon.gcgtimetable.database.DatabaseClassNameWhitelist
-import net.hermlon.gcgtimetable.database.DatabaseProfile
-import net.hermlon.gcgtimetable.database.FilterClassName
-import net.hermlon.gcgtimetable.database.TimetableDatabase;
+import net.hermlon.gcgtimetable.database.*
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -18,6 +15,9 @@ class FilterRepository @Inject constructor(private val database: TimetableDataba
 
     private val _classNames = MutableLiveData<List<FilterClassName>>()
     val classNames: LiveData<List<FilterClassName>> = _classNames
+
+    private val _filterCourses = MutableLiveData<List<FilterCourse>>()
+    val filterCourses: LiveData<List<FilterCourse>> = _filterCourses
 
     suspend fun updateClassNames(profile: DatabaseProfile) {
         var result: List<FilterClassName>
@@ -36,5 +36,24 @@ class FilterRepository @Inject constructor(private val database: TimetableDataba
             }
         }
         updateClassNames(profile)
+    }
+
+    suspend fun updateFilterCourses(profile: DatabaseProfile) {
+        var result: List<FilterCourse>
+        withContext(Dispatchers.IO) {
+            result = database.courseDao.getCourses(profile.id)
+        }
+        _filterCourses.value = result
+    }
+
+    suspend fun updateFilterCourse(profile: DatabaseProfile, filterCourse: FilterCourse) {
+        withContext(Dispatchers.IO) {
+            if(filterCourse.blacklisted) {
+                database.blacklistDao.blacklist(DatabaseCourseIdBlacklist(profile.id, filterCourse.id))
+            } else {
+                database.blacklistDao.delete(DatabaseCourseIdBlacklist(profile.id, filterCourse.id))
+            }
+        }
+        updateFilterCourses(profile)
     }
 }

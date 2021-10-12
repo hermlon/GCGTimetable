@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import net.hermlon.gcgtimetable.R
 import net.hermlon.gcgtimetable.domain.TimetableLesson
+import net.hermlon.gcgtimetable.util.CourseColor
 import kotlin.random.Random
 
 class LessonListAdapter : ListAdapter<TimetableLesson, LessonListAdapter.LessonViewHolder>(LessonsComparator()) {
@@ -43,15 +44,7 @@ class LessonListAdapter : ListAdapter<TimetableLesson, LessonListAdapter.LessonV
             } else {
                 info.visibility = View.GONE
             }
-            (color.drawable as GradientDrawable).setColor(getCourseColor(lesson.courseId))
-        }
-
-        private fun getCourseColor(courseId: Long): Int {
-            val random = Random(courseId)
-            val hue = random.nextFloat() * 360
-            val sat = 0.4f + random.nextFloat() * 0.2f
-            val value = 0.8f + random.nextFloat() * 0.15f
-            return Color.HSVToColor(floatArrayOf(hue, sat, value))
+            (color.drawable as GradientDrawable).setColor(CourseColor.getBySubject(lesson.subject))
         }
 
         companion object {
@@ -77,3 +70,4 @@ class LessonListAdapter : ListAdapter<TimetableLesson, LessonListAdapter.LessonV
         }
     }
 }
+
