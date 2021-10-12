@@ -49,7 +49,7 @@ class Stundenplan24StudentXMLParser {
             parser.setInput(myInputStream, null)
             parser.nextTag()
 
-            var information = ""
+            var information: String? = null
             courses = mutableSetOf()
             lessons = mutableSetOf()
             standardLessons = mutableSetOf()
@@ -352,7 +352,7 @@ class Stundenplan24StudentXMLParser {
     }
 
     @Throws(IOException::class, XmlPullParserException::class)
-    private fun readAdditionalInfo(parser: XmlPullParser): String {
+    private fun readAdditionalInfo(parser: XmlPullParser): String? {
         parser.require(XmlPullParser.START_TAG, ns, "ZusatzInfo")
 
         var info = ""
@@ -365,7 +365,8 @@ class Stundenplan24StudentXMLParser {
                 else -> skip(parser)
             }
         }
-        return info
+        // pretty ugly, removing the newline that was added above
+        return if(info == "") null else info.trim('\n')
     }
 
     @Throws(IOException::class, XmlPullParserException::class)

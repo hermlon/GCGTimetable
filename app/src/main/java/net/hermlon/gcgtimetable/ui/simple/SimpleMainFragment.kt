@@ -1,6 +1,7 @@
 package net.hermlon.gcgtimetable.ui.simple
 
 import android.os.Bundle
+import android.util.Log
 import androidx.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
@@ -68,7 +69,8 @@ class SimpleMainFragment : Fragment() {
 
         val tabLayout: TabLayout = view.findViewById(R.id.tab_layout)
         WeekTabLayoutMediator(tabLayout, viewPager, 5) { tab, position ->
-            tab.text = DateFormatSymbols.getInstance().shortWeekdays[position+2]
+            // remove dots from German short weekdays
+            tab.text = DateFormatSymbols.getInstance().shortWeekdays[position+2].replace(".", "")
         }.attach()
 
         viewPager.setCurrentItem(timetableDayAdapter.getPositionByDate(LocalDate.now()), false)
@@ -78,11 +80,11 @@ class SimpleMainFragment : Fragment() {
             viewModel.userRefresh(timetableDayAdapter.getDateByPosition(viewPager.currentItem))
         }
 
-        viewModel.isLoading.observe(viewLifecycleOwner, {
+        viewModel.isLoading.observe(viewLifecycleOwner) {
             swipeRefresh.isRefreshing = it
-        })
+        }
 
-        viewModel.noSourceAvailable.observe(viewLifecycleOwner, {
+        viewModel.noSourceAvailable.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { noSource ->
                 if(noSource) {
                     val oldLogin = getOldLogin()
@@ -95,7 +97,18 @@ class SimpleMainFragment : Fragment() {
                     }
                 }
             }
-        })
+        }
+
+        viewModel.prominentClassName.observe(viewLifecycleOwner) {
+            if(navController.currentDestination?.id ?: 0 == R.id.simpleMainFragment) {
+                it?.let {
+                    getString(R.string.class_template, it).let { title ->
+                        navController.currentDestination?.label = title
+                        toolbar.title = title
+                    }
+                }
+            }
+        }
     }
 
     /**

@@ -1,22 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.timetable.TimetableDayFragment">
-
-        <TextView
-            android:id="@+id/timetable_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lessons_recycler_view"
-            tools:listitem="@layout/view_lesson_item"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:overScrollMode="ifContentScrolls"
+            android:clipToPadding="false"
+            android:paddingBottom="96dp"
+            tools:listitem="@layout/view_lesson_item" />
 
-        </androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="12dp"
+                    android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/timetable_day_information"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/timetable_last_update"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="textEnd"
+                            android:textStyle="italic" />
+
+                </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

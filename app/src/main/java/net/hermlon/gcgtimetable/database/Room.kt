@@ -93,6 +93,9 @@ interface DayDao {
 
     @Query("SELECT * FROM DatabaseDay WHERE id = :key")
     fun get(key: Long): DatabaseDay?
+
+    @Query("DELETE FROM DatabaseDay WHERE date <= :date")
+    fun deleteOlderThan(date: LocalDate)
 }
 
 @Dao
@@ -153,7 +156,7 @@ interface StandardLessonDao {
     DatabaseClassNameWhitelist::class,
     DatabaseCourseIdBlacklist::class,
     DatabaseProfile::class
-], version = 3, exportSchema = false)
+], version = 4, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
     abstract val examDao: ExamDao

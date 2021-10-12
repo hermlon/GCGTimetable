@@ -20,7 +20,7 @@ data class NetworkParseResult(
 data class NetworkDay(
     var date: LocalDate,
     var updatedAt: LocalDateTime,
-    var information: String
+    var information: String?
 )
 
 data class NetworkCourse(

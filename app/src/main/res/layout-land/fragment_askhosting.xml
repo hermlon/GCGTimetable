@@ -12,7 +12,7 @@
             android:id="@+id/askhosting_cl_1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/primaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/askhosting_cl_2"
             app:layout_constraintHorizontal_bias="0.5"
@@ -21,7 +21,7 @@
 
             <TextView
                 android:id="@+id/textView3"
-                style="@style/TextLargeMultilineDark"
+                style="@style/TextLargeMultiline"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
@@ -51,7 +51,7 @@
             android:id="@+id/askhosting_cl_2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/primaryLight"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -65,14 +65,14 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
                 android:contentDescription="@string/school_website"
-                android:tint="@color/colorPrimaryDark"
+                app:tint="@color/primaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_web_black" />
 
             <TextView
                 android:id="@+id/textView4"
-                style="@style/TextLargeMultilineDark"
+                style="@style/TextLargeMultiline"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"

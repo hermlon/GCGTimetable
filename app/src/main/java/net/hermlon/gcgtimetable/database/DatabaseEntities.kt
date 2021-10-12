@@ -1,6 +1,8 @@
 package net.hermlon.gcgtimetable.database
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import net.hermlon.gcgtimetable.domain.Profile
@@ -42,8 +44,7 @@ data class DatabaseSource constructor(
     val password: String? = null
 )
 
-@Entity(
-    indices = [Index(value = ["sourceId", "date"], unique = true)])
+@Entity(indices = [Index(value = ["sourceId", "date"], unique = true)])
 data class DatabaseDay constructor(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
@@ -78,7 +79,8 @@ data class FilterClassName(
     val whitelisted: Boolean
 )
 
-@Entity(primaryKeys = ["dayId", "number", "courseId"])
+@Entity(primaryKeys = ["dayId", "number", "courseId"],
+    foreignKeys = [ForeignKey(onDelete = CASCADE, entity = DatabaseDay::class, parentColumns = ["id"], childColumns = ["dayId"])])
 data class DatabaseLesson constructor(
     val dayId: Long,
     val number: Int,
@@ -92,7 +94,8 @@ data class DatabaseLesson constructor(
     val courseId: Long
 )
 
-@Entity(primaryKeys = ["dayId", "number", "courseId"])
+@Entity(primaryKeys = ["dayId", "number", "courseId"],
+    foreignKeys = [ForeignKey(onDelete = CASCADE, entity = DatabaseDay::class, parentColumns = ["id"], childColumns = ["dayId"])])
 data class DatabaseExam constructor(
     val dayId: Long,
     val number: Int,

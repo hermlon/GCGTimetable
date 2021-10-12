@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/simpleMainFragment"
         android:name="net.hermlon.gcgtimetable.ui.simple.SimpleMainFragment"
-        android:label="SimpleMainFragment" >
+        android:label="@string/app_name" >
         <action
             android:id="@+id/action_login_s24"
             app:destination="@id/stundenplan24LoginFragment"
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/stundenplan24LoginFragment"
         android:name="net.hermlon.gcgtimetable.ui.profile.create.Stundenplan24LoginFragment"
-        android:label="Stundenplan24 Login" >
+        android:label="@string/stundenplan24_login" >
         <action
             android:id="@+id/action_login_s24_success"
             app:destination="@id/simpleMainFragment"
@@ -25,5 +25,5 @@
     <fragment
         android:id="@+id/fragment_filter"
         android:name="net.hermlon.gcgtimetable.ui.filter.FilterFragment"
-        android:label="FilterFragment" />
+        android:label="@string/filters" />
 </navigation>

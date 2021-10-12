@@ -1,6 +1,8 @@
 package net.hermlon.gcgtimetable.ui.filter.courseid
 
+import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -12,6 +14,7 @@ import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.color.MaterialColors
 import net.hermlon.gcgtimetable.R
 import net.hermlon.gcgtimetable.database.FilterClassName
 import net.hermlon.gcgtimetable.database.FilterCourse
@@ -37,11 +40,30 @@ class CourseIdAdapter constructor(private val onSelectedCallback: (filterCourse:
         private val color: ImageView = itemView.findViewById(R.id.circle_icon)
 
         fun bind(course: FilterCourse) {
+            itemView.setOnClickListener(null)
+            itemView.setOnClickListener {
+                it.isSelected = !it.isSelected
+                val c = course.copy(blacklisted = !it.isSelected)
+                (color.drawable as GradientDrawable).setColor(getColor(c))
+                onSelectedCallback(c)
+            }
             subject.text = course.subject.replaceFirstChar { it.uppercase() }
             teacher.text = course.teacher
             name.text = course.name
             classname.text = course.className
-            (color.drawable as GradientDrawable).setColor(CourseColor.getBySubject(course.subject))
+            itemView.isSelected = !course.blacklisted
+            (color.drawable as GradientDrawable).setColor(getColor(course))
+        }
+
+        private fun getColor(course: FilterCourse): Int {
+            return if(course.blacklisted) {
+                CourseColor.getBySubject(course.subject)
+            } else {
+                Color.parseColor("#11111111")
+                //val value = TypedValue()
+                //itemView.context.theme.resolveAttribute(R.attr.colorOnPrimary, value, true)
+                //value.data
+            }
         }
 
         companion object {

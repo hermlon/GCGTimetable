@@ -15,6 +15,7 @@ import net.hermlon.gcgtimetable.util.Resource
 import net.hermlon.gcgtimetable.util.ResourceStatus
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
+import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,7 +25,7 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
     private val _loadingCount = MutableLiveData<Int>(0)
     val loadingCount: LiveData<Int> = _loadingCount
 
-    private val _timetableDays = HashMap<LocalDate, MutableLiveData<Resource<TimetableDay>>>()
+    private val _timetableDays = ConcurrentHashMap<LocalDate, MutableLiveData<Resource<TimetableDay>>>()
 
     suspend fun refreshTimetable(profile: DatabaseProfile, source: DatabaseSource, date: LocalDate) {
         val liveData = getTimetableLiveData(date)
@@ -60,6 +61,12 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
     suspend fun testSource(source: TempSource): ResourceStatus {
         // date is null to fetch Klassen.xml (latest available timetable)
         return webservice.fetch(source, null).status
+    }
+
+    suspend fun deleteOldData() {
+        withContext(Dispatchers.IO) {
+            database.dayDao.deleteOlderThan(LocalDate.now().plusDays(-14))
+        }
     }
 
     fun getTimetableLiveData(date: LocalDate): MutableLiveData<Resource<TimetableDay>> {

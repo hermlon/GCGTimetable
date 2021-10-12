@@ -26,4 +26,7 @@
     <string name="edit_login">Edit login</string>
     <string name="filter_class_names">Classes</string>
     <string name="filter_course_ids">Courses</string>
+    <string name="stundenplan24_login">Stundenplan24 Login</string>
+    <string name="filters">Select courses</string>
+    <string name="class_template">Class %1$s</string>
 </resources>
