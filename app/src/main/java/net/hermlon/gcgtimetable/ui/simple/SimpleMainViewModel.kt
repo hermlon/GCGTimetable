@@ -35,6 +35,11 @@ class SimpleMainViewModel @Inject constructor(private val profileRepository: Pro
     fun setDefaultSource(source: TempSource) {
         viewModelScope.launch {
             profileRepository.setDefaultSource(source)
+            profileRepository.getDefaultSource()?.let {
+                timetableRepository.refreshAll(profileRepository.getDefaultProfile(),
+                    it
+                )
+            }
         }
     }
 

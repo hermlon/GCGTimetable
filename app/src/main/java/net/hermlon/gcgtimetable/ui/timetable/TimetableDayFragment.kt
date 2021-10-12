@@ -56,7 +56,7 @@ class TimetableDayFragment : Fragment() {
             if(lastData != null) {
                 if(lastData!!.lessons.isEmpty()) {
                     status.visibility = View.VISIBLE
-                    status.text = "check filter"
+                    status.text = "nothing today (or maybe check filter)"
                 } else {
                     status.visibility = View.GONE
                 }

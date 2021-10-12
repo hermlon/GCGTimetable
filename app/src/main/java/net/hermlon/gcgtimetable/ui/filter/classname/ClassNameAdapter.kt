@@ -47,7 +47,7 @@ class ClassNameAdapter constructor(private val onSelectedCallback: (filterClassN
 
 class FilterClassNameComparator : DiffUtil.ItemCallback<FilterClassName>() {
     override fun areItemsTheSame(oldItem: FilterClassName, newItem: FilterClassName): Boolean {
-        return oldItem == newItem
+        return oldItem.className == newItem.className
     }
 
     override fun areContentsTheSame(oldItem: FilterClassName, newItem: FilterClassName): Boolean {

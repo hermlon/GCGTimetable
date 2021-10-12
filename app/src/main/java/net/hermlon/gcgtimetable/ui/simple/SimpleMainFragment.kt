@@ -105,14 +105,20 @@ class SimpleMainFragment : Fragment() {
         val settings = PreferenceManager.getDefaultSharedPreferences(requireContext())
         val schoolnum = settings.getString("schoolnr", null)
         return if(schoolnum != null) {
-            val grade = settings.getString("grade", "") + "/" + settings.getString("subclass", "")
+            var grade = settings.getString("grade", "")
+            if (grade != null) {
+                if(grade.length == 1) {
+                    grade = "0$grade"
+                }
+            }
+            val className = grade + "/" + settings.getString("subclass", "")
             Pair(TempSource(
                 url = "https://www.stundenplan24.de/$schoolnum/mobil",
                 isStudent = true,
                 username = settings.getString("username", null),
                 password = settings.getString("password", null)
             ),
-                FilterClassName(grade, true))
+                FilterClassName(className, true))
         } else {
             null
         }
