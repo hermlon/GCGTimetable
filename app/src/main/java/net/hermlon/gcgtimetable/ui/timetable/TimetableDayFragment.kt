@@ -122,7 +122,9 @@ class TimetableDayFragment : Fragment() {
                         errorText.text = getString(R.string.timetable_error_offline)
                         errorImage.setImageResource(R.drawable.ic_baseline_cloud_off)
                     }
-                    ResourceStatus.LOADING -> {}
+                    ResourceStatus.LOADING -> {
+                        errorView.visibility = View.GONE
+                    }
                     else -> {
                         errorText.text = getString(R.string.timetable_error_unknown)
                         errorImage.setImageResource(R.drawable.ic_baseline_error)
@@ -130,5 +132,10 @@ class TimetableDayFragment : Fragment() {
                 }
             }
         })
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        viewModel.tryRefresh()
     }
 }

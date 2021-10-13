@@ -1,6 +1,8 @@
 package net.hermlon.gcgtimetable.ui.simple
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.preference.PreferenceManager
 import android.view.LayoutInflater
@@ -24,6 +26,8 @@ import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter
 import net.hermlon.gcgtimetable.ui.timetable.WeekTabLayoutMediator
 import org.threeten.bp.LocalDate
 import java.text.DateFormatSymbols
+import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicInteger
 
 @AndroidEntryPoint
 class SimpleMainFragment : Fragment() {
@@ -80,8 +84,23 @@ class SimpleMainFragment : Fragment() {
             viewModel.userRefresh(timetableDayAdapter.getDateByPosition(viewPager.currentItem))
         }
 
+        val cachedRefresh = AtomicBoolean(false)
+
+        val handler = Handler(Looper.getMainLooper())
+
         viewModel.isLoading.observe(viewLifecycleOwner) {
-            swipeRefresh.isRefreshing = it
+            cachedRefresh.set(it)
+            // stop flashing of reload by delay
+            if(it) {
+                handler.removeCallbacksAndMessages(null)
+                handler.postDelayed({
+                    if(cachedRefresh.get()) {
+                        swipeRefresh.isRefreshing = true
+                    }
+                }, 700)
+            } else {
+                swipeRefresh.isRefreshing = false
+            }
         }
 
         viewModel.noSourceAvailable.observe(viewLifecycleOwner) {
