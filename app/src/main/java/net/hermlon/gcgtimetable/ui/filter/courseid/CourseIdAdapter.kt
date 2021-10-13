@@ -57,12 +57,12 @@ class CourseIdAdapter constructor(private val onSelectedCallback: (filterCourse:
 
         private fun getColor(course: FilterCourse): Int {
             return if(course.blacklisted) {
-                CourseColor.getBySubject(course.subject)
-            } else {
                 Color.parseColor("#11111111")
                 //val value = TypedValue()
                 //itemView.context.theme.resolveAttribute(R.attr.colorOnPrimary, value, true)
                 //value.data
+            } else {
+                CourseColor.getBySubject(course.subject)
             }
         }
 
