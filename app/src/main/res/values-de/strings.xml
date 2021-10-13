@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GCGTimetable</string>
+    <string name="askhosting_option_stundenplan24">Verwendest du <b>www.stundenplan24.de</b> für deinen Stundenplan?</string>
+    <string name="askhosting_option_website">… oder verwendet deine Schule Indiware Software auf ihrer <b>eigenen Website</b>?</string>
+    <string name="school_website">Schulwebsite</string>
+    <string name="profile_login">Login</string>
+    <string name="profile_login_prompt">Logge dich mit deinen Zugangsdaten für www.stundenplan24.de ein</string>
+    <string name="schoolnr">Schulnummer</string>
+    <string name="username">Benutzername</string>
+    <string name="password">Passwort</string>
+    <string name="profile_student">Schüler</string>
+    <string name="profile_teacher">Lehrer</string>
+    <string name="login_error_offline">Bitte überprüfe deine Internetverbindung.</string>
+    <string name="login_error_auth">Bitte überprüfe Nutzername oder Passwort.</string>
+    <string name="login_error_not_found">Bitte überprüfe deine Schulnummer.</string>
+    <string name="login_error_unknown">Tut uns leid, ein unerwarteter Fehler ist aufgetreten. Bitte melde uns diesen Fehler, wenn du das drauf hast am besten mit ADB logcat logs.</string>
+    <string name="current_week">Aktuelle Woche</string>
+    <string name="choose_courses">Kurse auswählen</string>
+    <string name="edit_login">Login ändern</string>
+    <string name="filter_class_names">Klassen</string>
+    <string name="filter_course_ids">Kurse</string>
+    <string name="stundenplan24_login">Stundenplan24 Login</string>
+    <string name="filters">Klassen auswählen</string>
+    <string name="class_template">Klasse %1$s</string>
+    <string name="timetable_error_not_found">Nichts los heute…</string>
+    <string name="timetable_error_offline">In der Schule oder einem anderen Funkloch?</string>
+    <string name="timetable_error_unknown">Irgendetwas ist falsch gelaufen. Bitte hilf uns und melde uns diesen Fehler.</string>
+    <string name="timetable_check_filter">Gähnende Leere. Überprüfe deine Klassen im Filter!</string>
+    <string name="button_check_filter">Filter öffnen</string>
+    <string name="as_every_weekday">wie jeden %1$s</string>
+</resources>

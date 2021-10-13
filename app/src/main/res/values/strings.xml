@@ -4,7 +4,7 @@
     <!-- AskhostingFragment -->
     <string name="askhosting_option_stundenplan24">Do you use <b>www.stundenplan24.de</b> for accessing your timetable?</string>
     <string name="askhosting_option_website">… or does your school use Indiware software hosted on their <b>own website</b>?</string>
-    <string name="stundenplan24">stundenplan24</string>
+    <string name="stundenplan24" translatable="false">stundenplan24</string>
     <string name="school_website">school website</string>
 
     <!-- Stundenplan24LoginFragment -->
@@ -33,8 +33,8 @@
     <!-- TimetableDayFragment -->
     <string name="timetable_error_not_found">Nothing to show for today!</string>
     <string name="timetable_error_offline">Currently at school? \'cause it appears you\'re offline.</string>
-    <string name="timetable_error_unknown">Something went wrong, sorry. Should have listened in class.</string>
-    <string name="timetable_check_filter">Not a lot going on here. You might want to check your class filter!</string>
+    <string name="timetable_error_unknown">Something went wrong, sorry. Please help us and report this error.</string>
+    <string name="timetable_check_filter">Pretty quiet in here. You might want to check your class filter!</string>
     <string name="button_check_filter">Check filters</string>
     <string name="as_every_weekday">as every %1$s</string>
 </resources>
