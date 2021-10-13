@@ -8,6 +8,7 @@ import kotlinx.coroutines.withContext
 import net.hermlon.gcgtimetable.database.*
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.domain.TimetableDay
+import net.hermlon.gcgtimetable.domain.TimetableLesson
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.Webservice
 import net.hermlon.gcgtimetable.network.asDatabaseModel
@@ -33,9 +34,7 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
         liveData.value = Resource(ResourceStatus.LOADING)
         // read old data from database
         val oldData = getTimetableDay(profile, date)
-        if(oldData != null) {
-            liveData.value = Resource(ResourceStatus.LOADING, oldData)
-        }
+        liveData.value = Resource(ResourceStatus.LOADING, oldData)
         // fetch new data from server
         val res = webservice.fetch(source.asTempSource(), date)
         if(res.status == ResourceStatus.SUCCESS && date.isEqual(res.data!!.day.date)) {
@@ -93,23 +92,33 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
         }
     }
 
-    private suspend fun getTimetableDay(profile: DatabaseProfile, date: LocalDate): TimetableDay? {
+    private suspend fun getTimetableDay(profile: DatabaseProfile, date: LocalDate): TimetableDay {
         return withContext(Dispatchers.IO) {
-            val day = database.dayDao.getByDate(profile.sourceId, date) ?: return@withContext null
-            var lessons = database.lessonDao.getLessons(day.id, profile.id).asDomainModel()
-            var isStandard = false
-            if(lessons.isEmpty()) {
-                isStandard = true
-                lessons = database.standardLessonDao.getStandardLessons(date.dayOfWeek.value, profile.id).asDomainModel()
+            val day: DatabaseDay? = database.dayDao.getByDate(profile.sourceId, date)
+            var lessons: List<TimetableLesson> = emptyList()
+            if(day != null) {
+                lessons = database.lessonDao.getLessons(day.id, profile.id).asDomainModel()
             }
-            TimetableDay(
-                isStandard = isStandard,
-                date = day.date,
-                updatedAt = day.updatedAt,
-                lastRefresh = day.lastRefresh,
-                information = day.information,
-                lessons = lessons
-            )
+            if(day == null || lessons.isEmpty()) {
+                lessons = database.standardLessonDao.getStandardLessons(date.dayOfWeek.value, profile.id).asDomainModel()
+                TimetableDay(
+                    isStandard = true,
+                    date = date,
+                    updatedAt = LocalDateTime.now(),
+                    lastRefresh = LocalDateTime.now(),
+                    information = null,
+                    lessons = lessons
+                )
+            } else {
+                TimetableDay(
+                    isStandard = false,
+                    date = day.date,
+                    updatedAt = day.updatedAt,
+                    lastRefresh = day.lastRefresh,
+                    information = day.information,
+                    lessons = lessons
+                )
+            }
         }
     }
 

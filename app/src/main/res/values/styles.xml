@@ -1,6 +1,5 @@
 <resources>
     <style name="TextLargeMultiline">
-        <item name="android:fontFamily">@font/roboto_light</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textSize">20sp</item>
     </style>

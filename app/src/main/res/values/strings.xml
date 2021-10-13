@@ -29,4 +29,12 @@
     <string name="stundenplan24_login">Stundenplan24 Login</string>
     <string name="filters">Select courses</string>
     <string name="class_template">Class %1$s</string>
+
+    <!-- TimetableDayFragment -->
+    <string name="timetable_error_not_found">Nothing to show for today!</string>
+    <string name="timetable_error_offline">Currently at school? \'cause it appears you\'re offline.</string>
+    <string name="timetable_error_unknown">Something went wrong, sorry. Should have listened in class.</string>
+    <string name="timetable_check_filter">Not a lot going on here. You might want to check your class filter!</string>
+    <string name="button_check_filter">Check filters</string>
+    <string name="as_every_weekday">as every %1$s</string>
 </resources>

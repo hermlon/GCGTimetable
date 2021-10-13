@@ -5,7 +5,43 @@
     android:layout_height="match_parent"
     tools:context=".ui.timetable.TimetableDayFragment">
 
+        <LinearLayout
+            android:id="@+id/timetable_day_error_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="96dp">
+
+                <TextView
+                    android:id="@+id/timetable_error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginEnd="48dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/timetable_error_image"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="32dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_check_filter"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="24dp"
+                    android:visibility="gone"
+                    android:text="@string/button_check_filter" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
             android:id="@+id/lessons_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -15,10 +51,12 @@
             tools:listitem="@layout/view_lesson_item" />
 
         <com.google.android.material.card.MaterialCardView
+            android:visibility="gone"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="8dp"
+            android:id="@+id/timetable_day_cardview"
             android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
