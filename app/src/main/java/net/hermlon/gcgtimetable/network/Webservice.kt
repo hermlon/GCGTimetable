@@ -36,11 +36,13 @@ class Webservice {
             val response = client.newCall(request).await()
 
             if (!response.isSuccessful) {
-                Log.e("TimetableRepository", "Error fetching data: " + response.headers + (response.body?.string() ?: ""))
                 return when (response.code) {
                     401 -> Resource(ResourceStatus.ERROR_AUTH)
                     404 -> Resource(ResourceStatus.ERROR_NOT_FOUND)
-                    else -> Resource(ResourceStatus.ERROR)
+                    else -> {
+                        Log.e("Webservice", "Unknown error: " + response.headers + (response.body?.string() ?: ""))
+                        Resource(ResourceStatus.ERROR)
+                    }
                 }
             }
 
@@ -54,17 +56,17 @@ class Webservice {
                     val parsedResult = Stundenplan24StudentXMLParser().parse(response.body!!.byteStream())
                     Resource(ResourceStatus.SUCCESS, parsedResult)
                 } catch (e: XmlPullParserException) {
-                    Log.e("TimetableRepository", e.toString() + e.stackTraceToString())
+                    Log.e("Webservice", e.toString() + e.stackTraceToString())
                     Resource(ResourceStatus.ERROR)
                 } catch (e: IOException) {
-                    Log.e("TimetableRepository", e.toString() + e.stackTraceToString())
+                    Log.e("Webservice", e.toString() + e.stackTraceToString())
                     Resource(ResourceStatus.ERROR)
                 }
             }
         } catch(e: UnknownHostException) {
             return Resource(ResourceStatus.ERROR_OFFLINE)
         } catch(e: Exception) {
-            Log.e("TimetableRepository", e.toString() + e.stackTraceToString())
+            Log.e("Webservice", e.toString() + e.stackTraceToString())
             return Resource(ResourceStatus.ERROR)
         }
     }

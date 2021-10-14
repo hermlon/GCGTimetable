@@ -76,7 +76,6 @@ class ProfileRepository @Inject constructor(private val database: TimetableDatab
             database.examDao.deleteAll()
             database.standardLessonDao.deleteAll()
             database.lessonDao.deleteAll()
-            Log.d("pp", "deleted everything")
             database.sourceDao.insert(DatabaseSource(DEFAULT_SOURCE_ID, "default source", source.url, source.isStudent, source.username, source.password))
             cachedDefaultSource = database.sourceDao.get(DEFAULT_SOURCE_ID)
         }

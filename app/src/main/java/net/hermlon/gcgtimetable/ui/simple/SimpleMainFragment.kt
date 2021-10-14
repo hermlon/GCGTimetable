@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
@@ -48,6 +50,7 @@ class SimpleMainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("SMF", "on created")
         val navController = findNavController()
         val toolbar: MaterialToolbar = view.findViewById(R.id.toolbar)
         toolbar.setupWithNavController(navController, AppBarConfiguration(setOf(R.id.simpleMainFragment)))
@@ -71,6 +74,11 @@ class SimpleMainFragment : Fragment() {
         viewPager = view.findViewById(R.id.pager)
         viewPager.adapter = timetableDayAdapter
         viewPager.offscreenPageLimit = 1
+        // used to prevent IllegalStateException where FragmentManager can't find a Fragment id in onRecreate from SavedInstance
+        // saving viewPager.currentItem manually instead
+        // more workaround is needed (yet unsolved), since onSaveInstanceState isn't called when navigating away, only on rotation
+        viewPager.isSaveEnabled = false
+        viewPager.isSaveFromParentEnabled = false
 
         val tabLayout: TabLayout = view.findViewById(R.id.tab_layout)
         WeekTabLayoutMediator(tabLayout, viewPager, 5) { tab, position ->
@@ -78,7 +86,11 @@ class SimpleMainFragment : Fragment() {
             tab.text = DateFormatSymbols.getInstance().shortWeekdays[position+2].replace(".", "")
         }.attach()
 
-        viewPager.setCurrentItem(timetableDayAdapter.getPositionByDate(LocalDate.now()), false)
+        if(savedInstanceState != null && savedInstanceState.getInt(SAVED_STATE_VIEWPAGER_CURRENT_ITEM, -1) != -1) {
+            viewPager.setCurrentItem(savedInstanceState.getInt(SAVED_STATE_VIEWPAGER_CURRENT_ITEM), false)
+        } else {
+            viewPager.setCurrentItem(timetableDayAdapter.getPositionByDate(LocalDate.now()), false)
+        }
 
         val swipeRefresh: SwipeRefreshLayout = view.findViewById(R.id.refresh_timetable)
         swipeRefresh.setOnRefreshListener {
@@ -155,5 +167,16 @@ class SimpleMainFragment : Fragment() {
         } else {
             null
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if(this::viewPager.isInitialized) {
+            outState.putInt(SAVED_STATE_VIEWPAGER_CURRENT_ITEM, viewPager.currentItem)
+        }
+    }
+
+    companion object {
+        const val SAVED_STATE_VIEWPAGER_CURRENT_ITEM = "SAVED_STATE_VIEWPAGER_CURRENT_ITEM"
     }
 }
