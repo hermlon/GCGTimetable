@@ -25,6 +25,7 @@ import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.ui.timetable.TimetableDayAdapter
 import net.hermlon.gcgtimetable.ui.timetable.WeekTabLayoutMediator
 import org.threeten.bp.LocalDate
+import java.lang.Exception
 import java.text.DateFormatSymbols
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger

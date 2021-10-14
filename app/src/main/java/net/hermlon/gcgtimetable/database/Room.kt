@@ -26,6 +26,9 @@ interface WhitelistDao {
 
     @Delete
     fun delete(classNameWhitelist: DatabaseClassNameWhitelist)
+
+    @Query("DELETE FROM DatabaseClassNameWhitelist")
+    fun deleteAll()
 }
 
 @Dao
@@ -35,6 +38,9 @@ interface BlacklistDao {
 
     @Delete
     fun delete(courseIdBlacklist: DatabaseCourseIdBlacklist)
+
+    @Query("DELETE FROM DatabaseCourseIdBlacklist")
+    fun deleteAll()
 }
 
 @Dao
@@ -96,6 +102,9 @@ interface DayDao {
 
     @Query("DELETE FROM DatabaseDay WHERE date <= :date")
     fun deleteOlderThan(date: LocalDate)
+
+    @Query("DELETE FROM DatabaseDay")
+    fun deleteAll()
 }
 
 @Dao
@@ -113,6 +122,9 @@ interface CourseDao {
 
     @Query("SELECT DISTINCT className, className IN $WHITELISTED_CLASS_NAMES_SUBQUERY AS whitelisted FROM DatabaseCourse ORDER BY className ASC")
     fun getFilterClassNames(profileId: Long): List<FilterClassName>
+
+    @Query("DELETE FROM DatabaseCourse")
+    fun deleteAll()
 }
 
 @Dao
@@ -124,6 +136,9 @@ interface LessonDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg lessons: DatabaseLesson)
+
+    @Query("DELETE FROM DatabaseLesson")
+    fun deleteAll()
 }
 
 @Dao
@@ -133,6 +148,9 @@ interface ExamDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg exams: DatabaseExam)
+
+    @Query("DELETE FROM DatabaseExam")
+    fun deleteAll()
 }
 
 @Dao
@@ -144,6 +162,9 @@ interface StandardLessonDao {
             "DatabaseStandardLesson INNER JOIN DatabaseCourse ON DatabaseStandardLesson.courseId = DatabaseCourse.id " +
             "WHERE dayOfWeek = :dayOfWeek $LESSON_FILTER_QUERY")
     fun getStandardLessons(dayOfWeek: Int, profileId: Long): List<EnrichedStandardLesson>
+
+    @Query("DELETE FROM DatabaseStandardLesson")
+    fun deleteAll()
 }
 
 @Database(entities = [

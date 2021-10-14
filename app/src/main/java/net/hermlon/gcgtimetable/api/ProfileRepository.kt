@@ -71,6 +71,14 @@ class ProfileRepository @Inject constructor(private val database: TimetableDatab
 
     suspend fun setDefaultSource(source: TempSource) {
         withContext(Dispatchers.IO) {
+            // delete all old lessons
+            database.dayDao.deleteAll()
+            database.blacklistDao.deleteAll()
+            database.whitelistDao.deleteAll()
+            database.courseDao.deleteAll()
+            database.examDao.deleteAll()
+            database.standardLessonDao.deleteAll()
+            database.lessonDao.deleteAll()
             database.sourceDao.upsert(DatabaseSource(Companion.DEFAULT_SOURCE_ID, "default source", source.url, source.isStudent, source.username, source.password))
         }
         resetNoSourceAvailable()

@@ -106,7 +106,7 @@ class TimetableDayFragment : Fragment() {
                     // works as long as you are in the same timezone as the dates are written in
                     lastUpdate.text = DateUtils.getRelativeDateTimeString(context,
                         lastData!!.updatedAt.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                        DateUtils.SECOND_IN_MILLIS, DateUtils.DAY_IN_MILLIS * 2, DateUtils.FORMAT_SHOW_WEEKDAY).toString().replaceFirstChar { it.lowercase() }
+                        DateUtils.SECOND_IN_MILLIS, DateUtils.DAY_IN_MILLIS * 2, DateUtils.FORMAT_SHOW_WEEKDAY)
                 }
             } else {
                 filterButton.visibility = View.GONE
