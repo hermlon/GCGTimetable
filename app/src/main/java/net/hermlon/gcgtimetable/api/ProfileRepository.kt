@@ -1,5 +1,6 @@
 package net.hermlon.gcgtimetable.api
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -17,10 +18,6 @@ import javax.inject.Singleton
 
 @Singleton
 class ProfileRepository @Inject constructor(private val database: TimetableDatabase) {
-
-    //val profiles: LiveData<List<Profile>> = Transformations.map(database.profileDao.getProfiles()) {
-    //    it.asDomainModel()
-    //}
 
     var cachedDefaultSource: DatabaseSource? = null
     var cachedDefaultProfile: DatabaseProfile? = null
@@ -79,7 +76,9 @@ class ProfileRepository @Inject constructor(private val database: TimetableDatab
             database.examDao.deleteAll()
             database.standardLessonDao.deleteAll()
             database.lessonDao.deleteAll()
-            database.sourceDao.upsert(DatabaseSource(Companion.DEFAULT_SOURCE_ID, "default source", source.url, source.isStudent, source.username, source.password))
+            Log.d("pp", "deleted everything")
+            database.sourceDao.insert(DatabaseSource(DEFAULT_SOURCE_ID, "default source", source.url, source.isStudent, source.username, source.password))
+            cachedDefaultSource = database.sourceDao.get(DEFAULT_SOURCE_ID)
         }
         resetNoSourceAvailable()
     }

@@ -35,7 +35,7 @@ class Stundenplan24LoginFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_stundenplan24login, container, false)
 
         binding.loginViewModel = viewModel
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
         binding.loginButton.setOnClickListener {
             login()

@@ -1,6 +1,7 @@
 package net.hermlon.gcgtimetable.database
 
 import android.database.sqlite.SQLiteConstraintException
+import android.util.Log
 import androidx.room.*
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
@@ -45,20 +46,8 @@ interface BlacklistDao {
 
 @Dao
 interface SourceDao {
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(source: DatabaseSource)
-
-    @Update(onConflict = OnConflictStrategy.ABORT)
-    fun update(source: DatabaseSource)
-
-    @Transaction
-    fun upsert(source: DatabaseSource) {
-        try {
-            insert(source)
-        } catch(e: SQLiteConstraintException) {
-            update(source)
-        }
-    }
 
     @Query("SELECT * FROM DatabaseSource WHERE id = :key")
     fun get(key: Long): DatabaseSource?

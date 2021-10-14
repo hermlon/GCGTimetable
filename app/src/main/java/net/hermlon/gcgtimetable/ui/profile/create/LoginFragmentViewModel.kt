@@ -31,7 +31,6 @@ class LoginFragmentViewModel @Inject constructor(private var timetableRepository
             val res = timetableRepository.testSource(source)
             if(res == ResourceStatus.SUCCESS) {
                 profileRepository.setDefaultSource(source)
-                resetNoSourceAvailable()
                 _success.value = Event(true)
             } else {
                 _status.value = res
