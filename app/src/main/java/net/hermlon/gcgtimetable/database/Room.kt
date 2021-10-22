@@ -118,9 +118,11 @@ interface CourseDao {
 
 @Dao
 interface LessonDao {
-    @Query("SELECT * FROM DatabaseLesson " +
-            "INNER JOIN DatabaseCourse ON DatabaseLesson.courseId = DatabaseCourse.id " +
-            "WHERE dayId = :dayId $LESSON_FILTER_QUERY")
+    @Query("SELECT L.dayId, L.number, L.subject, L.subjectChanged, L.teacher, " +
+            "L.teacherChanged, L.room, L.roomChanged, L.information, L.courseId " +
+            "FROM DatabaseLesson AS L " +
+            "INNER JOIN DatabaseCourse ON L.courseId = DatabaseCourse.id " +
+            "WHERE dayId = :dayId $LESSON_FILTER_QUERY ORDER BY L.number ASC")
     fun getLessons(dayId: Long, profileId: Long): List<DatabaseLesson>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -149,7 +151,7 @@ interface StandardLessonDao {
 
     @Query("SELECT number, subject, teacher, room, courseId FROM " +
             "DatabaseStandardLesson INNER JOIN DatabaseCourse ON DatabaseStandardLesson.courseId = DatabaseCourse.id " +
-            "WHERE dayOfWeek = :dayOfWeek $LESSON_FILTER_QUERY")
+            "WHERE dayOfWeek = :dayOfWeek $LESSON_FILTER_QUERY ORDER BY number ASC")
     fun getStandardLessons(dayOfWeek: Int, profileId: Long): List<EnrichedStandardLesson>
 
     @Query("DELETE FROM DatabaseStandardLesson")

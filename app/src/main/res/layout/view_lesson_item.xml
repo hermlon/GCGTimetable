@@ -61,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:alpha="@dimen/material_emphasis_medium"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             android:gravity="end"
             android:text="1" />
     </LinearLayout>

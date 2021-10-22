@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.widget.TextViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +41,11 @@ class LessonListAdapter : ListAdapter<TimetableLesson, LessonListAdapter.LessonV
             teacher.text = lesson.teacher
             room.text = lesson.room
             number.text = lesson.number.toString()
+            if(lesson.teacherChanged || lesson.roomChanged || lesson.subjectChanged) {
+                TextViewCompat.setTextAppearance(number, R.style.TextLessonChanged)
+            } else {
+                TextViewCompat.setTextAppearance(number, R.style.TextAppearance_MaterialComponents_Body2)
+            }
             if(lesson.information != null) {
                 info.text = lesson.information
                 info.visibility = View.VISIBLE
