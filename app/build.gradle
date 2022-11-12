@@ -4,18 +4,18 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.google.dagger.hilt.android'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     defaultConfig {
         applicationId "net.hermlon.gcgtimetable"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 204
         versionName "2.0.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -62,22 +62,22 @@ android {
             resources.srcDirs += ['sampledata']
         }
     }
+    namespace 'net.hermlon.gcgtimetable'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
     // Shared preferences
-    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
 
     // UI
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
 
     // Android KTX
-    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
 
     // okhttp
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
@@ -87,33 +87,43 @@ dependencies {
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.2'
 
     // App dependencies
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
 
     // navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
     // room
-    implementation 'androidx.room:room-ktx:2.3.0'
+    implementation 'androidx.room:room-ktx:2.4.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    kapt 'androidx.room:room-compiler:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    kapt 'androidx.room:room-compiler:2.4.3'
 
     // hilt
-    implementation 'com.google.dagger:hilt-android:2.38.1'
-    kapt 'com.google.dagger:hilt-compiler:2.38.1'
+    implementation 'com.google.dagger:hilt-android:2.44.1'
+    kapt 'com.google.dagger:hilt-compiler:2.44.1'
+    // For instrumentation tests
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44.1'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.44.1'
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.44.1'
+    kaptTest 'com.google.dagger:hilt-compiler:2.44.1'
 
     // AndroidX Test - Instrumented testing
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.0'
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     // AndroidX Test - JVM testing
-    testImplementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation 'androidx.test.ext:junit:1.1.4'
+}
+
+kapt {
+    correctErrorTypes true
 }
