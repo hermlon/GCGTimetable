@@ -20,8 +20,6 @@ class DatabaseModule {
         return Room.databaseBuilder(context,
             TimetableDatabase::class.java,
             "timetable_database")
-            //TODO: Remove this in production and write migrations instead!
-            .fallbackToDestructiveMigration()
             .build()
     }
 }

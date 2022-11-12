@@ -168,7 +168,7 @@ interface StandardLessonDao {
     DatabaseClassNameWhitelist::class,
     DatabaseCourseIdBlacklist::class,
     DatabaseProfile::class
-], version = 4, exportSchema = false)
+], version = 4, exportSchema = true)
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
     abstract val examDao: ExamDao

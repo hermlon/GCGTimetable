@@ -24,7 +24,10 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 // += instead of = is a workaround?
-                arguments += ["room.incremental": "true"]
+                arguments += [
+                    "room.incremental": "true",
+                    "room.schemaLocation": "$projectDir/schemas".toString()
+                ]
             }
         }
         signingConfig signingConfigs.debug
