@@ -9,6 +9,7 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /.idea/deploymentTargetDropDown.xml
+/.idea/androidTestResultsUserPreferences.xml
 .DS_Store
 /build
 /app/release

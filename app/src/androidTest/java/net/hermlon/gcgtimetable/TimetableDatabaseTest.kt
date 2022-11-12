@@ -3,6 +3,7 @@ package net.hermlon.gcgtimetable
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
 import net.hermlon.gcgtimetable.api.ProfileRepository
@@ -11,8 +12,9 @@ import net.hermlon.gcgtimetable.api.TimetableRepository
 import net.hermlon.gcgtimetable.database.*
 import net.hermlon.gcgtimetable.network.Webservice
 import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder
 import org.junit.After
-import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -22,6 +24,7 @@ import org.threeten.bp.LocalDate
 import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
+@SmallTest
 class TimetableDatabaseTest {
 
     private lateinit var database: TimetableDatabase
@@ -77,7 +80,7 @@ class TimetableDatabaseTest {
     }
 
     fun parseDefaultData() = runBlocking {
-        val inputStream = javaClass.classLoader.getResourceAsStream("student-test-data/gcg-example-1.xml")
+        val inputStream = InstrumentationRegistry.getInstrumentation().context.resources.assets.open("student-test-data/gcg-example-1.xml")
         val parseResult = Stundenplan24StudentXMLParser().parse(inputStream)
         profileRepository.getDefaultSource()?.let { timetableRepository.updateDatabase(it, parseResult) }
         dayId = database.dayDao.getId(profileRepository.getDefaultSource()!!.id, LocalDate.of(2020, 2, 17))
@@ -92,7 +95,7 @@ class TimetableDatabaseTest {
     @Test
     fun getAvailableClassnames() = runBlocking {
         val classNames = database.courseDao.getClassNames()
-        assertThat(classNames, `is`(listOf("11", "11/2", "11/3", "11/4", "12", "12/2", "12/3", "12/4", "05", "05/3", "05/2", "06", "06/2", "06/3", "07", "07/3", "07/2", "08", "08/3", "08/2", "09", "09/3", "09/2", "10", "10/3", "10/2")))
+        assertThat(classNames, containsInAnyOrder("11", "11/2", "11/3", "11/4", "12", "12/2", "12/3", "12/4", "05", "05/3", "05/2", "06", "06/2", "06/3", "07", "07/3", "07/2", "08", "08/3", "08/2", "09", "09/3", "09/2", "10", "10/3", "10/2"))
     }
 
     @Test

@@ -26,9 +26,9 @@ class Stundenplan24ParserTest {
 
     @Test
     fun testschoolXml() {
-        val result = parseXml("sampledata/student-test-data/testschool-example-1.xml")
+        val result = parseXml("student-test-data/testschool-example-1.xml")
 
-        assertThat(result.lessons.size, `is`(229))
+        assertThat(result.lessons.size, `is`(208))
         assertThat(result.courses.size, `is`(522))
         assertThat(result.exams.size, `is`(0))
         assertThat(result.day.date, `is`(LocalDate.of(2020, 2, 5)))
@@ -37,9 +37,9 @@ class Stundenplan24ParserTest {
 
     @Test
     fun gcgXml() {
-        val result = parseXml("sampledata/student-test-data/gcg-example-1.xml")
+        val result = parseXml("student-test-data/gcg-example-1.xml")
 
-        assertThat(result.lessons.size, `is`(204))
+        assertThat(result.lessons.size, `is`(184))
         assertThat(result.courses.size, `is`(456))
         assertThat(result.exams.size, `is`(4))
         assertThat(result.day.date, `is`(LocalDate.of(2020, 2, 17)))
