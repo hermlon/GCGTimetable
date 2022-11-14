@@ -185,11 +185,11 @@ class Stundenplan24StudentXMLParser {
                 teacherChanged,
                 room,
                 roomChanged,
-                /* lessons which have no corresponding course (like in exam lessons) will have the
-                   shared courseId -1
+                /* lessons which have no corresponding course (like in exam lessons or substitution
+                lessons will have courseId NULL
                 */
-                courseId ?: -1,
-                if(information != "") information else null
+                if(information != "") information else null,
+                courseId
             ))
             /* All information to add a standard lesson is given, i. e. the room isn't changed
                and the lesson isn't a weird one which has no courseId (this can be the case e. g.
@@ -299,7 +299,7 @@ class Stundenplan24StudentXMLParser {
                        it is only assumed to be unique for a class, therefore the second condition. */
                     var course = courses.find { it.name == courseName && it.className == className}
                     if(course != null) {
-                        courseId = course.courseId
+                        courseId = course.id
                     }
                     else {
                         /* A courseId which isn't found can occur since all exams for one year

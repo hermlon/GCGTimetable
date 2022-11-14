@@ -21,7 +21,7 @@ data class TimetableLesson(
     val room: String,
     val roomChanged: Boolean = false,
     val information: String? = null,
-    val courseId: Long
+    val courseId: Long?
 )
 
 data class TempSource(

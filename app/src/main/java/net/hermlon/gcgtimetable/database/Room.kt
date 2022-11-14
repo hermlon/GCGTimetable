@@ -3,6 +3,7 @@ package net.hermlon.gcgtimetable.database
 import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
 import androidx.room.*
+import net.hermlon.gcgtimetable.database.migrations.AutoMigrationSpec4to5
 import net.hermlon.gcgtimetable.network.NetworkParseResult
 import net.hermlon.gcgtimetable.network.asDatabaseModel
 import org.threeten.bp.LocalDate
@@ -100,16 +101,16 @@ interface DayDao {
 interface CourseDao {
     @Query("SELECT id, className, teacher, subject, name, " +
             "id IN $BLACKLISTED_COURSE_IDS_SUBQUERY AS blacklisted " +
-            "FROM DatabaseCourse WHERE className IN $WHITELISTED_CLASS_NAMES_SUBQUERY ORDER BY subject, className ASC")
+            "FROM DatabaseCourse WHERE className IN $WHITELISTED_CLASS_NAMES_SUBQUERY " +
+            "AND sourceId = $SOURCE_ID_SUBQUERY " +
+            "ORDER BY className, subject ASC")
     fun getCourses(profileId: Long): List<FilterCourse>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg courses: DatabaseCourse)
 
-    @Query("SELECT DISTINCT className FROM DatabaseCourse ORDER BY className ASC")
-    fun getClassNames(): List<String>
-
-    @Query("SELECT DISTINCT className, className IN $WHITELISTED_CLASS_NAMES_SUBQUERY AS whitelisted FROM DatabaseCourse ORDER BY className ASC")
+    @Query("SELECT DISTINCT className, className IN $WHITELISTED_CLASS_NAMES_SUBQUERY AS whitelisted FROM DatabaseCourse " +
+            "WHERE sourceId = $SOURCE_ID_SUBQUERY ORDER BY className ASC")
     fun getFilterClassNames(profileId: Long): List<FilterClassName>
 
     @Query("DELETE FROM DatabaseCourse")
@@ -118,15 +119,18 @@ interface CourseDao {
 
 @Dao
 interface LessonDao {
-    @Query("SELECT L.dayId, L.number, L.subject, L.subjectChanged, L.teacher, " +
+    @Query("SELECT L.id, L.dayId, L.number, L.subject, L.subjectChanged, L.teacher, " +
             "L.teacherChanged, L.room, L.roomChanged, L.information, L.courseId " +
             "FROM DatabaseLesson AS L " +
-            "INNER JOIN DatabaseCourse ON L.courseId = DatabaseCourse.id " +
-            "WHERE dayId = :dayId $LESSON_FILTER_QUERY ORDER BY L.number ASC")
+            "LEFT JOIN DatabaseCourse ON L.courseId = DatabaseCourse.id " +
+            "WHERE dayId = :dayId $LESSON_FILTER_QUERY ORDER BY L.number, DatabaseCourse.className ASC")
     fun getLessons(dayId: Long, profileId: Long): List<DatabaseLesson>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg lessons: DatabaseLesson)
+
+    @Query("DELETE FROM DatabaseLesson WHERE dayId = :dayId")
+    fun deleteDay(dayId: Long)
 
     @Query("DELETE FROM DatabaseLesson")
     fun deleteAll()
@@ -151,8 +155,11 @@ interface StandardLessonDao {
 
     @Query("SELECT number, subject, teacher, room, courseId FROM " +
             "DatabaseStandardLesson INNER JOIN DatabaseCourse ON DatabaseStandardLesson.courseId = DatabaseCourse.id " +
-            "WHERE dayOfWeek = :dayOfWeek $LESSON_FILTER_QUERY ORDER BY number ASC")
+            "WHERE dayOfWeek = :dayOfWeek $LESSON_FILTER_QUERY AND DatabaseStandardLesson.sourceId = $SOURCE_ID_SUBQUERY AND DatabaseCourse.sourceId = $SOURCE_ID_SUBQUERY ORDER BY number ASC")
     fun getStandardLessons(dayOfWeek: Int, profileId: Long): List<EnrichedStandardLesson>
+
+    @Query("DELETE FROM DatabaseStandardLesson WHERE sourceId = :sourceId AND dayOfWeek = :dayOfWeek AND NOT courseId IN (:courseIds)")
+    fun deleteExcept(sourceId: Long, dayOfWeek: Int, courseIds: List<Int>)
 
     @Query("DELETE FROM DatabaseStandardLesson")
     fun deleteAll()
@@ -168,7 +175,9 @@ interface StandardLessonDao {
     DatabaseClassNameWhitelist::class,
     DatabaseCourseIdBlacklist::class,
     DatabaseProfile::class
-], version = 4, exportSchema = true)
+], version = 5, exportSchema = true, autoMigrations = [
+    AutoMigration(from = 4, to = 5, spec = AutoMigrationSpec4to5::class)
+])
 @TypeConverters(Converters::class)
 abstract class TimetableDatabase : RoomDatabase() {
     abstract val examDao: ExamDao
@@ -185,6 +194,8 @@ abstract class TimetableDatabase : RoomDatabase() {
 const val BLACKLISTED_COURSE_IDS_SUBQUERY = "(SELECT courseId FROM DatabaseCourseIdBlacklist WHERE profileId = :profileId)"
 const val WHITELISTED_CLASS_NAMES_SUBQUERY = "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId)"
 
-const val LESSON_FILTER_QUERY = "AND className IN " +
-            "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId) " +
-            "AND NOT courseId IN " + BLACKLISTED_COURSE_IDS_SUBQUERY
+const val LESSON_FILTER_QUERY = "AND (className IS NULL OR className IN " +
+            "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId)) " +
+            "AND (courseId IS NULL OR courseId NOT IN " + BLACKLISTED_COURSE_IDS_SUBQUERY + ")"
+
+const val SOURCE_ID_SUBQUERY = "(SELECT sourceId FROM DatabaseProfile WHERE DatabaseProfile.id = :profileId)"

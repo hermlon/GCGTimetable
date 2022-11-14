@@ -131,10 +131,18 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
                 /* last time the xml file was fetched and parsed, i. e. now */
                 LocalDateTime.now(),
                 newData.day.information))
+            /* clear old lessons from day */
+            database.lessonDao.deleteDay(dayId)
             database.lessonDao.insertAll(*newData.lessons.asDatabaseModel(dayId))
-            database.courseDao.insertAll(*newData.courses.asDatabaseModel())
-            database.examDao.insertAll(*newData.exams.asDatabaseModel(dayId))
-            database.standardLessonDao.insertAll(*newData.standardLessons.asDatabaseModel(newData.day.date.dayOfWeek.value))
+            database.courseDao.insertAll(*newData.courses.asDatabaseModel(source.id))
+            //database.examDao.insertAll(*newData.exams.asDatabaseModel(dayId))
+
+            val courseIds = newData.lessons.map { it.courseId }
+            val all = database.standardLessonDao.getStandardLessons(newData.day.date.dayOfWeek.value, 1).map {it.courseId}
+            val allowed = all.filter { it in courseIds }
+            println(all.minus(allowed))
+            println(courseIds.intersect(all))
+            database.standardLessonDao.insertAll(*newData.standardLessons.asDatabaseModel(source.id, newData.day.date.dayOfWeek.value))
         }
     }
 }

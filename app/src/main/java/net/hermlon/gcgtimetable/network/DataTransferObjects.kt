@@ -24,7 +24,7 @@ data class NetworkDay(
 )
 
 data class NetworkCourse(
-    val courseId: Long,
+    val id: Long,
     val className: String,
     val teacher: String,
     val subject: String,
@@ -39,8 +39,8 @@ data class NetworkLesson(
     val teacherChanged: Boolean = false,
     val room: String,
     val roomChanged: Boolean = false,
-    val courseId: Long,
-    val information: String?
+    val information: String?,
+    val courseId: Long?
 )
 
 data class NetworkExam(
@@ -70,10 +70,11 @@ fun Set<NetworkExam>.asDatabaseModel(dayId: Long): Array<DatabaseExam> {
     }.toTypedArray()
 }
 
-fun Set<NetworkCourse>.asDatabaseModel(): Array<DatabaseCourse> {
+fun Set<NetworkCourse>.asDatabaseModel(sourceId: Long): Array<DatabaseCourse> {
     return map {
         DatabaseCourse(
-            id = it.courseId,
+            id = it.id,
+            sourceId = sourceId,
             className = it.className,
             teacher = it.teacher,
             subject = it.subject,
@@ -99,9 +100,10 @@ fun Set<NetworkLesson>.asDatabaseModel(dayId: Long): Array<DatabaseLesson> {
     }.toTypedArray()
 }
 
-fun Set<NetworkStandardLesson>.asDatabaseModel(dayOfWeek: Int): Array<DatabaseStandardLesson> {
+fun Set<NetworkStandardLesson>.asDatabaseModel(sourceId: Long, dayOfWeek: Int): Array<DatabaseStandardLesson> {
     return map {
         DatabaseStandardLesson(
+            sourceId = sourceId,
             dayOfWeek = dayOfWeek,
             number = it.number,
             courseId = it.courseId,

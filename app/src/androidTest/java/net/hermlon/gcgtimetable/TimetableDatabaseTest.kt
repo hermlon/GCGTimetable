@@ -93,8 +93,8 @@ class TimetableDatabaseTest {
     }
 
     @Test
-    fun getAvailableClassnames() = runBlocking {
-        val classNames = database.courseDao.getClassNames()
+    fun getFilterClassNames() = runBlocking {
+        val classNames = database.courseDao.getFilterClassNames(1)
         assertThat(classNames, containsInAnyOrder("11", "11/2", "11/3", "11/4", "12", "12/2", "12/3", "12/4", "05", "05/3", "05/2", "06", "06/2", "06/3", "07", "07/3", "07/2", "08", "08/3", "08/2", "09", "09/3", "09/2", "10", "10/3", "10/2"))
     }
 

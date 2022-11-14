@@ -1,10 +1,7 @@
 package net.hermlon.gcgtimetable.database
 
-import androidx.room.Entity
-import androidx.room.ForeignKey
+import androidx.room.*
 import androidx.room.ForeignKey.CASCADE
-import androidx.room.Index
-import androidx.room.PrimaryKey
 import net.hermlon.gcgtimetable.domain.Profile
 import net.hermlon.gcgtimetable.domain.TempSource
 import net.hermlon.gcgtimetable.domain.TimetableLesson
@@ -12,7 +9,8 @@ import net.hermlon.gcgtimetable.network.NetworkStandardLesson
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 
-@Entity
+@Entity(indices = [Index(value = ["sourceId"])])
+    /*foreignKeys = [ForeignKey(entity = DatabaseSource::class, parentColumns = ["id"], childColumns = ["sourceId"])])*/
 data class DatabaseProfile constructor(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
@@ -21,13 +19,15 @@ data class DatabaseProfile constructor(
     val position: Int
 )
 
-@Entity(primaryKeys = ["profileId", "className"])
+@Entity(primaryKeys = ["profileId", "className"],
+    foreignKeys = [ForeignKey(entity = DatabaseProfile::class, parentColumns = ["id"], childColumns = ["profileId"])])
 data class DatabaseClassNameWhitelist constructor(
     val profileId: Long,
     val className: String
 )
 
-@Entity(primaryKeys = ["profileId", "courseId"])
+@Entity(primaryKeys = ["profileId", "courseId"],
+    foreignKeys = [ForeignKey(entity = DatabaseProfile::class, parentColumns = ["id"], childColumns = ["profileId"])])
 data class DatabaseCourseIdBlacklist constructor(
     val profileId: Long,
     val courseId: Long
@@ -44,7 +44,8 @@ data class DatabaseSource constructor(
     val password: String? = null
 )
 
-@Entity(indices = [Index(value = ["sourceId", "date"], unique = true)])
+@Entity(indices = [Index(value = ["sourceId", "date"], unique = true)],
+    foreignKeys = [ForeignKey(entity = DatabaseSource::class, parentColumns = ["id"], childColumns = ["sourceId"])])
 data class DatabaseDay constructor(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
@@ -55,10 +56,13 @@ data class DatabaseDay constructor(
     val information: String?
 )
 
-@Entity
+@Entity(indices = [Index(value = ["sourceId"])],
+    primaryKeys = ["id", "sourceId"],
+    foreignKeys = [ForeignKey(entity = DatabaseSource::class, parentColumns = ["id"], childColumns = ["sourceId"])])
 data class DatabaseCourse constructor(
-    @PrimaryKey
     val id: Long,
+    @ColumnInfo(defaultValue = "1")
+    val sourceId: Long,
     val className: String,
     val teacher: String,
     val subject: String,
@@ -79,9 +83,13 @@ data class FilterClassName(
     val whitelisted: Boolean
 )
 
-@Entity(primaryKeys = ["dayId", "number", "courseId"],
+@Entity(indices = [Index(value = ["dayId", "number"])],
     foreignKeys = [ForeignKey(onDelete = CASCADE, entity = DatabaseDay::class, parentColumns = ["id"], childColumns = ["dayId"])])
 data class DatabaseLesson constructor(
+    @PrimaryKey(autoGenerate = true)
+    // this is only for migrating
+    @ColumnInfo(defaultValue = "-1")
+    val id: Long = 0L,
     val dayId: Long,
     val number: Int,
     val subject: String,
@@ -91,7 +99,7 @@ data class DatabaseLesson constructor(
     val room: String,
     val roomChanged: Boolean = false,
     val information: String?,
-    val courseId: Long
+    val courseId: Long? = null
 )
 
 @Entity(primaryKeys = ["dayId", "number", "courseId"],
@@ -105,8 +113,11 @@ data class DatabaseExam constructor(
     val courseId: Long
 )
 
-@Entity(primaryKeys = ["dayOfWeek", "number", "courseId"])
+@Entity(primaryKeys = ["sourceId", "dayOfWeek", "number", "courseId"],
+    foreignKeys = [ForeignKey(entity = DatabaseSource::class, parentColumns = ["id"], childColumns = ["sourceId"])])
 data class DatabaseStandardLesson constructor(
+    @ColumnInfo(defaultValue = "1")
+    val sourceId: Long,
     val dayOfWeek: Int,
     val number: Int,
     val courseId: Long,
