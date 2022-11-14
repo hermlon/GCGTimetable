@@ -22,7 +22,11 @@ data class TimetableLesson(
     val roomChanged: Boolean = false,
     val information: String? = null,
     val courseId: Long?
-)
+) {
+    fun hasChanged(): Boolean {
+        return subjectChanged || teacherChanged || roomChanged
+    }
+}
 
 data class TempSource(
     val url: String,

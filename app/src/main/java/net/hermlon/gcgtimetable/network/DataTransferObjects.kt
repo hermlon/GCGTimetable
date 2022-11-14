@@ -4,6 +4,7 @@ import net.hermlon.gcgtimetable.database.DatabaseCourse
 import net.hermlon.gcgtimetable.database.DatabaseExam
 import net.hermlon.gcgtimetable.database.DatabaseLesson
 import net.hermlon.gcgtimetable.database.DatabaseStandardLesson
+import net.hermlon.gcgtimetable.domain.TimetableLesson
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import java.util.*

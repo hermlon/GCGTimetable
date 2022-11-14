@@ -137,11 +137,9 @@ class TimetableRepository @Inject constructor(private val database: TimetableDat
             database.courseDao.insertAll(*newData.courses.asDatabaseModel(source.id))
             //database.examDao.insertAll(*newData.exams.asDatabaseModel(dayId))
 
-            val courseIds = newData.lessons.map { it.courseId }
-            val all = database.standardLessonDao.getStandardLessons(newData.day.date.dayOfWeek.value, 1).map {it.courseId}
-            val allowed = all.filter { it in courseIds }
-            println(all.minus(allowed))
-            println(courseIds.intersect(all))
+            val courseIds = newData.lessons.filter { it.roomChanged }.mapNotNull { it.courseId }
+            /* all other still valid standard lessons would be in the new standartLessons list */
+            database.standardLessonDao.deleteExcept(source.id, newData.day.date.dayOfWeek.value, courseIds)
             database.standardLessonDao.insertAll(*newData.standardLessons.asDatabaseModel(source.id, newData.day.date.dayOfWeek.value))
         }
     }

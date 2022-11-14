@@ -159,7 +159,7 @@ interface StandardLessonDao {
     fun getStandardLessons(dayOfWeek: Int, profileId: Long): List<EnrichedStandardLesson>
 
     @Query("DELETE FROM DatabaseStandardLesson WHERE sourceId = :sourceId AND dayOfWeek = :dayOfWeek AND NOT courseId IN (:courseIds)")
-    fun deleteExcept(sourceId: Long, dayOfWeek: Int, courseIds: List<Int>)
+    fun deleteExcept(sourceId: Long, dayOfWeek: Int, courseIds: List<Long>)
 
     @Query("DELETE FROM DatabaseStandardLesson")
     fun deleteAll()

@@ -41,7 +41,7 @@ class LessonListAdapter : ListAdapter<TimetableLesson, LessonListAdapter.LessonV
             teacher.text = lesson.teacher
             room.text = lesson.room
             number.text = lesson.number.toString()
-            if(lesson.teacherChanged || lesson.roomChanged || lesson.subjectChanged) {
+            if(lesson.hasChanged()) {
                 TextViewCompat.setTextAppearance(number, R.style.TextLessonChanged)
             } else {
                 TextViewCompat.setTextAppearance(number, R.style.TextAppearance_MaterialComponents_Body2)

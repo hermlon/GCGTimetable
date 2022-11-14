@@ -49,8 +49,6 @@ class SimpleMainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        Log.d("SMF", "on created")
         val navController = findNavController()
         val toolbar: MaterialToolbar = view.findViewById(R.id.toolbar)
         toolbar.setupWithNavController(navController, AppBarConfiguration(setOf(R.id.simpleMainFragment)))
