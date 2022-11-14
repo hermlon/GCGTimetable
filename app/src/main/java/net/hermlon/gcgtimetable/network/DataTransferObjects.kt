@@ -33,6 +33,7 @@ data class NetworkCourse(
 )
 
 data class NetworkLesson(
+    val className: String,
     val number: Int,
     val subject: String,
     val subjectChanged: Boolean = false,
@@ -88,6 +89,7 @@ fun Set<NetworkLesson>.asDatabaseModel(dayId: Long): Array<DatabaseLesson> {
     return map {
         DatabaseLesson(
             dayId = dayId,
+            className = it.className,
             number = it.number,
             subject = it.subject,
             subjectChanged = it.subjectChanged,

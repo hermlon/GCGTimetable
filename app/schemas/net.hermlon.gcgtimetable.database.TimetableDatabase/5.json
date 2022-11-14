@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 5,
-    "identityHash": "e08af48646caeaa4080672406d97f7de",
+    "identityHash": "6b432356c138c6b48e808690063a0b01",
     "entities": [
       {
         "tableName": "DatabaseExam",
@@ -70,7 +70,7 @@
       },
       {
         "tableName": "DatabaseCourse",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `sourceId` INTEGER NOT NULL DEFAULT 1, `className` TEXT NOT NULL, `teacher` TEXT NOT NULL, `subject` TEXT NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`id`, `sourceId`), FOREIGN KEY(`sourceId`) REFERENCES `DatabaseSource`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `sourceId` INTEGER NOT NULL DEFAULT 1, `className` TEXT NOT NULL DEFAULT 'INVALID CLASSNAME', `teacher` TEXT NOT NULL, `subject` TEXT NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`id`, `sourceId`, `className`), FOREIGN KEY(`sourceId`) REFERENCES `DatabaseSource`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -89,7 +89,8 @@
             "fieldPath": "className",
             "columnName": "className",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": true,
+            "defaultValue": "'INVALID CLASSNAME'"
           },
           {
             "fieldPath": "teacher",
@@ -113,7 +114,8 @@
         "primaryKey": {
           "columnNames": [
             "id",
-            "sourceId"
+            "sourceId",
+            "className"
           ],
           "autoGenerate": false
         },
@@ -144,7 +146,7 @@
       },
       {
         "tableName": "DatabaseLesson",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT -1, `dayId` INTEGER NOT NULL, `number` INTEGER NOT NULL, `subject` TEXT NOT NULL, `subjectChanged` INTEGER NOT NULL, `teacher` TEXT NOT NULL, `teacherChanged` INTEGER NOT NULL, `room` TEXT NOT NULL, `roomChanged` INTEGER NOT NULL, `information` TEXT, `courseId` INTEGER, FOREIGN KEY(`dayId`) REFERENCES `DatabaseDay`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT -1, `dayId` INTEGER NOT NULL, `className` TEXT NOT NULL DEFAULT 'INVALID CLASSNAME', `number` INTEGER NOT NULL, `subject` TEXT NOT NULL, `subjectChanged` INTEGER NOT NULL, `teacher` TEXT NOT NULL, `teacherChanged` INTEGER NOT NULL, `room` TEXT NOT NULL, `roomChanged` INTEGER NOT NULL, `information` TEXT, `courseId` INTEGER, FOREIGN KEY(`dayId`) REFERENCES `DatabaseDay`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -158,6 +160,13 @@
             "columnName": "dayId",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "className",
+            "columnName": "className",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'INVALID CLASSNAME'"
           },
           {
             "fieldPath": "number",
@@ -559,7 +568,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e08af48646caeaa4080672406d97f7de')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6b432356c138c6b48e808690063a0b01')"
     ]
   }
 }

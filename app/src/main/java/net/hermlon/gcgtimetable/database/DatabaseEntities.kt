@@ -57,12 +57,13 @@ data class DatabaseDay constructor(
 )
 
 @Entity(indices = [Index(value = ["sourceId"])],
-    primaryKeys = ["id", "sourceId"],
+    primaryKeys = ["id", "sourceId", "className"],
     foreignKeys = [ForeignKey(entity = DatabaseSource::class, parentColumns = ["id"], childColumns = ["sourceId"])])
 data class DatabaseCourse constructor(
     val id: Long,
     @ColumnInfo(defaultValue = "1")
     val sourceId: Long,
+    @ColumnInfo(defaultValue = "INVALID CLASSNAME")
     val className: String,
     val teacher: String,
     val subject: String,
@@ -91,6 +92,9 @@ data class DatabaseLesson constructor(
     @ColumnInfo(defaultValue = "-1")
     val id: Long = 0L,
     val dayId: Long,
+    // this is only for migrating
+    @ColumnInfo(defaultValue = "INVALID CLASSNAME")
+    val className: String,
     val number: Int,
     val subject: String,
     val subjectChanged: Boolean = false,
@@ -134,19 +138,21 @@ data class EnrichedStandardLesson(
 
 @JvmName("asDomainModelDatabaseLesson")
 fun List<DatabaseLesson>.asDomainModel(): List<TimetableLesson> {
-    return map {
-        TimetableLesson(
-            number = it.number,
-            subject = it.subject,
-            subjectChanged = it.subjectChanged,
-            teacher = it.teacher,
-            teacherChanged = it.teacherChanged,
-            room = it.room,
-            roomChanged = it.roomChanged,
-            information = it.information,
-            courseId = it.courseId
-        )
-    }
+    return map(DatabaseLesson::asDomainModel)
+}
+
+fun DatabaseLesson.asDomainModel(): TimetableLesson {
+    return TimetableLesson(
+        number,
+        subject,
+        subjectChanged,
+        teacher,
+        teacherChanged,
+        room,
+        roomChanged,
+        information,
+        courseId
+    )
 }
 
 @JvmName("asDomainModelEnrichedStandardLesson")

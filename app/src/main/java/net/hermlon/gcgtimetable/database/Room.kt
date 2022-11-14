@@ -119,11 +119,12 @@ interface CourseDao {
 
 @Dao
 interface LessonDao {
-    @Query("SELECT L.id, L.dayId, L.number, L.subject, L.subjectChanged, L.teacher, " +
+    @Query("SELECT L.id, L.dayId, L.className, L.number, L.subject, L.subjectChanged, L.teacher, " +
             "L.teacherChanged, L.room, L.roomChanged, L.information, L.courseId " +
             "FROM DatabaseLesson AS L " +
             "LEFT JOIN DatabaseCourse ON L.courseId = DatabaseCourse.id " +
-            "WHERE dayId = :dayId $LESSON_FILTER_QUERY ORDER BY L.number, DatabaseCourse.className ASC")
+            "WHERE (DatabaseCourse.className IS NULL OR L.className = DatabaseCourse.className) " +
+            "AND dayId = :dayId $LESSON_FILTER_QUERY ORDER BY L.number, DatabaseCourse.className ASC")
     fun getLessons(dayId: Long, profileId: Long): List<DatabaseLesson>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -155,7 +156,7 @@ interface StandardLessonDao {
 
     @Query("SELECT number, subject, teacher, room, courseId FROM " +
             "DatabaseStandardLesson INNER JOIN DatabaseCourse ON DatabaseStandardLesson.courseId = DatabaseCourse.id " +
-            "WHERE dayOfWeek = :dayOfWeek $LESSON_FILTER_QUERY AND DatabaseStandardLesson.sourceId = $SOURCE_ID_SUBQUERY AND DatabaseCourse.sourceId = $SOURCE_ID_SUBQUERY ORDER BY number ASC")
+            "WHERE dayOfWeek = :dayOfWeek $STD_LESSON_FILTER_QUERY AND DatabaseStandardLesson.sourceId = $SOURCE_ID_SUBQUERY AND DatabaseCourse.sourceId = $SOURCE_ID_SUBQUERY ORDER BY number ASC")
     fun getStandardLessons(dayOfWeek: Int, profileId: Long): List<EnrichedStandardLesson>
 
     @Query("DELETE FROM DatabaseStandardLesson WHERE sourceId = :sourceId AND dayOfWeek = :dayOfWeek AND NOT courseId IN (:courseIds)")
@@ -194,8 +195,12 @@ abstract class TimetableDatabase : RoomDatabase() {
 const val BLACKLISTED_COURSE_IDS_SUBQUERY = "(SELECT courseId FROM DatabaseCourseIdBlacklist WHERE profileId = :profileId)"
 const val WHITELISTED_CLASS_NAMES_SUBQUERY = "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId)"
 
-const val LESSON_FILTER_QUERY = "AND (className IS NULL OR className IN " +
-            "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId)) " +
+const val LESSON_FILTER_QUERY = "AND L.className IN " +
+            "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId) " +
             "AND (courseId IS NULL OR courseId NOT IN " + BLACKLISTED_COURSE_IDS_SUBQUERY + ")"
+
+const val STD_LESSON_FILTER_QUERY = "AND className IN " +
+        "(SELECT className FROM DatabaseClassNameWhitelist WHERE profileId = :profileId) " +
+        "AND (courseId IS NULL OR courseId NOT IN " + BLACKLISTED_COURSE_IDS_SUBQUERY + ")"
 
 const val SOURCE_ID_SUBQUERY = "(SELECT sourceId FROM DatabaseProfile WHERE DatabaseProfile.id = :profileId)"

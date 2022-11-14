@@ -178,6 +178,7 @@ class Stundenplan24StudentXMLParser {
         if(number != null && subject != null && subjectChanged != null && teacher != null
             && teacherChanged != null && room != null && roomChanged != null) {
             lessons.add(NetworkLesson(
+                className,
                 number,
                 subject,
                 subjectChanged,
@@ -185,10 +186,10 @@ class Stundenplan24StudentXMLParser {
                 teacherChanged,
                 room,
                 roomChanged,
-                /* lessons which have no corresponding course (like in exam lessons or substitution
-                lessons will have courseId NULL
-                */
                 if(information != "") information else null,
+                /* lessons which have no corresponding course (like in exam lessons or substitution
+                lessons will have courseId -1
+                */
                 courseId
             ))
             /* All information to add a standard lesson is given, i. e. the room isn't changed
